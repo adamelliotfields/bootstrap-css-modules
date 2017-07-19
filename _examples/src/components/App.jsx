@@ -1,7 +1,7 @@
 import React from 'react';
 
-import grid from '../../../layout/grid';
-import background from '../../../utilities/background'
+import grid from 'bootstrap-css-modules/layout/grid';
+import background from 'bootstrap-css-modules/utilities/background'
 
 const { container, row, col4 } = grid;
 const { bgPrimary, bgFaded } = background;

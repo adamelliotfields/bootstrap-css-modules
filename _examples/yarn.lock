@@ -952,6 +952,10 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
+"bootstrap-css-modules@git://github.com/adamelliotfields/bootstrap-css-modules.git":
+  version "1.0.0"
+  resolved "git://github.com/adamelliotfields/bootstrap-css-modules.git#48aababa4a5fe009a1768d84ac286f3207f08466"
+
 brace-expansion@^1.1.7:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.8.tgz#c07b211c7c952ec1f8efd51a77ef0d1d3990a292"
