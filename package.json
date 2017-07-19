@@ -1,0 +1,29 @@
+{
+  "name": "bootstrap-css-modules",
+  "version": "1.0.0",
+  "description": "Importable Bootstrap classes using CSS Modules.",
+  "main": "index.js",
+  "repository": "https://github.com/adamelliotfields/bootstrap-css-modules.git",
+  "author": "Adam Fields <adam.elliot.fields@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "bootstrap": "4.0.0-alpha.6",
+    "node-sass": "^4.5.3"
+  },
+  "scripts": {
+    "build:align": "node-sass _src/utilities/_align.scss --output ./_dist/ --output-style expanded",
+    "build:background": "node-sass _src/utilities/_background.scss --output ./_dist/ --output-style expanded",
+    "build:borders": "node-sass _src/utilities/_borders.scss --output ./_dist/ --output-style expanded",
+    "build:clearfix": "node-sass _src/utilities/_clearfix.scss --output ./_dist/ --output-style expanded",
+    "build:display": "node-sass _src/utilities/_display.scss --output ./_dist/ --output-style expanded",
+    "build:flex": "node-sass _src/utilities/_flex.scss --output ./_dist/ --output-style expanded",
+    "build:float": "node-sass _src/utilities/_float.scss --output ./_dist/ --output-style expanded",
+    "build:position": "node-sass _src/utilities/_position.scss --output ./_dist/ --output-style expanded",
+    "build:screenreaders": "node-sass _src/utilities/_screenreaders.scss --output ./_dist/ --output-style expanded",
+    "build:sizing": "node-sass _src/utilities/_sizing.scss --output ./_dist/ --output-style expanded",
+    "build:spacing": "node-sass _src/utilities/_spacing.scss --output ./_dist/ --output-style expanded",
+    "build:text": "node-sass _src/utilities/_text.scss --output ./_dist/ --output-style expanded",
+    "build:visibility": "node-sass _src/utilities/_visibility.scss --output ./_dist/ --output-style expanded",
+    "build:grid": "node-sass _src/bootstrap-grid.scss --output ./_dist/ --output-style expanded"
+  }
+}
