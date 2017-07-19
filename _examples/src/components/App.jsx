@@ -1,10 +1,7 @@
 import React from 'react';
 
-import grid from 'bootstrap-css-modules/layout/grid';
-import background from 'bootstrap-css-modules/utilities/background'
-
-const { container, row, col4 } = grid;
-const { bgPrimary, bgFaded } = background;
+import { container, row, col4 } from '../../../layout/grid.css';
+import { bgPrimary, bgFaded } from '../../../utilities/background.css';
 
 const App = () => (
   <div className={`${container} ${bgPrimary}`}>

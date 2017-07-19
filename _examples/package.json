@@ -1,7 +1,6 @@
 {
   "main": "src/index.js",
   "dependencies": {
-    "bootstrap-css-modules": "git://github.com/adamelliotfields/bootstrap-css-modules.git",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
