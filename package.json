@@ -8,22 +8,24 @@
   "license": "MIT",
   "devDependencies": {
     "bootstrap": "4.0.0-alpha.6",
+    "ncp": "^2.0.0",
     "node-sass": "^4.5.3"
   },
   "scripts": {
-    "build:align": "node-sass _src/utilities/_align.scss --output ./_dist/ --output-style expanded",
-    "build:background": "node-sass _src/utilities/_background.scss --output ./_dist/ --output-style expanded",
-    "build:borders": "node-sass _src/utilities/_borders.scss --output ./_dist/ --output-style expanded",
-    "build:clearfix": "node-sass _src/utilities/_clearfix.scss --output ./_dist/ --output-style expanded",
-    "build:display": "node-sass _src/utilities/_display.scss --output ./_dist/ --output-style expanded",
-    "build:flex": "node-sass _src/utilities/_flex.scss --output ./_dist/ --output-style expanded",
-    "build:float": "node-sass _src/utilities/_float.scss --output ./_dist/ --output-style expanded",
-    "build:position": "node-sass _src/utilities/_position.scss --output ./_dist/ --output-style expanded",
-    "build:screenreaders": "node-sass _src/utilities/_screenreaders.scss --output ./_dist/ --output-style expanded",
-    "build:sizing": "node-sass _src/utilities/_sizing.scss --output ./_dist/ --output-style expanded",
-    "build:spacing": "node-sass _src/utilities/_spacing.scss --output ./_dist/ --output-style expanded",
-    "build:text": "node-sass _src/utilities/_text.scss --output ./_dist/ --output-style expanded",
-    "build:visibility": "node-sass _src/utilities/_visibility.scss --output ./_dist/ --output-style expanded",
-    "build:grid": "node-sass _src/bootstrap-grid.scss --output ./_dist/ --output-style expanded"
+    "copy": "ncp ./node_modules/bootstrap/scss/ ./_src/",
+    "build:align": "node-sass ./_src/utilities/_align.scss ./utilities/align.css --output-style expanded",
+    "build:background": "node-sass ./_src/utilities/_background.scss ./utilities/background.css --output-style expanded",
+    "build:borders": "node-sass ./_src/utilities/_borders.scss ./utilities/borders.css --output-style expanded",
+    "build:clearfix": "node-sass ./_src/utilities/_clearfix.scss ./utilities/clearfix.css --output-style expanded",
+    "build:display": "node-sass ./_src/utilities/_display.scss ./utilities/display.css --output-style expanded",
+    "build:flex": "node-sass ./_src/utilities/_flex.scss ./utilities/flex.css --output-style expanded",
+    "build:float": "node-sass ./_src/utilities/_float.scss ./utilities/float.css --output-style expanded",
+    "build:position": "node-sass ./_src/utilities/_position.scss ./utilities/position.css --output-style expanded",
+    "build:screenreaders": "node-sass ./_src/utilities/_screenreaders.scss ./utilities/screenreaders.css --output-style expanded",
+    "build:sizing": "node-sass ./_src/utilities/_sizing.scss ./utilities/sizing.css --output-style expanded",
+    "build:spacing": "node-sass ./_src/utilities/_spacing.scss ./utilities/spacing.css --output-style expanded",
+    "build:text": "node-sass ./_src/utilities/_text.scss ./utilities/text.css --output-style expanded",
+    "build:visibility": "node-sass ./_src/utilities/_visibility.scss ./utilities/visibility.css --output-style expanded",
+    "build:grid": "node-sass ./_src/bootstrap-grid.scss ./layout/grid.css --output-style expanded"
   }
 }
