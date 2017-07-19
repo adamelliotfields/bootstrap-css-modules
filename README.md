@@ -15,11 +15,8 @@ yarn add git://github.com/adamelliotfields/bootstrap-css-modules.git
 ### Usage
  
 ```javascript
-import grid from 'bootstrap-css-modules/layout/grid';
-import background from 'bootstrap-css-modules/utilities/background'
-
-const { container, row, col4 } = grid;
-const { bgPrimary, bgFaded } = background;
+import { container, row, col4 } from 'bootstrap-css-modules/layout/grid.css';
+import { bgPrimary, bgFaded } from 'bootstrap-css-modules/utilities/background.css'
 
 const App = () => (
   <div className={`${container} ${bgPrimary}`}>
