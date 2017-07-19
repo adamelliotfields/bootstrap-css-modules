@@ -1,0 +1,95 @@
+.invisible {
+  visibility: hidden !important;
+}
+
+.hiddenXsUp {
+  display: none !important;
+}
+
+@media (max-width: 575px) {
+  .hiddenXsDown {
+    display: none !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .hiddenSmUp {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hiddenSmDown {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .hiddenMdUp {
+    display: none !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .hiddenMdDown {
+    display: none !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .hiddenLgUp {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  .hiddenLgDown {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hiddenXlUp {
+    display: none !important;
+  }
+}
+
+.hiddenXlDown {
+  display: none !important;
+}
+
+.visiblePrintBlock {
+  display: none !important;
+}
+
+@media print {
+  .visiblePrintBlock {
+    display: block !important;
+  }
+}
+
+.visiblePrintInline {
+  display: none !important;
+}
+
+@media print {
+  .visiblePrintInline {
+    display: inline !important;
+  }
+}
+
+.visiblePrintInlineBlock {
+  display: none !important;
+}
+
+@media print {
+  .visiblePrintInlineBlock {
+    display: inline-block !important;
+  }
+}
+
+@media print {
+  .hiddenPrint {
+    display: none !important;
+  }
+}

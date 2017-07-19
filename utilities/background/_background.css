@@ -1,0 +1,57 @@
+.bgFaded {
+  background-color: #f7f7f7;
+}
+
+.bgPrimary {
+  background-color: #0275d8 !important;
+}
+
+a.bgPrimary:focus,
+a.bgPrimary:hover {
+  background-color: #025aa5 !important;
+}
+
+.bgSuccess {
+  background-color: #5cb85c !important;
+}
+
+a.bgSuccess:focus,
+a.bgSuccess:hover {
+  background-color: #449d44 !important;
+}
+
+.bgInfo {
+  background-color: #5bc0de !important;
+}
+
+a.bgInfo:focus,
+a.bgInfo:hover {
+  background-color: #31b0d5 !important;
+}
+
+.bgWarning {
+  background-color: #f0ad4e !important;
+}
+
+a.bgWarning:focus,
+a.bgWarning:hover {
+  background-color: #ec971f !important;
+}
+
+.bgDanger {
+  background-color: #d9534f !important;
+}
+
+a.bgDanger:focus,
+a.bgDanger:hover {
+  background-color: #c9302c !important;
+}
+
+.bgInverse {
+  background-color: #292b2c !important;
+}
+
+a.bgInverse:focus,
+a.bgInverse:hover {
+  background-color: #101112 !important;
+}
