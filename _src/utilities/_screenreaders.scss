@@ -4,10 +4,10 @@
 // Screenreaders
 //
 
-.sr-only {
+.srOnly {
   @include sr-only();
 }
 
-.sr-only-focusable {
+.srOnlyFocusable {
   @include sr-only-focusable();
 }

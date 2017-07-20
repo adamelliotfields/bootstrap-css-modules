@@ -130,127 +130,96 @@
   .flexSmFirst {
     order: -1;
   }
-
   .flexSmLast {
     order: 1;
   }
-
   .flexSmUnordered {
     order: 0;
   }
-
   .flexSmRow {
     flex-direction: row !important;
   }
-
   .flexSmColumn {
     flex-direction: column !important;
   }
-
   .flexSmRowReverse {
     flex-direction: row-reverse !important;
   }
-
   .flexSmColumnReverse {
     flex-direction: column-reverse !important;
   }
-
   .flexSmWrap {
     flex-wrap: wrap !important;
   }
-
   .flexSmNowrap {
     flex-wrap: nowrap !important;
   }
-
   .flexSmWrapReverse {
     flex-wrap: wrap-reverse !important;
   }
-
   .justifyContentSmStart {
     justify-content: flex-start !important;
   }
-
   .justifyContentSmEnd {
     justify-content: flex-end !important;
   }
-
   .justifyContentSmCenter {
     justify-content: center !important;
   }
-
   .justifyContentSmBetween {
     justify-content: space-between !important;
   }
-
   .justifyContentSmAround {
     justify-content: space-around !important;
   }
-
   .alignItemsSmStart {
     align-items: flex-start !important;
   }
-
   .alignItemsSmEnd {
     align-items: flex-end !important;
   }
-
   .alignItemsSmCenter {
     align-items: center !important;
   }
-
   .alignItemsSmBaseline {
     align-items: baseline !important;
   }
-
   .alignItemsSmStretch {
     align-items: stretch !important;
   }
-
   .alignContentSmStart {
     align-content: flex-start !important;
   }
-
   .alignContentSmEnd {
     align-content: flex-end !important;
   }
-
   .alignContentSmCenter {
     align-content: center !important;
   }
-
   .alignContentSmBetween {
     align-content: space-between !important;
   }
-
   .alignContentSmAround {
     align-content: space-around !important;
   }
-
   .alignContentSmStretch {
     align-content: stretch !important;
   }
-
   .alignSelfSmAuto {
     align-self: auto !important;
   }
-
   .alignSelfSmStart {
     align-self: flex-start !important;
   }
-
   .alignSelfSmEnd {
     align-self: flex-end !important;
   }
-
   .alignSelfSmCenter {
     align-self: center !important;
   }
-
   .alignSelfSmBaseline {
     align-self: baseline !important;
   }
-
   .alignSelfSmStretch {
     align-self: stretch !important;
   }
@@ -260,127 +229,96 @@
   .flexMdFirst {
     order: -1;
   }
-
   .flexMdLast {
     order: 1;
   }
-
   .flexMdUnordered {
     order: 0;
   }
-
   .flexMdRow {
     flex-direction: row !important;
   }
-
   .flexMdColumn {
     flex-direction: column !important;
   }
-
   .flexMdRowReverse {
     flex-direction: row-reverse !important;
   }
-
   .flexMdColumnReverse {
     flex-direction: column-reverse !important;
   }
-
   .flexMdWrap {
     flex-wrap: wrap !important;
   }
-
   .flexMdNowrap {
     flex-wrap: nowrap !important;
   }
-
   .flexMdWrapReverse {
     flex-wrap: wrap-reverse !important;
   }
-
   .justifyContentMdStart {
     justify-content: flex-start !important;
   }
-
   .justifyContentMdEnd {
     justify-content: flex-end !important;
   }
-
   .justifyContentMdCenter {
     justify-content: center !important;
   }
-
   .justifyContentMdBetween {
     justify-content: space-between !important;
   }
-
   .justifyContentMdAround {
     justify-content: space-around !important;
   }
-
   .alignItemsMdStart {
     align-items: flex-start !important;
   }
-
   .alignItemsMdEnd {
     align-items: flex-end !important;
   }
-
   .alignItemsMdCenter {
     align-items: center !important;
   }
-
   .alignItemsMdBaseline {
     align-items: baseline !important;
   }
-
   .alignItemsMdStretch {
     align-items: stretch !important;
   }
-
   .alignContentMdStart {
     align-content: flex-start !important;
   }
-
   .alignContentMdEnd {
     align-content: flex-end !important;
   }
-
   .alignContentMdCenter {
     align-content: center !important;
   }
-
   .alignContentMdBetween {
     align-content: space-between !important;
   }
-
   .alignContentMdAround {
     align-content: space-around !important;
   }
-
   .alignContentMdStretch {
     align-content: stretch !important;
   }
-
   .alignSelfMdAuto {
     align-self: auto !important;
   }
-
   .alignSelfMdStart {
     align-self: flex-start !important;
   }
-
   .alignSelfMdEnd {
     align-self: flex-end !important;
   }
-
   .alignSelfMdCenter {
     align-self: center !important;
   }
-
   .alignSelfMdBaseline {
     align-self: baseline !important;
   }
-
   .alignSelfMdStretch {
     align-self: stretch !important;
   }
@@ -390,127 +328,96 @@
   .flexLgFirst {
     order: -1;
   }
-
   .flexLgLast {
     order: 1;
   }
-
   .flexLgUnordered {
     order: 0;
   }
-
   .flexLgRow {
     flex-direction: row !important;
   }
-
   .flexLgColumn {
     flex-direction: column !important;
   }
-
   .flexLgRowReverse {
     flex-direction: row-reverse !important;
   }
-
   .flexLgColumnReverse {
     flex-direction: column-reverse !important;
   }
-
   .flexLgWrap {
     flex-wrap: wrap !important;
   }
-
   .flexLgNowrap {
     flex-wrap: nowrap !important;
   }
-
   .flexLgWrapReverse {
     flex-wrap: wrap-reverse !important;
   }
-
   .justifyContentLgStart {
     justify-content: flex-start !important;
   }
-
   .justifyContentLgEnd {
     justify-content: flex-end !important;
   }
-
   .justifyContentLgCenter {
     justify-content: center !important;
   }
-
   .justifyContentLgBetween {
     justify-content: space-between !important;
   }
-
   .justifyContentLgAround {
     justify-content: space-around !important;
   }
-
   .alignItemsLgStart {
     align-items: flex-start !important;
   }
-
   .alignItemsLgEnd {
     align-items: flex-end !important;
   }
-
   .alignItemsLgCenter {
     align-items: center !important;
   }
-
   .alignItemsLgBaseline {
     align-items: baseline !important;
   }
-
   .alignItemsLgStretch {
     align-items: stretch !important;
   }
-
   .alignContentLgStart {
     align-content: flex-start !important;
   }
-
   .alignContentLgEnd {
     align-content: flex-end !important;
   }
-
   .alignContentLgCenter {
     align-content: center !important;
   }
-
   .alignContentLgBetween {
     align-content: space-between !important;
   }
-
   .alignContentLgAround {
     align-content: space-around !important;
   }
-
   .alignContentLgStretch {
     align-content: stretch !important;
   }
-
   .alignSelfLgAuto {
     align-self: auto !important;
   }
-
   .alignSelfLgStart {
     align-self: flex-start !important;
   }
-
   .alignSelfLgEnd {
     align-self: flex-end !important;
   }
-
   .alignSelfLgCenter {
     align-self: center !important;
   }
-
   .alignSelfLgBaseline {
     align-self: baseline !important;
   }
-
   .alignSelfLgStretch {
     align-self: stretch !important;
   }
@@ -520,127 +427,96 @@
   .flexXlFirst {
     order: -1;
   }
-
   .flexXlLast {
     order: 1;
   }
-
   .flexXlUnordered {
     order: 0;
   }
-
   .flexXlRow {
     flex-direction: row !important;
   }
-
   .flexXlColumn {
     flex-direction: column !important;
   }
-
   .flexXlRowReverse {
     flex-direction: row-reverse !important;
   }
-
   .flexXlColumnReverse {
     flex-direction: column-reverse !important;
   }
-
   .flexXlWrap {
     flex-wrap: wrap !important;
   }
-
   .flexXlNowrap {
     flex-wrap: nowrap !important;
   }
-
   .flexXlWrapReverse {
     flex-wrap: wrap-reverse !important;
   }
-
   .justifyContentXlStart {
     justify-content: flex-start !important;
   }
-
   .justifyContentXlEnd {
     justify-content: flex-end !important;
   }
-
   .justifyContentXlCenter {
     justify-content: center !important;
   }
-
   .justifyContentXlBetween {
     justify-content: space-between !important;
   }
-
   .justifyContentXlAround {
     justify-content: space-around !important;
   }
-
   .alignItemsXlStart {
     align-items: flex-start !important;
   }
-
   .alignItemsXlEnd {
     align-items: flex-end !important;
   }
-
-  .alignItemsXlXenter {
+  .alignItemsXlCenter {
     align-items: center !important;
   }
-
   .alignItemsXlBaseline {
     align-items: baseline !important;
   }
-
   .alignItemsXlStretch {
     align-items: stretch !important;
   }
-
   .alignContentXlStart {
     align-content: flex-start !important;
   }
-
   .alignContentXlEnd {
     align-content: flex-end !important;
   }
-
   .alignContentXlCenter {
     align-content: center !important;
   }
-
   .alignContentXlBetween {
     align-content: space-between !important;
   }
-
   .alignContentXlAround {
     align-content: space-around !important;
   }
-
   .alignContentXlStretch {
     align-content: stretch !important;
   }
-
   .alignSelfXlAuto {
     align-self: auto !important;
   }
-
   .alignSelfXlStart {
     align-self: flex-start !important;
   }
-
   .alignSelfXlEnd {
     align-self: flex-end !important;
   }
-
   .alignSelfXlCenter {
     align-self: center !important;
   }
-
   .alignSelfXlBaseline {
     align-self: baseline !important;
   }
-
   .alignSelfXlStretch {
     align-self: stretch !important;
   }

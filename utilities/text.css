@@ -28,11 +28,9 @@
   .textSmLeft {
     text-align: left !important;
   }
-
   .textSmRight {
     text-align: right !important;
   }
-
   .textSmCenter {
     text-align: center !important;
   }
@@ -42,11 +40,9 @@
   .textMdLeft {
     text-align: left !important;
   }
-
   .textMdRight {
     text-align: right !important;
   }
-
   .textMdCenter {
     text-align: center !important;
   }
@@ -56,11 +52,9 @@
   .textLgLeft {
     text-align: left !important;
   }
-
   .textLgRight {
     text-align: right !important;
   }
-
   .textLgCenter {
     text-align: center !important;
   }
@@ -70,11 +64,9 @@
   .textXlLeft {
     text-align: left !important;
   }
-
   .textXlRight {
     text-align: right !important;
   }
-
   .textXlCenter {
     text-align: center !important;
   }
@@ -112,8 +104,7 @@
   color: #636c72 !important;
 }
 
-a.textMuted:focus,
-a.textMuted:hover {
+a.textMuted:focus, a.textMuted:hover {
   color: #4b5257 !important;
 }
 
@@ -121,8 +112,7 @@ a.textMuted:hover {
   color: #0275d8 !important;
 }
 
-a.textPrimary:focus,
-a.textPrimary:hover {
+a.textPrimary:focus, a.textPrimary:hover {
   color: #025aa5 !important;
 }
 
@@ -130,8 +120,7 @@ a.textPrimary:hover {
   color: #5cb85c !important;
 }
 
-a.textSuccess:focus,
-a.textSuccess:hover {
+a.textSuccess:focus, a.textSuccess:hover {
   color: #449d44 !important;
 }
 
@@ -139,8 +128,7 @@ a.textSuccess:hover {
   color: #5bc0de !important;
 }
 
-a.textInfo:focus,
-a.textInfo:hover {
+a.textInfo:focus, a.textInfo:hover {
   color: #31b0d5 !important;
 }
 
@@ -148,8 +136,7 @@ a.textInfo:hover {
   color: #f0ad4e !important;
 }
 
-a.textWarning:focus,
-a.textWarning:hover {
+a.textWarning:focus, a.textWarning:hover {
   color: #ec971f !important;
 }
 
@@ -157,8 +144,7 @@ a.textWarning:hover {
   color: #d9534f !important;
 }
 
-a.textDanger:focus,
-a.textDanger:hover {
+a.textDanger:focus, a.textDanger:hover {
   color: #c9302c !important;
 }
 
@@ -166,8 +152,7 @@ a.textDanger:hover {
   color: #292b2c !important;
 }
 
-a.textGrayDark:focus,
-a.textGrayDark:hover {
+a.textGrayDark:focus, a.textGrayDark:hover {
   color: #101112 !important;
 }
 

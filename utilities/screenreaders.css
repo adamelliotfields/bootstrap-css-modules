@@ -9,8 +9,7 @@
   border: 0;
 }
 
-.srOnlyFocusable:active,
-.srOnlyFocusable:focus {
+.srOnlyFocusable:active, .srOnlyFocusable:focus {
   position: static;
   width: auto;
   height: auto;

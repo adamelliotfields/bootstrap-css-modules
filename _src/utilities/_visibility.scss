@@ -13,12 +13,12 @@
 // Responsive visibility utilities
 
 @each $bp in map-keys($grid-breakpoints) {
-  .hidden-#{$bp}-up {
+  .hidden#{$bp}Up {
     @include media-breakpoint-up($bp) {
       display: none !important;
     }
   }
-  .hidden-#{$bp}-down {
+  .hidden#{$bp}Down {
     @include media-breakpoint-down($bp) {
       display: none !important;
     }
@@ -30,21 +30,21 @@
 //
 // Media queries are placed on the inside to be mixin-friendly.
 
-.visible-print-block {
+.visiblePrintBlock {
   display: none !important;
 
   @media print {
     display: block !important;
   }
 }
-.visible-print-inline {
+.visiblePrintInline {
   display: none !important;
 
   @media print {
     display: inline !important;
   }
 }
-.visible-print-inline-block {
+.visiblePrintInlineBlock {
   display: none !important;
 
   @media print {
@@ -52,7 +52,7 @@
   }
 }
 
-.hidden-print {
+.hiddenPrint {
   @media print {
     display: none !important;
   }

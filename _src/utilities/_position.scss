@@ -2,7 +2,7 @@
 
 // Positioning
 
-.fixed-top {
+.fixedTop {
   position: fixed;
   top: 0;
   right: 0;
@@ -10,7 +10,7 @@
   z-index: $zindex-fixed;
 }
 
-.fixed-bottom {
+.fixedBottom {
   position: fixed;
   right: 0;
   bottom: 0;
@@ -18,7 +18,7 @@
   z-index: $zindex-fixed;
 }
 
-.sticky-top {
+.stickyTop {
   position: sticky;
   top: 0;
   z-index: $zindex-sticky;

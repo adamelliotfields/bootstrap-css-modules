@@ -5,18 +5,18 @@
 // Contextual backgrounds
 //
 
-.bg-faded {
+.bgFaded {
   background-color: darken($body-bg, 3%);
 }
 
-@include bg-variant('.bg-primary', $brand-primary);
+@include bg-variant('.bgPrimary', $brand-primary);
 
-@include bg-variant('.bg-success', $brand-success);
+@include bg-variant('.bgSuccess', $brand-success);
 
-@include bg-variant('.bg-info', $brand-info);
+@include bg-variant('.bgInfo', $brand-info);
 
-@include bg-variant('.bg-warning', $brand-warning);
+@include bg-variant('.bgWarning', $brand-warning);
 
-@include bg-variant('.bg-danger', $brand-danger);
+@include bg-variant('.bgDanger', $brand-danger);
 
-@include bg-variant('.bg-inverse', $brand-inverse);
+@include bg-variant('.bgInverse', $brand-inverse);

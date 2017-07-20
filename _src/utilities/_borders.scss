@@ -1,15 +1,15 @@
-@import '../mixins/_border-radius.scss';
 @import '../variables.scss';
+@import '../mixins/_border-radius.scss';
 
 //
 // Border
 //
 
-.border-0        { border: 0 !important; }
-.border-top-0    { border-top: 0 !important; }
-.border-right-0  { border-right: 0 !important; }
-.border-bottom-0 { border-bottom: 0 !important; }
-.border-left-0   { border-left: 0 !important; }
+.border0        { border: 0 !important; }
+.borderTop0    { border-top: 0 !important; }
+.borderRight0  { border-right: 0 !important; }
+.borderBottom0 { border-bottom: 0 !important; }
+.borderLeft0   { border-left: 0 !important; }
 
 //
 // Border-radius
@@ -18,23 +18,23 @@
 .rounded {
   @include border-radius($border-radius);
 }
-.rounded-top {
+.roundedTop {
   @include border-top-radius($border-radius);
 }
-.rounded-right {
+.roundedRight {
   @include border-right-radius($border-radius);
 }
-.rounded-bottom {
+.roundedBottom {
   @include border-bottom-radius($border-radius);
 }
-.rounded-left {
+.roundedLeft {
   @include border-left-radius($border-radius);
 }
 
-.rounded-circle {
+.roundedCircle {
   border-radius: 50%;
 }
 
-.rounded-0 {
+.rounded0 {
   border-radius: 0;
 }
