@@ -1,0 +1,42 @@
+.embedResponsive {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.embedResponsive::before {
+  display: block;
+  content: "";
+}
+
+.embedResponsive .embedResponsiveItem,
+.embedResponsive iframe,
+.embedResponsive embed,
+.embedResponsive object,
+.embedResponsive video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.embedResponsive21By9::before {
+  padding-top: 42.85714%;
+}
+
+.embedResponsive16By9::before {
+  padding-top: 56.25%;
+}
+
+.embedResponsive4By3::before {
+  padding-top: 75%;
+}
+
+.embedResponsive1By1::before {
+  padding-top: 100%;
+}
