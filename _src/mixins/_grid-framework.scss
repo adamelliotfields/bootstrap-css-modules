@@ -18,7 +18,7 @@
 
     // Allow columns to stretch full width below their breakpoints
     @for $i from 1 through $columns {
-      .col#{$infix}-#{$i} {
+      .col#{$infix}#{$i} {
         @extend %grid-column;
       }
     }
@@ -33,20 +33,20 @@
         flex-grow: 1;
         max-width: 100%;
       }
-      .col#{$infix}-auto {
+      .col#{$infix}Auto {
         flex: 0 0 auto;
         width: auto;
       }
 
       @for $i from 1 through $columns {
-        .col#{$infix}-#{$i} {
+        .col#{$infix}#{$i} {
           @include make-col($i, $columns);
         }
       }
 
       @each $modifier in (pull, push) {
         @for $i from 0 through $columns {
-          .#{$modifier}#{$infix}-#{$i} {
+          .#{$modifier}#{$infix}#{$i} {
             @include make-col-modifier($modifier, $i, $columns)
           }
         }
@@ -55,7 +55,7 @@
       // `$columns - 1` because offsetting by the width of an entire row isn't possible
       @for $i from 0 through ($columns - 1) {
         @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-xs-0
-          .offset#{$infix}-#{$i} {
+          .offset#{$infix}#{$i} {
             @include make-col-modifier(offset, $i, $columns)
           }
         }

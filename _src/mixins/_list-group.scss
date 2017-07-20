@@ -1,16 +1,16 @@
 // List Groups
 
 @mixin list-group-item-variant($state, $background, $color) {
-  .list-group-item-#{$state} {
+  .listGroupItem#{$state} {
     color: $color;
     background-color: $background;
   }
 
-  a.list-group-item-#{$state},
-  button.list-group-item-#{$state} {
+  a.listGroupItem#{$state},
+  button.listGroupItem#{$state} {
     color: $color;
 
-    .list-group-item-heading {
+    .listGroupItemHeading {
       color: inherit;
     }
 

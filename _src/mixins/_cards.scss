@@ -4,8 +4,8 @@
   background-color: $background;
   border-color: $border;
 
-  .card-header,
-  .card-footer {
+  .cardHeader,
+  .cardFooter {
     background-color: transparent;
   }
 }
@@ -22,24 +22,24 @@
 @mixin card-inverse {
   color: rgba(255,255,255,.65);
 
-  .card-header,
-  .card-footer {
+  .cardHeader,
+  .cardFooter {
     background-color: transparent;
     border-color: rgba(255,255,255,.2);
   }
-  .card-header,
-  .card-footer,
-  .card-title,
-  .card-blockquote {
+  .cardHeader,
+  .cardFooter,
+  .cardTitle,
+  .cardBlockquote {
     color: #fff;
   }
-  .card-link,
-  .card-text,
-  .card-subtitle,
-  .card-blockquote .blockquote-footer {
+  .cardLink,
+  .cardText,
+  .cardSubtitle,
+  .cardBlockquote .blockquoteFooter {
     color: rgba(255,255,255,.65);
   }
-  .card-link {
+  .cardLink {
     @include hover-focus {
       color: $card-link-hover-color;
     }

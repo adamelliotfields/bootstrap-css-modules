@@ -37,7 +37,7 @@
 
   &:active,
   &.active,
-  .show > &.dropdown-toggle {
+  .show > &.dropdownToggle {
     color: $color;
     background-color: $active-background;
     background-image: none; // Remove the gradient for the pressed/active state
@@ -71,7 +71,7 @@
 
   &:active,
   &.active,
-  .show > &.dropdown-toggle {
+  .show > &.dropdownToggle {
     color: $color-hover;
     background-color: $color;
     border-color: $color;
