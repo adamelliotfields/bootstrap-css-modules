@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HTMLPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -13,18 +14,27 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localIdentName: '[hash:base64:5]'
+        use: ExtractTextPlugin.extract({
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                localIdentName: '[hash:base64:3]',
+                importLoaders: 1
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                config: {
+                  path: path.join(__dirname, 'postcss.config.js')
+                }
+              }
             }
-          }
-        ]
+          ]
+        })
       },
       {
         test: /\.jsx?$/,
@@ -47,6 +57,11 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       comments: false,
       sourceMap: true
+    }),
+    new ExtractTextPlugin({
+      filename: 'css/[name].css',
+      disable: false,
+      allChunks: true
     }),
     new HTMLPlugin({
       template: path.join(__dirname, 'src', 'templates', 'index.ejs'),
