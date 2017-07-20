@@ -127,5 +127,5 @@ Unfortunately, Webpack does not tree-shake CSS classes (yet). This means even if
 
 There are open source solutions for this if it bothers you. Check out [dead-css-loader](https://github.com/simlrh/dead-css-loader) or [purifycss-webpack](https://github.com/webpack-contrib/purifycss-webpack).
 
-### Issues/Questions/Suggestions
+## Issues/Questions/Suggestions
 If you run into a problem, or just need some help getting started with Webpack or CSS Modules, feel free to reach out to me directly (email is on my GitHub [profile](https://github.com/adamelliotfields)).
