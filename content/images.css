@@ -12,3 +12,17 @@
   max-width: 100%;
   height: auto;
 }
+
+.figure {
+  display: inline-block;
+}
+
+.figureImg {
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.figureCaption {
+  font-size: 90%;
+  color: #636c72;
+}

@@ -1,3 +1,5 @@
+@import './_mixins.scss';
+
 .fade {
   opacity: 0;
   @include transition($transition-fade);

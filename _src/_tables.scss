@@ -37,7 +37,7 @@
 // Condensed table w/ half padding
 //
 
-.table-sm {
+.tableSm {
   th,
   td {
     padding: $table-sm-cell-padding;
@@ -49,7 +49,7 @@
 //
 // Add borders all around the table and between all the columns.
 
-.table-bordered {
+.tableBordered {
   border: $table-border-width solid $table-border-color;
 
   th,
@@ -70,7 +70,7 @@
 //
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
 
-.table-striped {
+.tableStriped {
   tbody tr:nth-of-type(odd) {
     background-color: $table-bg-accent;
   }
@@ -81,7 +81,7 @@
 //
 // Placed here since it has to come after the potential zebra striping
 
-.table-hover {
+.tableHover {
   tbody tr {
     @include hover {
       background-color: $table-bg-hover;
@@ -96,32 +96,32 @@
 // inheritance to nested tables.
 
 // Generate the contextual variants
-@include table-row-variant(active, $table-bg-active);
-@include table-row-variant(success, $state-success-bg);
-@include table-row-variant(info, $state-info-bg);
-@include table-row-variant(warning, $state-warning-bg);
-@include table-row-variant(danger, $state-danger-bg);
+@include table-row-variant(Active, $table-bg-active);
+@include table-row-variant(Success, $state-success-bg);
+@include table-row-variant(Info, $state-info-bg);
+@include table-row-variant(Warning, $state-warning-bg);
+@include table-row-variant(Danger, $state-danger-bg);
 
 
 // Inverse styles
 //
 // Same table markup, but inverted color scheme: dark background and light text.
 
-.thead-inverse {
+.theadInverse {
   th {
     color: $table-inverse-color;
     background-color: $table-inverse-bg;
   }
 }
 
-.thead-default {
+.theadDefault {
   th {
     color: $table-head-color;
     background-color: $table-head-bg;
   }
 }
 
-.table-inverse {
+.tableInverse {
   color: $table-inverse-color;
   background-color: $table-inverse-bg;
 
@@ -131,7 +131,7 @@
     border-color: $body-bg;
   }
 
-  &.table-bordered {
+  &.tableBordered {
     border: 0;
   }
 }
@@ -144,14 +144,14 @@
 // enabling horizontal scrolling. Only applies <768px. Everything above that
 // will display normally.
 
-.table-responsive {
+.tableResponsive {
   display: block;
   width: 100%;
   overflow-x: auto;
   -ms-overflow-style: -ms-autohiding-scrollbar; // See https://github.com/twbs/bootstrap/pull/10057
 
   // Prevent double border on horizontal scroll due to use of `display: block;`
-  &.table-bordered {
+  &.tableBordered {
     border: 0;
   }
 }

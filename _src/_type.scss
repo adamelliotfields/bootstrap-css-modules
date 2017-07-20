@@ -27,22 +27,22 @@ h6, .h6 { font-size: $font-size-h6; }
 }
 
 // Type display classes
-.display-1 {
+.display1 {
   font-size: $display1-size;
   font-weight: $display1-weight;
   line-height: $display-line-height;
 }
-.display-2 {
+.display2 {
   font-size: $display2-size;
   font-weight: $display2-weight;
   line-height: $display-line-height;
 }
-.display-3 {
+.display3 {
   font-size: $display3-size;
   font-weight: $display3-weight;
   line-height: $display-line-height;
 }
-.display-4 {
+.display4 {
   font-size: $display4-size;
   font-weight: $display4-weight;
   line-height: $display-line-height;
@@ -82,15 +82,15 @@ mark,
 // Lists
 //
 
-.list-unstyled {
+.listUnstyled {
   @include list-unstyled;
 }
 
 // Inline turns list items into inline-block
-.list-inline {
+.listInline {
   @include list-unstyled;
 }
-.list-inline-item {
+.listInlineItem {
   display: inline-block;
 
   &:not(:last-child) {
@@ -117,7 +117,7 @@ mark,
   border-left: $blockquote-border-width solid $blockquote-border-color;
 }
 
-.blockquote-footer {
+.blockquoteFooter {
   display: block;
   font-size: 80%; // back to default font-size
   color: $blockquote-small-color;
@@ -128,7 +128,7 @@ mark,
 }
 
 // Opposite alignment of blockquote
-.blockquote-reverse {
+.blockquoteReverse {
   padding-right: $spacer;
   padding-left: 0;
   text-align: right;
@@ -136,7 +136,7 @@ mark,
   border-left: 0;
 }
 
-.blockquote-reverse .blockquote-footer {
+.blockquoteReverse .blockquoteFooter {
   &::before {
     content: "";
   }
