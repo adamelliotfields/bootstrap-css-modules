@@ -1,8 +1,13 @@
+@import './_variables.scss';
+@import './mixins/_border-radius.scss';
+@import './mixins/_hover.scss';
+@import './mixins/_list-group.scss';
+
 // Base class
 //
 // Easily usable on <ul>, <ol>, or <div>.
 
-.list-group {
+.listGroup {
   display: flex;
   flex-direction: column;
 
@@ -17,12 +22,12 @@
 // Use anchor or button elements instead of `li`s or `div`s to create interactive
 // list items. Includes an extra `.active` modifier class for selected items.
 
-.list-group-item-action {
+.listGroupItemAction {
   width: 100%; // For `<button>`s (anchors become 100% by default though)
   color: $list-group-link-color;
   text-align: inherit; // For `<button>`s (anchors inherit)
 
-  .list-group-item-heading {
+  .listGroupItemHeading {
     color: $list-group-link-heading-color;
   }
 
@@ -44,7 +49,7 @@
 //
 // Use on `li`s or `div`s within the `.list-group` parent.
 
-.list-group-item {
+.listGroupItem {
   position: relative;
   display: flex;
   flex-flow: row wrap;
@@ -75,10 +80,10 @@
     background-color: $list-group-disabled-bg;
 
     // Force color to inherit for custom content
-    .list-group-item-heading {
+    .listGroupItemHeading {
       color: inherit;
     }
-    .list-group-item-text {
+    .listGroupItemText {
       color: $list-group-disabled-text-color;
     }
   }
@@ -91,13 +96,13 @@
     border-color: $list-group-active-border;
 
     // Force color to inherit for custom content
-    .list-group-item-heading,
-    .list-group-item-heading > small,
-    .list-group-item-heading > .small {
+    .listGroupItemHeading,
+    .listGroupItemHeading > small,
+    .listGroupItemHeading > .small {
       color: inherit;
     }
 
-    .list-group-item-text {
+    .listGroupItemText {
       color: $list-group-active-text-color;
     }
   }
@@ -109,21 +114,21 @@
 // Remove borders and border-radius to keep list group items edge-to-edge. Most
 // useful within other components (e.g., cards).
 
-.list-group-flush {
-  .list-group-item {
+.listGroupFlush {
+  .listGroupItem {
     border-right: 0;
     border-left: 0;
     border-radius: 0;
   }
 
   &:first-child {
-    .list-group-item:first-child {
+    .listGroupItem:first-child {
       border-top: 0;
     }
   }
 
   &:last-child {
-    .list-group-item:last-child {
+    .listGroupItem:last-child {
       border-bottom: 0;
     }
   }
@@ -135,7 +140,7 @@
 // Add modifier classes to change text and background color on individual items.
 // Organizationally, this must come after the `:hover` states.
 
-@include list-group-item-variant(success, $state-success-bg, $state-success-text);
-@include list-group-item-variant(info, $state-info-bg, $state-info-text);
-@include list-group-item-variant(warning, $state-warning-bg, $state-warning-text);
-@include list-group-item-variant(danger, $state-danger-bg, $state-danger-text);
+@include list-group-item-variant(Success, $state-success-bg, $state-success-text);
+@include list-group-item-variant(Info, $state-info-bg, $state-info-text);
+@include list-group-item-variant(Warning, $state-warning-bg, $state-warning-text);
+@include list-group-item-variant(Danger, $state-danger-bg, $state-danger-text);

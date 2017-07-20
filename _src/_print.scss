@@ -1,3 +1,5 @@
+@import './_variables.scss';
+
 // scss-lint:disable QualifyingElement
 
 // Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css
@@ -107,7 +109,7 @@
         background-color: #fff !important;
       }
     }
-    .table-bordered {
+    .tableBordered {
       th,
       td {
         border: 1px solid #ddd !important;

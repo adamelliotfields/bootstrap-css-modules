@@ -1,3 +1,7 @@
+@import './_variables.scss';
+@import './mixins/_border-radius.scss';
+@import './mixins/_clearfix.scss';
+
 .breadcrumb {
   padding: $breadcrumb-padding-y $breadcrumb-padding-x;
   margin-bottom: $spacer-y;
@@ -7,11 +11,11 @@
   @include clearfix;
 }
 
-.breadcrumb-item {
+.breadcrumbItem {
   float: left;
 
   // The separator between breadcrumbs (by default, a forward-slash: "/")
-  + .breadcrumb-item::before {
+  + .breadcrumbItem::before {
     display: inline-block; // Suppress underlining of the separator in modern browsers
     padding-right: $breadcrumb-item-padding;
     padding-left: $breadcrumb-item-padding;
@@ -25,10 +29,10 @@
   //
   // To trick IE into suppressing the underline, we give the pseudo-element an
   // underline and then immediately remove it.
-  + .breadcrumb-item:hover::before {
+  + .breadcrumbItem:hover::before {
     text-decoration: underline;
   }
-  + .breadcrumb-item:hover::before {
+  + .breadcrumbItem:hover::before {
     text-decoration: none;
   }
 

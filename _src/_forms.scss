@@ -1,10 +1,13 @@
+@import './_variables.scss';
+@import './_mixins.scss';
+
 // scss-lint:disable QualifyingElement
 
 //
 // Textual form controls
 //
 
-.form-control {
+.formControl {
   display: block;
   width: 100%;
   // // Make inputs at least the height of their button counterpart (base line-height + padding + border)
@@ -64,7 +67,7 @@
   }
 }
 
-select.form-control {
+select.formControl {
   &:not([size]):not([multiple]) {
     $select-border-width: ($border-width * 2);
     height: calc(#{$input-height} + #{$select-border-width});
@@ -82,8 +85,8 @@ select.form-control {
 }
 
 // Make file inputs better match text inputs by forcing them to new lines.
-.form-control-file,
-.form-control-range {
+.formControlFile,
+.formControlRange {
   display: block;
 }
 
@@ -94,19 +97,19 @@ select.form-control {
 
 // For use with horizontal and inline forms, when you need the label text to
 // align with the form controls.
-.col-form-label {
+.colFormLabel {
   padding-top: calc(#{$input-padding-y} - #{$input-btn-border-width} * 2);
   padding-bottom: calc(#{$input-padding-y} - #{$input-btn-border-width} * 2);
   margin-bottom: 0; // Override the `<label>` default
 }
 
-.col-form-label-lg {
+.colFormLabelLg {
   padding-top: calc(#{$input-padding-y-lg} - #{$input-btn-border-width} * 2);
   padding-bottom: calc(#{$input-padding-y-lg} - #{$input-btn-border-width} * 2);
   font-size: $font-size-lg;
 }
 
-.col-form-label-sm {
+.colFormLabelSm {
   padding-top: calc(#{$input-padding-y-sm} - #{$input-btn-border-width} * 2);
   padding-bottom: calc(#{$input-padding-y-sm} - #{$input-btn-border-width} * 2);
   font-size: $font-size-sm;
@@ -119,7 +122,7 @@ select.form-control {
 
 // For use with horizontal and inline forms, when you need the legend text to
 // be the same size as regular labels, and to align with the form controls.
-.col-form-legend {
+.colFormLegend {
   padding-top: $input-padding-y;
   padding-bottom: $input-padding-y;
   margin-bottom: 0;
@@ -132,7 +135,7 @@ select.form-control {
 // Apply class to an element to make any string of text align with labels in a
 // horizontal form layout.
 
-.form-control-static {
+.formControlStatic {
   padding-top: $input-padding-y;
   padding-bottom: $input-padding-y;
   margin-bottom: 0; // match inputs if this class comes on inputs with default margins
@@ -140,8 +143,8 @@ select.form-control {
   border: solid transparent;
   border-width: $input-btn-border-width 0;
 
-  &.form-control-sm,
-  &.form-control-lg {
+  &.formControlSm,
+  &.formControlLg {
     padding-right: 0;
     padding-left: 0;
   }
@@ -156,25 +159,25 @@ select.form-control {
 // The `.form-group-* form-control` variations are sadly duplicated to avoid the
 // issue documented in https://github.com/twbs/bootstrap/issues/15074.
 
-.form-control-sm {
+.formControlSm {
   padding: $input-padding-y-sm $input-padding-x-sm;
   font-size: $font-size-sm;
   @include border-radius($input-border-radius-sm);
 }
 
-select.form-control-sm {
+select.formControlSm {
   &:not([size]):not([multiple]) {
     height: $input-height-sm;
   }
 }
 
-.form-control-lg {
+.formControlLg {
   padding: $input-padding-y-lg $input-padding-x-lg;
   font-size: $font-size-lg;
   @include border-radius($input-border-radius-lg);
 }
 
-select.form-control-lg {
+select.formControlLg {
   &:not([size]):not([multiple]) {
     height: $input-height-lg;
   }
@@ -186,11 +189,11 @@ select.form-control-lg {
 // Designed to help with the organization and spacing of vertical forms. For
 // horizontal forms, use the predefined grid classes.
 
-.form-group {
+.formGroup {
   margin-bottom: $form-group-margin-bottom;
 }
 
-.form-text {
+.formText {
   display: block;
   margin-top: $form-text-margin-top;
 }
@@ -200,26 +203,26 @@ select.form-control-lg {
 //
 // Indent the labels to position radios/checkboxes as hanging controls.
 
-.form-check {
+.formCheck {
   position: relative;
   display: block;
   margin-bottom: $form-check-margin-bottom;
 
   &.disabled {
-    .form-check-label {
+    .formCheckLabel {
       color: $text-muted;
       cursor: $cursor-disabled;
     }
   }
 }
 
-.form-check-label {
+.formCheckLabel {
   padding-left: $form-check-input-gutter;
   margin-bottom: 0; // Override default `<label>` bottom margin
   cursor: pointer;
 }
 
-.form-check-input {
+.formCheckInput {
   position: absolute;
   margin-top: $form-check-input-margin-y;
   margin-left: -$form-check-input-gutter;
@@ -230,14 +233,14 @@ select.form-control-lg {
 }
 
 // Radios and checkboxes on same line
-.form-check-inline {
+.formCheckInline {
   display: inline-block;
 
-  .form-check-label {
+  .formCheckLabel {
     vertical-align: middle;
   }
 
-  + .form-check-inline {
+  + .formCheckInline {
     margin-left: $form-check-inline-margin-x;
   }
 }
@@ -247,13 +250,13 @@ select.form-control-lg {
 //
 // Apply contextual and semantic states to individual form controls.
 
-.form-control-feedback {
+.formControlFeedback {
   margin-top: $form-feedback-margin-top;
 }
 
-.form-control-success,
-.form-control-warning,
-.form-control-danger {
+.formControlSuccess,
+.formControlWarning,
+.formControlDanger {
   padding-right: ($input-padding-x * 3);
   background-repeat: no-repeat;
   background-position: center right ($input-height / 4);
@@ -261,26 +264,26 @@ select.form-control-lg {
 }
 
 // Form validation states
-.has-success {
+.hasSuccess {
   @include form-control-validation($brand-success);
 
-  .form-control-success {
+  .formControlSuccess {
     background-image: $form-icon-success;
   }
 }
 
-.has-warning {
+.hasWarning {
   @include form-control-validation($brand-warning);
 
-  .form-control-warning {
+  .formControlWarning {
     background-image: $form-icon-warning;
   }
 }
 
-.has-danger {
+.hasDanger {
   @include form-control-validation($brand-danger);
 
-  .form-control-danger {
+  .formControlDanger {
     background-image: $form-icon-danger;
   }
 }
@@ -295,7 +298,7 @@ select.form-control-lg {
 // Requires wrapping inputs and labels with `.form-group` for proper display of
 // default HTML form controls and our custom form controls (e.g., input groups).
 
-.form-inline {
+.formInline {
   display: flex;
   flex-flow: row wrap;
   align-items: center; // Prevent shorter elements from growing to same height as others (e.g., small buttons growing to normal sized button height)
@@ -303,7 +306,7 @@ select.form-control-lg {
   // Because we use flex, the initial sizing of checkboxes is collapsed and
   // doesn't occupy the full-width (which is what we want for xs grid tier),
   // so we force that here.
-  .form-check {
+  .formCheck {
     width: 100%;
   }
 
@@ -317,7 +320,7 @@ select.form-control-lg {
     }
 
     // Inline-block all the things for "inline"
-    .form-group {
+    .formGroup {
       display: flex;
       flex: 0 0 auto;
       flex-flow: row wrap;
@@ -326,29 +329,29 @@ select.form-control-lg {
     }
 
     // Allow folks to *not* use `.form-group`
-    .form-control {
+    .formControl {
       display: inline-block;
       width: auto; // Prevent labels from stacking above inputs in `.form-group`
       vertical-align: middle;
     }
 
     // Make static controls behave like regular ones
-    .form-control-static {
+    .formControlStatic {
       display: inline-block;
     }
 
-    .input-group {
+    .inputGroup {
       width: auto;
     }
 
-    .form-control-label {
+    .formControlLabel {
       margin-bottom: 0;
       vertical-align: middle;
     }
 
     // Remove default margin on radios/checkboxes that were used for stacking, and
     // then undo the floating of radios and checkboxes to match.
-    .form-check {
+    .formCheck {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -356,10 +359,10 @@ select.form-control-lg {
       margin-top: 0;
       margin-bottom: 0;
     }
-    .form-check-label {
+    .formCheckLabel {
       padding-left: 0;
     }
-    .form-check-input {
+    .formCheckInput {
       position: relative;
       margin-top: 0;
       margin-right: $form-check-input-margin-x;
@@ -367,13 +370,13 @@ select.form-control-lg {
     }
 
     // Custom form controls
-    .custom-control {
+    .customControl {
       display: flex;
       align-items: center;
       justify-content: center;
       padding-left: 0;
     }
-    .custom-control-indicator {
+    .customControlIndicator {
       position: static;
       display: inline-block;
       margin-right: $form-check-input-margin-x; // Flexbox alignment means we lose our HTML space here, so we compensate.
@@ -381,7 +384,7 @@ select.form-control-lg {
     }
 
     // Re-override the feedback icon.
-    .has-feedback .form-control-feedback {
+    .hasFeedback .formControlFeedback {
       top: 0;
     }
   }

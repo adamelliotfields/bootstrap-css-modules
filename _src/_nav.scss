@@ -1,3 +1,7 @@
+@import './_variables.scss';
+@import './mixins/_border-radius.scss';
+@import './mixins/_hover.scss';
+
 // Base class
 //
 // Kickstart any navigation component with a set of style resets. Works with
@@ -10,7 +14,7 @@
   list-style: none;
 }
 
-.nav-link {
+.navLink {
   display: block;
   padding: $nav-link-padding;
 
@@ -30,14 +34,14 @@
 // Tabs
 //
 
-.nav-tabs {
+.navTabs {
   border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
 
-  .nav-item {
+  .navItem {
     margin-bottom: -$nav-tabs-border-width;
   }
 
-  .nav-link {
+  .navLink {
     border: $nav-tabs-border-width solid transparent;
     @include border-top-radius($nav-tabs-border-radius);
 
@@ -52,14 +56,14 @@
     }
   }
 
-  .nav-link.active,
-  .nav-item.show .nav-link {
+  .navLink.active,
+  .navItem.show .navLink {
     color: $nav-tabs-active-link-hover-color;
     background-color: $nav-tabs-active-link-hover-bg;
     border-color: $nav-tabs-active-link-hover-border-color $nav-tabs-active-link-hover-border-color $nav-tabs-active-link-hover-bg;
   }
 
-  .dropdown-menu {
+  .dropdownMenu {
     // Make dropdown border overlap tab border
     margin-top: -$nav-tabs-border-width;
     // Remove the top rounded corners here since there is a hard edge above the menu
@@ -72,13 +76,13 @@
 // Pills
 //
 
-.nav-pills {
-  .nav-link {
+.navPills {
+  .navLink {
     @include border-radius($nav-pills-border-radius);
   }
 
-  .nav-link.active,
-  .nav-item.show .nav-link {
+  .navLink.active,
+  .navItem.show .navLink {
     color: $nav-pills-active-link-color;
     cursor: default;
     background-color: $nav-pills-active-link-bg;
@@ -90,15 +94,15 @@
 // Justified variants
 //
 
-.nav-fill {
-  .nav-item {
+.navFill {
+  .navItem {
     flex: 1 1 auto;
     text-align: center;
   }
 }
 
-.nav-justified {
-  .nav-item {
+.navJustified {
+  .navItem {
     flex: 1 1 100%;
     text-align: center;
   }
@@ -109,8 +113,8 @@
 //
 // Hide tabbable panes to start, show them when `.active`
 
-.tab-content {
-  > .tab-pane {
+.tabContent {
+  > .tabPane {
     display: none;
   }
   > .active {

@@ -1,3 +1,7 @@
+@import './_variables.scss';
+@import './mixins/_alert.scss';
+@import './mixins/_border-radius.scss';
+
 //
 // Base styles
 //
@@ -10,13 +14,13 @@
 }
 
 // Headings for larger alerts
-.alert-heading {
+.alertHeading {
   // Specified to prevent conflicts of changing $headings-color
   color: inherit;
 }
 
 // Provide class for links that match alerts
-.alert-link {
+.alertLink {
   font-weight: $alert-link-font-weight;
 }
 
@@ -25,7 +29,7 @@
 //
 // Expand the right padding and account for the close button's positioning.
 
-.alert-dismissible {
+.alertDismissible {
   // Adjust close link position
   .close {
     position: relative;
@@ -41,15 +45,15 @@
 //
 // Generate contextual modifier classes for colorizing the alert.
 
-.alert-success {
+.alertSuccess {
   @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
 }
-.alert-info {
+.alertInfo {
   @include alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
 }
-.alert-warning {
+.alertWarning {
   @include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
 }
-.alert-danger {
+.alertDanger {
   @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
 }

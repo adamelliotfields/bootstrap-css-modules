@@ -1,15 +1,18 @@
+@import './_variables.scss';
+@import './_mixins.scss';
+
 // Wrapper for the slide container and indicators
 .carousel {
   position: relative;
 }
 
-.carousel-inner {
+.carouselInner {
   position: relative;
   width: 100%;
   overflow: hidden;
 }
 
-.carousel-item {
+.carouselItem {
   position: relative;
   display: none;
   width: 100%;
@@ -21,32 +24,32 @@
   }
 }
 
-.carousel-item.active,
-.carousel-item-next,
-.carousel-item-prev {
+.carouselItem.active,
+.carouselItemNext,
+.carouselItemPrev {
   display: flex;
 }
 
-.carousel-item-next,
-.carousel-item-prev {
+.carouselItemNext,
+.carouselItemPrev {
   position: absolute;
   top: 0;
 }
 
 // CSS3 transforms when supported by the browser
 @include if-supports-3d-transforms() {
-  .carousel-item-next.carousel-item-left,
-  .carousel-item-prev.carousel-item-right {
+  .carouselItemNext.carouselItemLeft,
+  .carouselItemPrev.carouselItemRight {
     transform: translate3d(0, 0, 0);
   }
 
-  .carousel-item-next,
-  .active.carousel-item-right {
+  .carouselItemNext,
+  .active.carouselItemRight {
     transform: translate3d(100%, 0, 0);
   }
 
-  .carousel-item-prev,
-  .active.carousel-item-left {
+  .carouselItemPrev,
+  .active.carouselItemLeft {
     transform: translate3d(-100%, 0, 0);
   }
 }
@@ -56,8 +59,8 @@
 // Left/right controls for nav
 //
 
-.carousel-control-prev,
-.carousel-control-next {
+.carouselControlPrev,
+.carouselControlNext {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -80,26 +83,26 @@
     opacity: .9;
   }
 }
-.carousel-control-prev {
+.carouselControlPrev {
   left: 0;
 }
-.carousel-control-next {
+.carouselControlNext {
   right: 0;
 }
 
 // Icons for within
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
+.carouselControlPrevIcon,
+.carouselControlNextIcon {
   display: inline-block;
   width: $carousel-control-icon-width;
   height: $carousel-control-icon-width;
   background: transparent no-repeat center center;
   background-size: 100% 100%;
 }
-.carousel-control-prev-icon {
+.carouselControlPrevIcon {
   background-image: $carousel-control-prev-icon-bg;
 }
-.carousel-control-next-icon {
+.carouselControlNextIcon {
   background-image: $carousel-control-next-icon-bg;
 }
 
@@ -109,7 +112,7 @@
 // Add an ordered list with the following class and add a list item for each
 // slide your carousel holds.
 
-.carousel-indicators {
+.carouselIndicators {
   position: absolute;
   right: 0;
   bottom: 10px;
@@ -165,7 +168,7 @@
 //
 //
 
-.carousel-caption {
+.carouselCaption {
   position: absolute;
   right: ((100% - $carousel-caption-width) / 2);
   bottom: 20px;

@@ -1,3 +1,7 @@
+@import './_variables.scss';
+@import './mixins/_border-radius.scss';
+@import './mixins/_breakpoints.scss';
+
 .jumbotron {
   padding: $jumbotron-padding ($jumbotron-padding / 2);
   margin-bottom: $jumbotron-padding;
@@ -9,11 +13,11 @@
   }
 }
 
-.jumbotron-hr {
+.jumbotronHr {
   border-top-color: darken($jumbotron-bg, 10%);
 }
 
-.jumbotron-fluid {
+.jumbotronFluid {
   padding-right: 0;
   padding-left: 0;
   @include border-radius(0);

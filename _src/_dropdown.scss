@@ -1,10 +1,13 @@
+@import './_variables.scss';
+@import './_mixins.scss';
+
 // The dropdown wrapper (`<div>`)
 .dropup,
 .dropdown {
   position: relative;
 }
 
-.dropdown-toggle {
+.dropdownToggle {
   // Generate the caret automatically
   &::after {
     display: inline-block;
@@ -25,7 +28,7 @@
 }
 
 .dropup {
-  .dropdown-toggle {
+  .dropdownToggle {
     &::after {
       border-top: 0;
       border-bottom: $caret-width solid;
@@ -34,7 +37,7 @@
 }
 
 // The dropdown menu
-.dropdown-menu {
+.dropdownMenu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -56,14 +59,14 @@
 }
 
 // Dividers (basically an `<hr>`) within the dropdown
-.dropdown-divider {
+.dropdownDivider {
   @include nav-divider($dropdown-divider-bg);
 }
 
 // Links, buttons, and more within the dropdown menu
 //
 // `<button>`-specific styles are denoted with `// For <button>s`
-.dropdown-item {
+.dropdownItem {
   display: block;
   width: 100%; // For `<button>`s
   padding: 3px $dropdown-item-padding-x;
@@ -103,7 +106,7 @@
 // Open state for the dropdown
 .show {
   // Show the menu
-  > .dropdown-menu {
+  > .dropdownMenu {
     display: block;
   }
 
@@ -117,18 +120,18 @@
 //
 // Add extra class to `.dropdown-menu` to flip the alignment of the dropdown
 // menu with the parent.
-.dropdown-menu-right {
+.dropdownMenuRight {
   right: 0;
   left: auto; // Reset the default from `.dropdown-menu`
 }
 
-.dropdown-menu-left {
+.dropdownMenuLeft {
   right: auto;
   left: 0;
 }
 
 // Dropdown section headers
-.dropdown-header {
+.dropdownHeader {
   display: block;
   padding: $dropdown-padding-y $dropdown-item-padding-x;
   margin-bottom: 0; // for use with heading elements
@@ -138,7 +141,7 @@
 }
 
 // Backdrop to catch body clicks on mobile, etc.
-.dropdown-backdrop {
+.dropdownBackdrop {
   position: fixed;
   top: 0;
   right: 0;
@@ -153,7 +156,7 @@
 
 .dropup {
   // Different positioning for bottom up menu
-  .dropdown-menu {
+  .dropdownMenu {
     top: auto;
     bottom: 100%;
     margin-bottom: $dropdown-margin-top;

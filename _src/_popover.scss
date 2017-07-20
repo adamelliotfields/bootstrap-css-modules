@@ -1,3 +1,6 @@
+@import './_variables.scss';
+@import './_mixins.scss';
+
 .popover {
   position: absolute;
   top: 0;
@@ -21,8 +24,8 @@
 
   // Popover directions
 
-  &.popover-top,
-  &.bs-tether-element-attached-bottom {
+  &.popoverTop,
+  &.bsTetherElementAttachedBottom {
     margin-top: -$popover-arrow-width;
 
     &::before,
@@ -44,8 +47,8 @@
     }
   }
 
-  &.popover-right,
-  &.bs-tether-element-attached-left {
+  &.popoverRight,
+  &.bsTetherElementAttachedLeft {
     margin-left: $popover-arrow-width;
 
     &::before,
@@ -67,8 +70,8 @@
     }
   }
 
-  &.popover-bottom,
-  &.bs-tether-element-attached-top {
+  &.popoverBottom,
+  &.bsTetherElementAttachedTop {
     margin-top: $popover-arrow-width;
 
     &::before,
@@ -90,7 +93,7 @@
     }
 
     // This will remove the popover-title's border just below the arrow
-    .popover-title::before {
+    .popoverTitle::before {
       position: absolute;
       top: 0;
       left: 50%;
@@ -102,8 +105,8 @@
     }
   }
 
-  &.popover-left,
-  &.bs-tether-element-attached-right {
+  &.popoverLeft,
+  &.bsTetherElementAttachedRight {
     margin-left: -$popover-arrow-width;
 
     &::before,
@@ -128,7 +131,7 @@
 
 
 // Offset the popover to account for the popover arrow
-.popover-title {
+.popoverTitle {
   padding: $popover-title-padding-y $popover-title-padding-x;
   margin-bottom: 0; // Reset the default from Reboot
   font-size: $font-size-base;
@@ -142,7 +145,7 @@
   }
 }
 
-.popover-content {
+.popoverContent {
   padding: $popover-content-padding-y $popover-content-padding-x;
 }
 

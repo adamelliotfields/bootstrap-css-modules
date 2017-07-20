@@ -1,3 +1,8 @@
+@import './_variables.scss';
+@import './mixins/_border-radius.scss';
+@import './mixins/_hover.scss';
+@import './mixins/_pagination.scss';
+
 .pagination {
   display: flex;
   // 1-2: Disable browser default list styles
@@ -6,27 +11,27 @@
   @include border-radius();
 }
 
-.page-item {
+.pageItem {
   &:first-child {
-    .page-link {
+    .pageLink {
       margin-left: 0;
       @include border-left-radius($border-radius);
     }
   }
   &:last-child {
-    .page-link {
+    .pageLink {
       @include border-right-radius($border-radius);
     }
   }
 
-  &.active .page-link {
+  &.active .pageLink {
     z-index: 2;
     color: $pagination-active-color;
     background-color: $pagination-active-bg;
     border-color: $pagination-active-border;
   }
 
-  &.disabled .page-link {
+  &.disabled .pageLink {
     color: $pagination-disabled-color;
     pointer-events: none;
     cursor: $cursor-disabled; // While `pointer-events: none` removes the cursor in modern browsers, we provide a disabled cursor as a fallback.
@@ -35,7 +40,7 @@
   }
 }
 
-.page-link {
+.pageLink {
   position: relative;
   display: block;
   padding: $pagination-padding-y $pagination-padding-x;
@@ -58,10 +63,10 @@
 // Sizing
 //
 
-.pagination-lg {
+.paginationLg {
   @include pagination-size($pagination-padding-y-lg, $pagination-padding-x-lg, $font-size-lg, $line-height-lg, $border-radius-lg);
 }
 
-.pagination-sm {
+.paginationSm {
   @include pagination-size($pagination-padding-y-sm, $pagination-padding-x-sm, $font-size-sm, $line-height-sm, $border-radius-sm);
 }

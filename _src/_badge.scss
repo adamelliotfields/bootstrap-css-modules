@@ -1,3 +1,8 @@
+@import './_variables.scss';
+@import './mixins/_badge.scss';
+@import './mixins/_border-radius.scss';
+@import './mixins/_hover.scss';
+
 // Base class
 //
 // Requires one of the contextual, color modifier classes for `color` and
@@ -42,7 +47,7 @@ a.badge {
 //
 // Make them extra rounded with a modifier to replace v3's badges.
 
-.badge-pill {
+.badgePill {
   padding-right: $badge-pill-padding-x;
   padding-left: $badge-pill-padding-x;
   @include border-radius($badge-pill-border-radius);
@@ -52,26 +57,26 @@ a.badge {
 //
 // Contextual variations (linked badges get darker on :hover).
 
-.badge-default {
+.badgeDefault {
   @include badge-variant($badge-default-bg);
 }
 
-.badge-primary {
+.badgePrimary {
   @include badge-variant($badge-primary-bg);
 }
 
-.badge-success {
+.badgeSuccess {
   @include badge-variant($badge-success-bg);
 }
 
-.badge-info {
+.badgeInfo {
   @include badge-variant($badge-info-bg);
 }
 
-.badge-warning {
+.badgeWarning {
   @include badge-variant($badge-warning-bg);
 }
 
-.badge-danger {
+.badgeDanger {
   @include badge-variant($badge-danger-bg);
 }

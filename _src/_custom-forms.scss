@@ -1,3 +1,6 @@
+@import './_variables.scss';
+@import './_mixins.scss';
+
 // scss-lint:disable PropertyCount
 
 // Embedded icons from Open Iconic.
@@ -9,7 +12,7 @@
 //
 // Base class takes care of all the key behavioral aspects.
 
-.custom-control {
+.customControl {
   position: relative;
   display: inline-flex;
   min-height: (1rem * $line-height-base);
@@ -18,35 +21,35 @@
   cursor: pointer;
 }
 
-.custom-control-input {
+.customControlInput {
   position: absolute;
   z-index: -1; // Put the input behind the label so it doesn't overlay text
   opacity: 0;
 
-  &:checked ~ .custom-control-indicator {
+  &:checked ~ .customControlIndicator {
     color: $custom-control-checked-indicator-color;
     background-color: $custom-control-checked-indicator-bg;
     @include box-shadow($custom-control-checked-indicator-box-shadow);
   }
 
-  &:focus ~ .custom-control-indicator {
+  &:focus ~ .customControlIndicator {
     // the mixin is not used here to make sure there is feedback
     box-shadow: $custom-control-focus-indicator-box-shadow;
   }
 
-  &:active ~ .custom-control-indicator {
+  &:active ~ .customControlIndicator {
     color: $custom-control-active-indicator-color;
     background-color: $custom-control-active-indicator-bg;
     @include box-shadow($custom-control-active-indicator-box-shadow);
   }
 
   &:disabled {
-    ~ .custom-control-indicator {
+    ~ .customControlIndicator {
       cursor: $custom-control-disabled-cursor;
       background-color: $custom-control-disabled-indicator-bg;
     }
 
-    ~ .custom-control-description {
+    ~ .customControlDescription {
       color: $custom-control-disabled-description-color;
       cursor: $custom-control-disabled-cursor;
     }
@@ -57,7 +60,7 @@
 //
 // Generates a shadow element to create our makeshift checkbox/radio background.
 
-.custom-control-indicator {
+.customControlIndicator {
   position: absolute;
   top: (($line-height-base - $custom-control-indicator-size) / 2);
   left: 0;
@@ -77,16 +80,16 @@
 //
 // Tweak just a few things for checkboxes.
 
-.custom-checkbox {
-  .custom-control-indicator {
+.customCheckbox {
+  .customControlIndicator {
     @include border-radius($custom-checkbox-radius);
   }
 
-  .custom-control-input:checked ~ .custom-control-indicator {
+  .customControlInput:checked ~ .customControlIndicator {
     background-image: $custom-checkbox-checked-icon;
   }
 
-  .custom-control-input:indeterminate ~ .custom-control-indicator {
+  .customControlInput:indeterminate ~ .customControlIndicator {
     background-color: $custom-checkbox-indeterminate-bg;
     background-image: $custom-checkbox-indeterminate-icon;
     @include box-shadow($custom-checkbox-indeterminate-box-shadow);
@@ -97,12 +100,12 @@
 //
 // Tweak just a few things for radios.
 
-.custom-radio {
-  .custom-control-indicator {
+.customRadio {
+  .customControlIndicator {
     border-radius: $custom-radio-radius;
   }
 
-  .custom-control-input:checked ~ .custom-control-indicator {
+  .customControlInput:checked ~ .customControlIndicator {
     background-image: $custom-radio-checked-icon;
   }
 }
@@ -113,14 +116,14 @@
 // By default radios and checkboxes are `inline-block` with no additional spacing
 // set. Use these optional classes to tweak the layout.
 
-.custom-controls-stacked {
+.customControlsStacked {
   display: flex;
   flex-direction: column;
 
-  .custom-control {
+  .customControl {
     margin-bottom: $custom-control-spacer-y;
 
-    + .custom-control {
+    + .customControl {
       margin-left: 0;
     }
   }
@@ -133,7 +136,7 @@
 // http://primercss.io.
 //
 
-.custom-select {
+.customSelect {
   display: inline-block;
   max-width: 100%;
   $select-border-width: ($border-width * 2);
@@ -178,7 +181,7 @@
   }
 }
 
-.custom-select-sm {
+.customSelectSm {
   padding-top: $custom-select-padding-y;
   padding-bottom: $custom-select-padding-y;
   font-size: $custom-select-sm-font-size;
@@ -194,7 +197,7 @@
 //
 // Custom file input.
 
-.custom-file {
+.customFile {
   position: relative;
   display: inline-block;
   max-width: 100%;
@@ -203,7 +206,7 @@
   cursor: pointer;
 }
 
-.custom-file-input {
+.customFileInput {
   min-width: $custom-file-width;
   max-width: 100%;
   height: $custom-file-height;
@@ -211,12 +214,12 @@
   filter: alpha(opacity = 0);
   opacity: 0;
 
-  &:focus ~ .custom-file-control {
+  &:focus ~ .customFileControl {
     @include box-shadow($custom-file-focus-box-shadow);
   }
 }
 
-.custom-file-control {
+.customFileControl {
   position: absolute;
   top: 0;
   right: 0;

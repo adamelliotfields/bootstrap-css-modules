@@ -1,3 +1,9 @@
+@import './_variables.scss';
+@import './mixins/_border-radius.scss';
+@import './mixins/_breakpoints.scss';
+@import './mixins/_cards.scss';
+@import './mixins/_hover.scss';
+
 //
 // Base styles
 //
@@ -11,45 +17,45 @@
   @include border-radius($card-border-radius);
 }
 
-.card-block {
+.cardBlock {
   // Enable `flex-grow: 1` for decks and groups so that card blocks take up
   // as much space as possible, ensuring footers are aligned to the bottom.
   flex: 1 1 auto;
   padding: $card-spacer-x;
 }
 
-.card-title {
+.cardTitle {
   margin-bottom: $card-spacer-y;
 }
 
-.card-subtitle {
+.cardSubtitle {
   margin-top: -($card-spacer-y / 2);
   margin-bottom: 0;
 }
 
-.card-text:last-child {
+.cardText:last-child {
   margin-bottom: 0;
 }
 
-.card-link {
+.cardLink {
   @include hover {
     text-decoration: none;
   }
 
-  + .card-link {
+  + .cardLink {
     margin-left: $card-spacer-x;
   }
 }
 
 .card {
-  > .list-group:first-child {
-    .list-group-item:first-child {
+  > .listGroup:first-child {
+    .listGroupItem:first-child {
       @include border-top-radius($card-border-radius);
     }
   }
 
-  > .list-group:last-child {
-    .list-group-item:last-child {
+  > .listGroup:last-child {
+    .listGroupItem:last-child {
       @include border-bottom-radius($card-border-radius);
     }
   }
@@ -60,7 +66,7 @@
 // Optional textual caps
 //
 
-.card-header {
+.cardHeader {
   padding: $card-spacer-y $card-spacer-x;
   margin-bottom: 0; // Removes the default margin-bottom of <hN>
   background-color: $card-cap-bg;
@@ -71,7 +77,7 @@
   }
 }
 
-.card-footer {
+.cardFooter {
   padding: $card-spacer-y $card-spacer-x;
   background-color: $card-cap-bg;
   border-top: $card-border-width solid $card-border-color;
@@ -86,14 +92,14 @@
 // Header navs
 //
 
-.card-header-tabs {
+.cardHeaderTabs {
   margin-right: -($card-spacer-x / 2);
   margin-bottom: -$card-spacer-y;
   margin-left: -($card-spacer-x / 2);
   border-bottom: 0;
 }
 
-.card-header-pills {
+.cardHeaderPills {
   margin-right: -($card-spacer-x / 2);
   margin-left: -($card-spacer-x / 2);
 }
@@ -103,39 +109,39 @@
 // Background variations
 //
 
-.card-primary {
+.cardPrimary {
   @include card-variant($brand-primary, $brand-primary);
 }
-.card-success {
+.cardSuccess {
   @include card-variant($brand-success, $brand-success);
 }
-.card-info {
+.cardInfo {
   @include card-variant($brand-info, $brand-info);
 }
-.card-warning {
+.cardWarning {
   @include card-variant($brand-warning, $brand-warning);
 }
-.card-danger {
+.cardDanger {
   @include card-variant($brand-danger, $brand-danger);
 }
 
 // Remove all backgrounds
-.card-outline-primary {
+.cardOutlinePrimary {
   @include card-outline-variant($btn-primary-bg);
 }
-.card-outline-secondary {
+.cardOutlineSecondary {
   @include card-outline-variant($btn-secondary-border);
 }
-.card-outline-info {
+.cardOutlineInfo {
   @include card-outline-variant($btn-info-bg);
 }
-.card-outline-success {
+.cardOutlineSuccess {
   @include card-outline-variant($btn-success-bg);
 }
-.card-outline-warning {
+.cardOutlineWarning {
   @include card-outline-variant($btn-warning-bg);
 }
-.card-outline-danger {
+.cardOutlineDanger {
   @include card-outline-variant($btn-danger-bg);
 }
 
@@ -143,7 +149,7 @@
 // Inverse text within a card for use with dark backgrounds
 //
 
-.card-inverse {
+.cardInverse {
   @include card-inverse;
 }
 
@@ -151,18 +157,18 @@
 // Blockquote
 //
 
-.card-blockquote {
+.cardBlockquote {
   padding: 0;
   margin-bottom: 0;
   border-left: 0;
 }
 
 // Card image
-.card-img {
+.cardImg {
   // margin: -1.325rem;
   @include border-radius($card-border-radius-inner);
 }
-.card-img-overlay {
+.cardImgOverlay {
   position: absolute;
   top: 0;
   right: 0;
@@ -174,10 +180,10 @@
 
 
 // Card image caps
-.card-img-top {
+.cardImgTop {
   @include border-top-radius($card-border-radius-inner);
 }
-.card-img-bottom {
+.cardImgBottom {
   @include border-bottom-radius($card-border-radius-inner);
 }
 
@@ -185,7 +191,7 @@
 // Card deck
 
 @include media-breakpoint-up(sm) {
-  .card-deck {
+  .cardDeck {
     display: flex;
     flex-flow: row wrap;
 
@@ -209,7 +215,7 @@
 //
 
 @include media-breakpoint-up(sm) {
-  .card-group {
+  .cardGroup {
     display: flex;
     flex-flow: row wrap;
 
@@ -226,20 +232,20 @@
         &:first-child {
           @include border-right-radius(0);
 
-          .card-img-top {
+          .cardImgTop {
             border-top-right-radius: 0;
           }
-          .card-img-bottom {
+          .cardImgBottom {
             border-bottom-right-radius: 0;
           }
         }
         &:last-child {
           @include border-left-radius(0);
 
-          .card-img-top {
+          .cardImgTop {
             border-top-left-radius: 0;
           }
-          .card-img-bottom {
+          .cardImgBottom {
             border-bottom-left-radius: 0;
           }
         }
@@ -247,8 +253,8 @@
         &:not(:first-child):not(:last-child) {
           border-radius: 0;
 
-          .card-img-top,
-          .card-img-bottom {
+          .cardImgTop,
+          .cardImgBottom {
             border-radius: 0;
           }
         }
@@ -263,7 +269,7 @@
 //
 
 @include media-breakpoint-up(sm) {
-  .card-columns {
+  .cardColumns {
     column-count: $card-columns-count;
     column-gap: $card-columns-gap;
 
