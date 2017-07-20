@@ -9,27 +9,27 @@ Pre-compiled CSS is already provided, so building is only necessary if you'd lik
 The modules are grouped by their category in the Bootstrap [docs](https://v4-alpha.getbootstrap.com/getting-started/introduction/). Here is a list of where to find the styles you're looking for:
 
 ### Layout
- - `/layout/grid.css`
- - `/layout/media.css`
- - `/layout/print.css`
+ - `/layout/grid.css` - 17kb
+ - `/layout/media.css` - 1kb
+ - `/layout/print.css` - 1kb
  
 ### Content
 *Note: Add `reboot.css` to your main entry file (i.e., `index.js`): `import 'bootstrap-css-modules/content/reboot.css'` or link it in your HTML and serve it as a static asset.*
- - `/content/reboot.css`
- - `/content/type.css`
- - `/content/code.css`
- - `/content/images.css`
- - `/content/tables.css`
+ - `/content/reboot.css` - 6kb
+ - `/content/type.css` - 2kb
+ - `/content/code.css` - 1kb
+ - `/content/images.css` - 1kb
+ - `/content/tables.css` - 3kb
  - *Figure classes are in `images.css`*
 
 ### Components
- - `/components/alert.css`
- - `/components/badge.css`
- - `/components/breadcrumb.css`
- - `/components/buttons.css`
- - `/components/buttonGroup.css`
- - `/components/card.css`
- - `/components/carousel.css`
+ - `/components/alert.css` - 2kb
+ - `/components/badge.css` - 2kb
+ - `/components/breadcrumb.css` - 1kb
+ - `/components/buttons.css` - 9kb
+ - `/components/buttonGroup.css` - 4kb
+ - `/components/card.css` - 5kb
+ - `/components/carousel.css` - 
  - `/components/dropdown.css`
  - `/components/forms.css`
  - `/components/inputGroup.css`
@@ -122,8 +122,10 @@ You'll need to provide the relative path to the CSS Module you want to compose f
 }
 ```
 
+Note that composing a class from an external stylesheet will import the entire stylesheet. In this example, `buttons.css` will be added to our bundle and the `btnPrimary` AND `btnDodgerBlue` classes will be applied to our button. `btnDodgerBlue` will appear after the default button styles in the bundle in order to override them.
+
 ## Tree Shaking
-Unfortunately, Webpack does not tree-shake CSS classes (yet). This means even if you `import { col4 }`, you'll get all columns.
+Unfortunately, Webpack does not tree-shake CSS classes (yet). This means even if you `import { col4 }`, you'll get all columns in your bundle.
 
 There are open source solutions for this if it bothers you. Check out [dead-css-loader](https://github.com/simlrh/dead-css-loader) or [purifycss-webpack](https://github.com/webpack-contrib/purifycss-webpack).
 
