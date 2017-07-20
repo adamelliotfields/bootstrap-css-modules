@@ -1,0 +1,86 @@
+.nav {
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.navLink {
+  display: block;
+  padding: 0.5em 1em;
+}
+
+.navLink:focus, .navLink:hover {
+  text-decoration: none;
+}
+
+.navLink.disabled {
+  color: #636c72;
+  cursor: not-allowed;
+}
+
+.navTabs {
+  border-bottom: 1px solid #ddd;
+}
+
+.navTabs .navItem {
+  margin-bottom: -1px;
+}
+
+.navTabs .navLink {
+  border: 1px solid transparent;
+  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
+}
+
+.navTabs .navLink:focus, .navTabs .navLink:hover {
+  border-color: #eceeef #eceeef #ddd;
+}
+
+.navTabs .navLink.disabled {
+  color: #636c72;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.navTabs .navLink.active,
+.navTabs .navItem.show .navLink {
+  color: #464a4c;
+  background-color: #fff;
+  border-color: #ddd #ddd #fff;
+}
+
+.navTabs .dropdownMenu {
+  margin-top: -1px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.navPills .navLink {
+  border-radius: 0.25rem;
+}
+
+.navPills .navLink.active,
+.navPills .navItem.show .navLink {
+  color: #fff;
+  cursor: default;
+  background-color: #0275d8;
+}
+
+.navFill .navItem {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.navJustified .navItem {
+  flex: 1 1 100%;
+  text-align: center;
+}
+
+.tabContent > .tabPane {
+  display: none;
+}
+
+.tabContent > .active {
+  display: block;
+}

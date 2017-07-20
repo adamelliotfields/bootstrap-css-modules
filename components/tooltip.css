@@ -1,0 +1,99 @@
+.tooltip {
+  position: absolute;
+  z-index: 1070;
+  display: block;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-break: auto;
+  line-height: 1.5;
+  text-align: left;
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  white-space: normal;
+  word-break: normal;
+  word-spacing: normal;
+  font-size: 0.875rem;
+  word-wrap: break-word;
+  opacity: 0;
+}
+
+.tooltip.show {
+  opacity: 0.9;
+}
+
+.tooltip.tooltipTop, .tooltip.bsTetherElementAttachedBottom {
+  padding: 5px 0;
+  margin-top: -3px;
+}
+
+.tooltip.tooltipTop .tooltipInner::before, .tooltip.bsTetherElementAttachedBottom .tooltipInner::before {
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+  content: "";
+  border-width: 5px 5px 0;
+  border-top-color: #000;
+}
+
+.tooltip.tooltipRight, .tooltip.bsTetherElementAttachedLeft {
+  padding: 0 5px;
+  margin-left: 3px;
+}
+
+.tooltip.tooltipRight .tooltipInner::before, .tooltip.bsTetherElementAttachedLeft .tooltipInner::before {
+  top: 50%;
+  left: 0;
+  margin-top: -5px;
+  content: "";
+  border-width: 5px 5px 5px 0;
+  border-right-color: #000;
+}
+
+.tooltip.tooltipBottom, .tooltip.bsTetherElementAttachedTop {
+  padding: 5px 0;
+  margin-top: 3px;
+}
+
+.tooltip.tooltipBottom .tooltipInner::before, .tooltip.bsTetherElementAttachedTop .tooltipInner::before {
+  top: 0;
+  left: 50%;
+  margin-left: -5px;
+  content: "";
+  border-width: 0 5px 5px;
+  border-bottom-color: #000;
+}
+
+.tooltip.tooltipLeft, .tooltip.bsTetherElementAttachedRight {
+  padding: 0 5px;
+  margin-left: -3px;
+}
+
+.tooltip.tooltipLeft .tooltipInner::before, .tooltip.bsTetherElementAttachedRight .tooltipInner::before {
+  top: 50%;
+  right: 0;
+  margin-top: -5px;
+  content: "";
+  border-width: 5px 0 5px 5px;
+  border-left-color: #000;
+}
+
+.tooltipInner {
+  max-width: 200px;
+  padding: 3px 8px;
+  color: #fff;
+  text-align: center;
+  background-color: #000;
+  border-radius: 0.25rem;
+}
+
+.tooltipInner::before {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}

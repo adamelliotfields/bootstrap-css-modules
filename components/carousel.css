@@ -1,0 +1,183 @@
+.carousel {
+  position: relative;
+}
+
+.carouselInner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carouselItem {
+  position: relative;
+  display: none;
+  width: 100%;
+}
+
+@media (-webkit-transform-3d) {
+  .carouselItem {
+    transition: transform 0.6s ease-in-out;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
+@supports (transform: translate3d(0, 0, 0)) {
+  .carouselItem {
+    transition: transform 0.6s ease-in-out;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
+.carouselItem.active,
+.carouselItemNext,
+.carouselItemPrev {
+  display: flex;
+}
+
+.carouselItemNext,
+.carouselItemPrev {
+  position: absolute;
+  top: 0;
+}
+
+@media (-webkit-transform-3d) {
+  .carouselItemNext.carouselItemLeft,
+  .carouselItemPrev.carouselItemRight {
+    transform: translate3d(0, 0, 0);
+  }
+  .carouselItemNext,
+  .active.carouselItemRight {
+    transform: translate3d(100%, 0, 0);
+  }
+  .carouselItemPrev,
+  .active.carouselItemLeft {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@supports (transform: translate3d(0, 0, 0)) {
+  .carouselItemNext.carouselItemLeft,
+  .carouselItemPrev.carouselItemRight {
+    transform: translate3d(0, 0, 0);
+  }
+  .carouselItemNext,
+  .active.carouselItemRight {
+    transform: translate3d(100%, 0, 0);
+  }
+  .carouselItemPrev,
+  .active.carouselItemLeft {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.carouselControlPrev,
+.carouselControlNext {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  color: #fff;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.carouselControlPrev:focus, .carouselControlPrev:hover,
+.carouselControlNext:focus,
+.carouselControlNext:hover {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  opacity: .9;
+}
+
+.carouselControlPrev {
+  left: 0;
+}
+
+.carouselControlNext {
+  right: 0;
+}
+
+.carouselControlPrevIcon,
+.carouselControlNextIcon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: transparent no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.carouselControlPrevIcon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M4 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carouselControlNextIcon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M1.5 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.carouselIndicators {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  margin-right: 15%;
+  margin-left: 15%;
+  list-style: none;
+}
+
+.carouselIndicators li {
+  position: relative;
+  flex: 1 0 auto;
+  max-width: 30px;
+  height: 3px;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.carouselIndicators li::before {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  height: 10px;
+  content: "";
+}
+
+.carouselIndicators li::after {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  height: 10px;
+  content: "";
+}
+
+.carouselIndicators .active {
+  background-color: #fff;
+}
+
+.carouselCaption {
+  position: absolute;
+  right: 15%;
+  bottom: 20px;
+  left: 15%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}

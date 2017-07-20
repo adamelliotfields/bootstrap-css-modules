@@ -1,0 +1,81 @@
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+}
+
+.badge:empty {
+  display: none;
+}
+
+.btn .badge {
+  position: relative;
+  top: -1px;
+}
+
+a.badge:focus, a.badge:hover {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.badgePill {
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+  border-radius: 10rem;
+}
+
+.badgeDefault {
+  background-color: #636c72;
+}
+
+.badgeDefault[href]:focus, .badgeDefault[href]:hover {
+  background-color: #4b5257;
+}
+
+.badgePrimary {
+  background-color: #0275d8;
+}
+
+.badgePrimary[href]:focus, .badgePrimary[href]:hover {
+  background-color: #025aa5;
+}
+
+.badgeSuccess {
+  background-color: #5cb85c;
+}
+
+.badgeSuccess[href]:focus, .badgeSuccess[href]:hover {
+  background-color: #449d44;
+}
+
+.badgeInfo {
+  background-color: #5bc0de;
+}
+
+.badgeInfo[href]:focus, .badgeInfo[href]:hover {
+  background-color: #31b0d5;
+}
+
+.badgeWarning {
+  background-color: #f0ad4e;
+}
+
+.badgeWarning[href]:focus, .badgeWarning[href]:hover {
+  background-color: #ec971f;
+}
+
+.badgeDanger {
+  background-color: #d9534f;
+}
+
+.badgeDanger[href]:focus, .badgeDanger[href]:hover {
+  background-color: #c9302c;
+}

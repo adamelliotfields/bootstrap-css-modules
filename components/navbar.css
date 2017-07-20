@@ -1,0 +1,349 @@
+.navbar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+}
+
+.navbarBrand {
+  display: inline-block;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+
+.navbarBrand:focus, .navbarBrand:hover {
+  text-decoration: none;
+}
+
+.navbarNav {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.navbarNav .navLink {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.navbarText {
+  display: inline-block;
+  padding-top: .425rem;
+  padding-bottom: .425rem;
+}
+
+.navbarToggler {
+  align-self: flex-start;
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.navbarToggler:focus, .navbarToggler:hover {
+  text-decoration: none;
+}
+
+.navbarTogglerIcon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  content: "";
+  background: no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.navbarTogglerLeft {
+  position: absolute;
+  left: 1rem;
+}
+
+.navbarTogglerRight {
+  position: absolute;
+  right: 1rem;
+}
+
+@media (max-width: 575px) {
+  .navbarToggleable .navbarNav .dropdownMenu {
+    position: static;
+    float: none;
+  }
+  .navbarToggleable > .container {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 576px) {
+  .navbarToggleable {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .navbarToggleable .navbarNav {
+    flex-direction: row;
+  }
+  .navbarToggleable .navbarNav .navLink {
+    padding-right: .5rem;
+    padding-left: .5rem;
+  }
+  .navbarToggleable > .container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .navbarToggleable .navbarCollapse {
+    display: flex !important;
+    width: 100%;
+  }
+  .navbarToggleable .navbarToggler {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbarToggleableSm .navbarNav .dropdownMenu {
+    position: static;
+    float: none;
+  }
+  .navbarToggleableSm > .container {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbarToggleableSm {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .navbarToggleableSm .navbarNav {
+    flex-direction: row;
+  }
+  .navbarToggleableSm .navbarNav .navLink {
+    padding-right: .5rem;
+    padding-left: .5rem;
+  }
+  .navbarToggleableSm > .container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .navbarToggleableSm .navbarCollapse {
+    display: flex !important;
+    width: 100%;
+  }
+  .navbarToggleableSm .navbarToggler {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbarToggleableMd .navbarNav .dropdownMenu {
+    position: static;
+    float: none;
+  }
+  .navbarToggleableMd > .container {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbarToggleableMd {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .navbarToggleableMd .navbarNav {
+    flex-direction: row;
+  }
+  .navbarToggleableMd .navbarNav .navLink {
+    padding-right: .5rem;
+    padding-left: .5rem;
+  }
+  .navbarToggleableMd > .container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .navbarToggleableMd .navbarCollapse {
+    display: flex !important;
+    width: 100%;
+  }
+  .navbarToggleableMd .navbarToggler {
+    display: none;
+  }
+}
+
+@media (max-width: 1199px) {
+  .navbarToggleableLg .navbarNav .dropdownMenu {
+    position: static;
+    float: none;
+  }
+  .navbarToggleableLg > .container {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbarToggleableLg {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .navbarToggleableLg .navbarNav {
+    flex-direction: row;
+  }
+  .navbarToggleableLg .navbarNav .navLink {
+    padding-right: .5rem;
+    padding-left: .5rem;
+  }
+  .navbarToggleableLg > .container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .navbarToggleableLg .navbarCollapse {
+    display: flex !important;
+    width: 100%;
+  }
+  .navbarToggleableLg .navbarToggler {
+    display: none;
+  }
+}
+
+.navbarToggleableXl {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.navbarToggleableXl .navbarNav .dropdownMenu {
+  position: static;
+  float: none;
+}
+
+.navbarToggleableXl > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.navbarToggleableXl .navbarNav {
+  flex-direction: row;
+}
+
+.navbarToggleableXl .navbarNav .navLink {
+  padding-right: .5rem;
+  padding-left: .5rem;
+}
+
+.navbarToggleableXl > .container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.navbarToggleableXl .navbarCollapse {
+  display: flex !important;
+  width: 100%;
+}
+
+.navbarToggleableXl .navbarToggler {
+  display: none;
+}
+
+.navbarLight .navbarBrand,
+.navbarLight .navbarToggler {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.navbarLight .navbarBrand:focus, .navbarLight .navbarBrand:hover,
+.navbarLight .navbarToggler:focus,
+.navbarLight .navbarToggler:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.navbarLight .navbarNav .navLink {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.navbarLight .navbarNav .navLink:focus, .navbarLight .navbarNav .navLink:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.navbarLight .navbarNav .navLink.disabled {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.navbarLight .navbarNav .open > .navLink,
+.navbarLight .navbarNav .active > .navLink,
+.navbarLight .navbarNav .navLink.open,
+.navbarLight .navbarNav .navLink.active {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.navbarLight .navbarToggler {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.navbarLight .navbarTogglerIcon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbarLight .navbarText {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.navbarInverse .navbarBrand,
+.navbarInverse .navbarToggler {
+  color: white;
+}
+
+.navbarInverse .navbarBrand:focus, .navbarInverse .navbarBrand:hover,
+.navbarInverse .navbarToggler:focus,
+.navbarInverse .navbarToggler:hover {
+  color: white;
+}
+
+.navbarInverse .navbarNav .navLink {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.navbarInverse .navbarNav .navLink:focus, .navbarInverse .navbarNav .navLink:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.navbarInverse .navbarNav .navLink.disabled {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.navbarInverse .navbarNav .open > .navLink,
+.navbarInverse .navbarNav .active > .navLink,
+.navbarInverse .navbarNav .navLink.open,
+.navbarInverse .navbarNav .navLink.active {
+  color: white;
+}
+
+.navbarInverse .navbarToggler {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbarInverse .navbarTogglerIcon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbarInverse .navbarText {
+  color: rgba(255, 255, 255, 0.5);
+}

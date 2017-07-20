@@ -1,0 +1,164 @@
+.btnGroup,
+.btnGroupVertical {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.btnGroup > .btn,
+.btnGroupVertical > .btn {
+  position: relative;
+  flex: 0 1 auto;
+}
+
+.btnGroup > .btn:hover,
+.btnGroupVertical > .btn:hover {
+  z-index: 2;
+}
+
+.btnGroup > .btn:focus, .btnGroup > .btn:active, .btnGroup > .btn.active,
+.btnGroupVertical > .btn:focus,
+.btnGroupVertical > .btn:active,
+.btnGroupVertical > .btn.active {
+  z-index: 2;
+}
+
+.btnGroup .btn + .btn,
+.btnGroup .btn + .btnGroup,
+.btnGroup .btnGroup + .btn,
+.btnGroup .btnGroup + .btnGroup,
+.btnGroupVertical .btn + .btn,
+.btnGroupVertical .btn + .btnGroup,
+.btnGroupVertical .btnGroup + .btn,
+.btnGroupVertical .btnGroup + .btnGroup {
+  margin-left: -1px;
+}
+
+.btnToolbar {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btnToolbar .inputGroup {
+  width: auto;
+}
+
+.btnGroup > .btn:not(:first-child):not(:last-child):not(.dropdownToggle) {
+  border-radius: 0;
+}
+
+.btnGroup > .btn:first-child {
+  margin-left: 0;
+}
+
+.btnGroup > .btn:first-child:not(:last-child):not(.dropdownToggle) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.btnGroup > .btn:last-child:not(:first-child),
+.btnGroup > .dropdownToggle:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.btnGroup > .btnGroup {
+  float: left;
+}
+
+.btnGroup > .btnGroup:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+
+.btnGroup > .btnGroup:first-child:not(:last-child) > .btn:last-child,
+.btnGroup > .btnGroup:first-child:not(:last-child) > .dropdownToggle {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.btnGroup > .btnGroup:last-child:not(:first-child) > .btn:first-child {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.btnGroup .dropdownToggle:active,
+.btnGroup.open .dropdownToggle {
+  outline: 0;
+}
+
+.btn + .dropdownToggleSplit {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+
+.btn + .dropdownToggleSplit::after {
+  margin-left: 0;
+}
+
+.btnSm + .dropdownToggleSplit, .btnGroupSm > .btn + .dropdownToggleSplit {
+  padding-right: 0.375rem;
+  padding-left: 0.375rem;
+}
+
+.btnLg + .dropdownToggleSplit, .btnGroupLg > .btn + .dropdownToggleSplit {
+  padding-right: 1.125rem;
+  padding-left: 1.125rem;
+}
+
+.btnGroupVertical {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.btnGroupVertical .btn,
+.btnGroupVertical .btnGroup {
+  width: 100%;
+}
+
+.btnGroupVertical > .btn + .btn,
+.btnGroupVertical > .btn + .btnGroup,
+.btnGroupVertical > .btnGroup + .btn,
+.btnGroupVertical > .btnGroup + .btnGroup {
+  margin-top: -1px;
+  margin-left: 0;
+}
+
+.btnGroupVertical > .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.btnGroupVertical > .btn:first-child:not(:last-child) {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.btnGroupVertical > .btn:last-child:not(:first-child) {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.btnGroupVertical > .btnGroup:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+
+.btnGroupVertical > .btnGroup:first-child:not(:last-child) > .btn:last-child,
+.btnGroupVertical > .btnGroup:first-child:not(:last-child) > .dropdownToggle {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.btnGroupVertical > .btnGroup:last-child:not(:first-child) > .btn:first-child {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+[data-toggle="buttons"] > .btn input[type="radio"],
+[data-toggle="buttons"] > .btn input[type="checkbox"],
+[data-toggle="buttons"] > .btnGroup > .btn input[type="radio"],
+[data-toggle="buttons"] > .btnGroup > .btn input[type="checkbox"] {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}

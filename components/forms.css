@@ -1,0 +1,322 @@
+.formControl {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #464a4c;
+  background-color: #fff;
+  background-image: none;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.formControl::-ms-expand {
+  background-color: transparent;
+  border: 0;
+}
+
+.formControl:focus {
+  color: #464a4c;
+  background-color: #fff;
+  border-color: #5cb3fd;
+  outline: none;
+}
+
+.formControl::placeholder {
+  color: #636c72;
+  opacity: 1;
+}
+
+.formControl:disabled, .formControl[readonly] {
+  background-color: #eceeef;
+  opacity: 1;
+}
+
+.formControl:disabled {
+  cursor: not-allowed;
+}
+
+select.formControl:not([size]):not([multiple]) {
+  height: calc(2.25rem + 2px);
+}
+
+select.formControl:focus::-ms-value {
+  color: #464a4c;
+  background-color: #fff;
+}
+
+.formControlFile,
+.formControlRange {
+  display: block;
+}
+
+.colFormLabel {
+  padding-top: calc(0.5rem - 1px * 2);
+  padding-bottom: calc(0.5rem - 1px * 2);
+  margin-bottom: 0;
+}
+
+.colFormLabelLg {
+  padding-top: calc(0.75rem - 1px * 2);
+  padding-bottom: calc(0.75rem - 1px * 2);
+  font-size: 1.25rem;
+}
+
+.colFormLabelSm {
+  padding-top: calc(0.25rem - 1px * 2);
+  padding-bottom: calc(0.25rem - 1px * 2);
+  font-size: 0.875rem;
+}
+
+.colFormLegend {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.formControlStatic {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0;
+  line-height: 1.25;
+  border: solid transparent;
+  border-width: 1px 0;
+}
+
+.formControlStatic.formControlSm, .formControlStatic.formControlLg {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.formControlSm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.2rem;
+}
+
+select.formControlSm:not([size]):not([multiple]) {
+  height: 1.8125rem;
+}
+
+.formControlLg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: 0.3rem;
+}
+
+select.formControlLg:not([size]):not([multiple]) {
+  height: 3.16667rem;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.formText {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.formCheck {
+  position: relative;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.formCheck.disabled .formCheckLabel {
+  color: #636c72;
+  cursor: not-allowed;
+}
+
+.formCheckLabel {
+  padding-left: 1.25rem;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.formCheckInput {
+  position: absolute;
+  margin-top: 0.25rem;
+  margin-left: -1.25rem;
+}
+
+.formCheckInput:only-child {
+  position: static;
+}
+
+.formCheckInline {
+  display: inline-block;
+}
+
+.formCheckInline .formCheckLabel {
+  vertical-align: middle;
+}
+
+.formCheckInline + .formCheckInline {
+  margin-left: 0.75rem;
+}
+
+.formControlFeedback {
+  margin-top: 0.25rem;
+}
+
+.formControlSuccess,
+.formControlWarning,
+.formControlDanger {
+  padding-right: 2.25rem;
+  background-repeat: no-repeat;
+  background-position: center right 0.5625rem;
+  background-size: 1.125rem 1.125rem;
+}
+
+.hasSuccess .formControlFeedback,
+.hasSuccess .formControlLabel,
+.hasSuccess .colFormLabel,
+.hasSuccess .formCheckLabel,
+.hasSuccess .customControl {
+  color: #5cb85c;
+}
+
+.hasSuccess .formControl {
+  border-color: #5cb85c;
+}
+
+.hasSuccess .inputGroupAddon {
+  color: #5cb85c;
+  border-color: #5cb85c;
+  background-color: #eaf6ea;
+}
+
+.hasSuccess .formControlSuccess {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%235cb85c' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3E%3C/svg%3E");
+}
+
+.hasWarning .formControlFeedback,
+.hasWarning .formControlLabel,
+.hasWarning .colFormLabel,
+.hasWarning .formCheckLabel,
+.hasWarning .customControl {
+  color: #f0ad4e;
+}
+
+.hasWarning .formControl {
+  border-color: #f0ad4e;
+}
+
+.hasWarning .inputGroupAddon {
+  color: #f0ad4e;
+  border-color: #f0ad4e;
+  background-color: white;
+}
+
+.hasWarning .formControlWarning {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23f0ad4e' d='M4.4 5.324h-.8v-2.46h.8zm0 1.42h-.8V5.89h.8zM3.76.63L.04 7.075c-.115.2.016.425.26.426h7.397c.242 0 .372-.226.258-.426C6.726 4.924 5.47 2.79 4.253.63c-.113-.174-.39-.174-.494 0z'/%3E%3C/svg%3E");
+}
+
+.hasDanger .formControlFeedback,
+.hasDanger .formControlLabel,
+.hasDanger .colFormLabel,
+.hasDanger .formCheckLabel,
+.hasDanger .customControl {
+  color: #d9534f;
+}
+
+.hasDanger .formControl {
+  border-color: #d9534f;
+}
+
+.hasDanger .inputGroupAddon {
+  color: #d9534f;
+  border-color: #d9534f;
+  background-color: #fdf7f7;
+}
+
+.hasDanger .formControlDanger {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23d9534f' viewBox='-2 -2 7 7'%3E%3Cpath stroke='%23d9534f' d='M0 0l3 3m0-3L0 3'/%3E%3Ccircle r='.5'/%3E%3Ccircle cx='3' r='.5'/%3E%3Ccircle cy='3' r='.5'/%3E%3Ccircle cx='3' cy='3' r='.5'/%3E%3C/svg%3E");
+}
+
+.formInline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.formInline .formCheck {
+  width: 100%;
+}
+
+.formInline label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.formInline .formGroup {
+  display: flex;
+  flex: 0 0 auto;
+  flex-flow: row wrap;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.formInline .formControl {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}
+
+.formInline .formControlStatic {
+  display: inline-block;
+}
+
+.formInline .inputGroup {
+  width: auto;
+}
+
+.formInline .formControlLabel {
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.formInline .formCheck {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.formInline .formCheckLabel {
+  padding-left: 0;
+}
+
+.formInline .formCheckInput {
+  position: relative;
+  margin-top: 0;
+  margin-right: 0.25rem;
+  margin-left: 0;
+}
+
+.formInline .customControl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0;
+}
+
+.formInline .customControlIndicator {
+  position: static;
+  display: inline-block;
+  margin-right: 0.25rem;
+  vertical-align: text-bottom;
+}
+
+.formInline .hasFeedback .formControlFeedback {
+  top: 0;
+}
