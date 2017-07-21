@@ -27,6 +27,9 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               config: {
+                ctx: {
+                  autoprefixer: {}
+                },
                 path: path.join(__dirname, 'postcss.config.js')
               }
             }

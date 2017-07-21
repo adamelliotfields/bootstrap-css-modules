@@ -16,10 +16,10 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           use: [
-            'style-loader',
             {
               loader: 'css-loader',
               options: {
+                sourceMap: true,
                 modules: true,
                 localIdentName: '[hash:base64:3]',
                 importLoaders: 1
@@ -28,7 +28,16 @@ module.exports = {
             {
               loader: 'postcss-loader',
               options: {
+                sourceMap: true,
                 config: {
+                  ctx: {
+                    autoprefixer: {},
+                    cssnano: {
+                      discardComments: {
+                        removeAll: true
+                      }
+                    }
+                  },
                   path: path.join(__dirname, 'postcss.config.js')
                 }
               }
@@ -60,13 +69,12 @@ module.exports = {
     }),
     new ExtractTextPlugin({
       filename: 'css/[name].css',
-      disable: false,
-      allChunks: true
+      allChunks: true,
+      ignoreOrder: true
     }),
     new HTMLPlugin({
       template: path.join(__dirname, 'src', 'templates', 'index.ejs'),
-      filename: 'index.html',
-      hash: true
+      filename: 'index.html'
     })
   ]
 };
