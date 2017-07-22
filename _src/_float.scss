@@ -1,6 +1,6 @@
-@import '../_variables.scss';
-@import '../mixins/_breakpoints.scss';
-@import '../mixins/_float.scss';
+@import './_variables.scss';
+@import './mixins/_breakpoints.scss';
+@import './mixins/_float.scss';
 
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {

@@ -1,0 +1,2058 @@
+@import './_variables.scss';
+@import './mixins/_core.scss';
+@import './mixins/_border-radius.scss';
+@import './mixins/_box-shadow.scss';
+@import './mixins/_breakpoints.scss';
+@import './mixins/_container.scss';
+@import './mixins/_hover.scss';
+@import './mixins/_transition.scss';
+
+// Dropdown
+// ==========================================================================
+
+// The dropdown wrapper (`<div>`)
+.dropup,
+.dropdown {
+  position: relative;
+}
+
+.dropdownToggle {
+  // Generate the caret automatically
+  &::after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: $caret-width;
+    vertical-align: middle;
+    content: "";
+    border-top: $caret-width solid;
+    border-right: $caret-width solid transparent;
+    border-left: $caret-width solid transparent;
+  }
+
+  // Prevent the focus on the dropdown toggle when closing dropdowns
+  &:focus {
+    outline: 0;
+  }
+}
+
+.dropup {
+  .dropdownToggle {
+    &::after {
+      border-top: 0;
+      border-bottom: $caret-width solid;
+    }
+  }
+}
+
+// The dropdown menu
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: $zindex-dropdown;
+  display: none; // none by default, but block on "open" of the menu
+  float: left;
+  min-width: $dropdown-min-width;
+  padding: $dropdown-padding-y 0;
+  margin: $dropdown-margin-top 0 0; // override default ul
+  font-size: $font-size-base; // Redeclare because nesting can cause inheritance issues
+  color: $body-color;
+  text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+  list-style: none;
+  background-color: $dropdown-bg;
+  background-clip: padding-box;
+  border: $dropdown-border-width solid $dropdown-border-color;
+  @include border-radius($border-radius);
+  @include box-shadow($dropdown-box-shadow);
+}
+
+// Dividers (basically an `<hr>`) within the dropdown
+.dropdownDivider {
+  @include nav-divider($dropdown-divider-bg);
+}
+
+// `<button>`-specific styles are denoted with `// For <button>s`
+.dropdownItem {
+  display: block;
+  width: 100%; // For `<button>`s
+  padding: 3px $dropdown-item-padding-x;
+  clear: both;
+  font-weight: $font-weight-normal;
+  color: $dropdown-link-color;
+  text-align: inherit; // For `<button>`s
+  white-space: nowrap; // prevent links from randomly breaking onto new lines
+  background: none; // For `<button>`s
+  border: 0; // For `<button>`s
+
+  @include hover-focus {
+    color: $dropdown-link-hover-color;
+    text-decoration: none;
+    background-color: $dropdown-link-hover-bg;
+  }
+
+  &.active,
+  &:active {
+    color: $dropdown-link-active-color;
+    text-decoration: none;
+    background-color: $dropdown-link-active-bg;
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $dropdown-link-disabled-color;
+    cursor: $cursor-disabled;
+    background-color: transparent;
+    // Remove CSS gradients if they're enabled
+    @if $enable-gradients {
+      background-image: none;
+    }
+  }
+}
+
+// Open state for the dropdown
+.show {
+  // Show the menu
+  > .dropdownMenu {
+    display: block;
+  }
+
+  // Remove the outline when :focus is triggered
+  > a {
+    outline: 0;
+  }
+}
+
+// Add extra class to `.dropdown-menu` to flip the alignment of the dropdown
+// menu with the parent.
+.dropdownMenuRight {
+  right: 0;
+  left: auto; // Reset the default from `.dropdown-menu`
+}
+
+.dropdownMenuLeft {
+  right: auto;
+  left: 0;
+}
+
+// Dropdown section headers
+.dropdownHeader {
+  display: block;
+  padding: $dropdown-padding-y $dropdown-item-padding-x;
+  margin-bottom: 0; // for use with heading elements
+  font-size: $font-size-sm;
+  color: $dropdown-header-color;
+  white-space: nowrap; // as with > li > a
+}
+
+// Backdrop to catch body clicks on mobile, etc.
+.dropdownBackdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-dropdown-backdrop;
+}
+
+// Allow for dropdowns to go bottom up (aka, dropup-menu)
+// Just add .dropup after the standard .dropdown class and you're set.
+.dropup {
+  // Different positioning for bottom up menu
+  .dropdownMenu {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: $dropdown-margin-top;
+  }
+}
+
+// Buttons
+// ==========================================================================
+
+// Base styles
+.btn {
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: $input-btn-border-width solid transparent;
+  @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-border-radius);
+  @include transition($btn-transition);
+
+  // Share hover and focus styles
+  @include hover-focus {
+    text-decoration: none;
+  }
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: $btn-focus-box-shadow;
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    cursor: $cursor-disabled;
+    opacity: .65;
+    @include box-shadow(none);
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+  }
+}
+
+// Future-proof disabling of clicks on `<a>` elements
+a.btn.disabled,
+fieldset[disabled] a.btn {
+  pointer-events: none;
+}
+
+// Alternate buttons
+.btnPrimary {
+  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+.btnSecondary {
+  @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+}
+.btnInfo {
+  @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+}
+.btnSuccess {
+  @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+}
+.btnWarning {
+  @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+}
+.btnDanger {
+  @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+}
+
+// Remove all backgrounds
+.btnOutlinePrimary {
+  @include button-outline-variant($btn-primary-bg);
+}
+.btnOutlineSecondary {
+  @include button-outline-variant($btn-secondary-border);
+}
+.btnOutlineInfo {
+  @include button-outline-variant($btn-info-bg);
+}
+.btnOutlineSuccess {
+  @include button-outline-variant($btn-success-bg);
+}
+.btnOutlineWarning {
+  @include button-outline-variant($btn-warning-bg);
+}
+.btnOutlineDanger {
+  @include button-outline-variant($btn-danger-bg);
+}
+
+// Make a button look and behave like a link
+.btnLink {
+  font-weight: $font-weight-normal;
+  color: $link-color;
+  border-radius: 0;
+
+  &,
+  &:active,
+  &.active,
+  &:disabled {
+    background-color: transparent;
+    @include box-shadow(none);
+  }
+  &,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  @include hover {
+    border-color: transparent;
+  }
+  @include hover-focus {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+    background-color: transparent;
+  }
+  &:disabled {
+    color: $btn-link-disabled-color;
+
+    @include hover-focus {
+      text-decoration: none;
+    }
+  }
+}
+
+// Button Sizes
+.btnLg {
+  // line-height: ensure even-numbered height of button next to large input
+  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $font-size-lg, $btn-border-radius-lg);
+}
+.btnSm {
+  // line-height: ensure proper height of button next to small input
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-border-radius-sm);
+}
+
+// Block button
+.btnBlock {
+  display: block;
+  width: 100%;
+}
+
+// Vertically space out multiple block buttons
+.btnBlock + .btnBlock {
+  margin-top: $btn-block-spacing-y;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btnBlock {
+    width: 100%;
+  }
+}
+
+// Button Group
+// ==========================================================================
+
+// Make the div behave like a button
+.btnGroup,
+.btnGroupVertical {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle; // match .btn alignment given font-size hack above
+
+  > .btn {
+    position: relative;
+    flex: 0 1 auto;
+
+    // Bring the hover, focused, and "active" buttons to the fron to overlay
+    // the borders properly
+    @include hover {
+      z-index: 2;
+    }
+    &:focus,
+    &:active,
+    &.active {
+      z-index: 2;
+    }
+  }
+
+  // Prevent double borders when buttons are next to each other
+  .btn + .btn,
+  .btn + .btnGroup,
+  .btnGroup + .btn,
+  .btnGroup + .btnGroup {
+    margin-left: -$input-btn-border-width;
+  }
+}
+
+// Optional: Group multiple button groups together for a toolbar
+.btnToolbar {
+  display: flex;
+  justify-content: flex-start;
+
+  .inputGroup {
+    width: auto;
+  }
+}
+
+.btnGroup > .btn:not(:first-child):not(:last-child):not(.dropdownToggle) {
+  border-radius: 0;
+}
+
+// Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
+.btnGroup > .btn:first-child {
+  margin-left: 0;
+
+  &:not(:last-child):not(.dropdownToggle) {
+    @include border-right-radius(0);
+  }
+}
+// Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
+.btnGroup > .btn:last-child:not(:first-child),
+.btnGroup > .dropdownToggle:not(:first-child) {
+  @include border-left-radius(0);
+}
+
+// Custom edits for including btn-groups within btn-groups (useful for including dropdown buttons within a btn-group)
+.btnGroup > .btnGroup {
+  float: left;
+}
+.btnGroup > .btnGroup:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+.btnGroup > .btnGroup:first-child:not(:last-child) {
+  > .btn:last-child,
+  > .dropdownToggle {
+    @include border-right-radius(0);
+  }
+}
+.btnGroup > .btnGroup:last-child:not(:first-child) > .btn:first-child {
+  @include border-left-radius(0);
+}
+
+// On active and open, don't show outline
+.btnGroup .dropdownToggle:active,
+.btnGroup.open .dropdownToggle {
+  outline: 0;
+}
+
+// Remix the default button sizing classes into new ones for easier manipulation.
+.btnGroupSm > .btn { @extend .btnSm; }
+.btnGroupLg > .btn { @extend .btnLg; }
+
+// Split button dropdowns
+.btn + .dropdownToggleSplit {
+  padding-right: $btn-padding-x * .75;
+  padding-left: $btn-padding-x * .75;
+
+  &::after {
+    margin-left: 0;
+  }
+}
+
+.btnSm + .dropdownToggleSplit {
+  padding-right: $btn-padding-x-sm * .75;
+  padding-left: $btn-padding-x-sm * .75;
+}
+
+.btnLg + .dropdownToggleSplit {
+  padding-right: $btn-padding-x-lg * .75;
+  padding-left: $btn-padding-x-lg * .75;
+}
+
+// The clickable button for toggling the menu
+// Remove the gradient and set the same inset shadow as the :active state
+.btnGroup.open .dropdownToggle {
+  @include box-shadow($btn-active-box-shadow);
+
+  // Show no shadow for `.btn-link` since it has no other button styles.
+  &.btnLink {
+    @include box-shadow(none);
+  }
+}
+
+// Vertical button groups
+.btnGroupVertical {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  .btn,
+  .btnGroup {
+    width: 100%;
+  }
+
+  > .btn + .btn,
+  > .btn + .btnGroup,
+  > .btnGroup + .btn,
+  > .btnGroup + .btnGroup {
+    margin-top: -$input-btn-border-width;
+    margin-left: 0;
+  }
+}
+
+.btnGroupVertical > .btn {
+  &:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+  &:first-child:not(:last-child) {
+    @include border-bottom-radius(0);
+  }
+  &:last-child:not(:first-child) {
+    @include border-top-radius(0);
+  }
+}
+.btnGroupVertical > .btnGroup:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+.btnGroupVertical > .btnGroup:first-child:not(:last-child) {
+  > .btn:last-child,
+  > .dropdownToggle {
+    @include border-bottom-radius(0);
+  }
+}
+.btnGroupVertical > .btnGroup:last-child:not(:first-child) > .btn:first-child {
+  @include border-top-radius(0);
+}
+
+// In order to support the browser's form validation feedback, powered by the
+// `required` attribute, we have to "hide" the inputs via `clip`. We cannot use
+// `display: none;` or `visibility: hidden;` as that also hides the popover.
+// Simply visually hiding the inputs via `opacity` would leave them clickable in
+// certain cases which is prevented by using `clip` and `pointer-events`.
+// This way, we ensure a DOM element is visible to position the popover from.
+//
+// See https://github.com/twbs/bootstrap/pull/12794 and
+// https://github.com/twbs/bootstrap/pull/14559 for more information.
+
+[data-toggle="buttons"] {
+  > .btn,
+  > .btnGroup > .btn {
+    input[type="radio"],
+    input[type="checkbox"] {
+      position: absolute;
+      clip: rect(0,0,0,0);
+      pointer-events: none;
+    }
+  }
+}
+
+// Badge
+// ==========================================================================
+
+// Requires one of the contextual, color modifier classes for `color` and `background-color`.
+.badge {
+  display: inline-block;
+  padding: $badge-padding-y $badge-padding-x;
+  font-size: $badge-font-size;
+  font-weight: $badge-font-weight;
+  line-height: 1;
+  color: $badge-color;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  @include border-radius();
+
+  // Empty badges collapse automatically
+  &:empty {
+    display: none;
+  }
+}
+
+// Quick fix for badges in buttons
+.btn .badge {
+  position: relative;
+  top: -1px;
+}
+
+// Add hover effects, but only for links
+a.badge {
+  @include hover-focus {
+    color: $badge-link-hover-color;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+// Make them extra rounded with a modifier to replace v3's badges.
+.badgePill {
+  padding-right: $badge-pill-padding-x;
+  padding-left: $badge-pill-padding-x;
+  @include border-radius($badge-pill-border-radius);
+}
+
+// Contextual variations (linked badges get darker on :hover).
+.badgeDefault {
+  @include badge-variant($badge-default-bg);
+}
+
+.badgePrimary {
+  @include badge-variant($badge-primary-bg);
+}
+
+.badgeSuccess {
+  @include badge-variant($badge-success-bg);
+}
+
+.badgeInfo {
+  @include badge-variant($badge-info-bg);
+}
+
+.badgeWarning {
+  @include badge-variant($badge-warning-bg);
+}
+
+.badgeDanger {
+  @include badge-variant($badge-danger-bg);
+}
+
+// Input Group
+// ==========================================================================
+
+// Base styles
+.inputGroup {
+  position: relative;
+  display: flex;
+  width: 100%;
+
+  .formControl {
+    // Ensure that the input is always above the *appended* addon button for
+    // proper border colors.
+    position: relative;
+    z-index: 2;
+    flex: 1 1 auto;
+    // Add width 1% and flex-basis auto to ensure that button will not wrap out
+    // the column. Applies to IE Edge+ and Firefox. Chrome does not require this.
+    width: 1%;
+    margin-bottom: 0;
+
+    // Bring the "active" form control to the front
+    @include hover-focus-active {
+      z-index: 3;
+    }
+  }
+}
+
+.inputGroupAddon,
+.inputGroupBtn,
+.inputGroup .formControl {
+  // Vertically centers the content of the addons within the input group
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &:not(:first-child):not(:last-child) {
+    @include border-radius(0);
+  }
+}
+
+.inputGroupAddon,
+.inputGroupBtn {
+  white-space: nowrap;
+  vertical-align: middle; // Match the inputs
+}
+
+// Remix the default form control sizing classes into new ones for easier manipulation.
+.inputGroupLg > .formControl,
+.inputGroupLg > .inputGroupAddon,
+.inputGroupLg > .inputGroupBtn > .btn {
+  @extend .formControlLg;
+}
+.inputGroupSm > .formControl,
+.inputGroupSm > .inputGroupAddon,
+.inputGroupSm > .inputGroupBtn > .btn {
+  @extend .formControlSm;
+}
+
+// Text input groups
+.inputGroupAddon {
+  padding: $input-padding-y $input-padding-x;
+  margin-bottom: 0; // Allow use of <label> elements by overriding our default margin-bottom
+  font-size: $font-size-base; // Match inputs
+  font-weight: $font-weight-normal;
+  line-height: $input-line-height;
+  color: $input-color;
+  text-align: center;
+  background-color: $input-group-addon-bg;
+  border: $input-btn-border-width solid $input-group-addon-border-color;
+  @include border-radius($input-border-radius);
+
+  // Sizing
+  &.formControlSm {
+    padding: $input-padding-y-sm $input-padding-x-sm;
+    font-size: $font-size-sm;
+    @include border-radius($input-border-radius-sm);
+  }
+  &.formControlLg {
+    padding: $input-padding-y-lg $input-padding-x-lg;
+    font-size: $font-size-lg;
+    @include border-radius($input-border-radius-lg);
+  }
+
+  // Nuke default margins from checkboxes and radios to vertically center within.
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-top: 0;
+  }
+}
+
+// Reset rounded corners
+.inputGroup .formControl:not(:last-child),
+.inputGroupAddon:not(:last-child),
+.inputGroupBtn:not(:last-child) > .btn,
+.inputGroupBtn:not(:last-child) > .btnGroup > .btn,
+.inputGroupBtn:not(:last-child) > .dropdownToggle,
+.inputGroupBtn:not(:first-child) > .btn:not(:last-child):not(.dropdownToggle),
+.inputGroupBtn:not(:first-child) > .btnGroup:not(:last-child) > .btn {
+  @include border-right-radius(0);
+}
+.inputGroupAddon:not(:last-child) {
+  border-right: 0;
+}
+.inputGroup .formControl:not(:first-child),
+.inputGroupAddon:not(:first-child),
+.inputGroupBtn:not(:first-child) > .btn,
+.inputGroupBtn:not(:first-child) > .btnGroup > .btn,
+.inputGroupBtn:not(:first-child) > .dropdownToggle,
+.inputGroupBtn:not(:last-child) > .btn:not(:first-child),
+.inputGroupBtn:not(:last-child) > .btnGroup:not(:first-child) > .btn {
+  @include border-left-radius(0);
+}
+.formControl + .inputGroupAddon:not(:first-child) {
+  border-left: 0;
+}
+
+// Button input groups
+.inputGroupBtn {
+  position: relative;
+  // Jankily prevent input button groups from wrapping with `white-space` and
+  // `font-size` in combination with `inline-block` on buttons.
+  font-size: 0;
+  white-space: nowrap;
+
+  // Negative margin for spacing, position for bringing hovered/focused/actived
+  // element above the siblings.
+  > .btn {
+    position: relative;
+    // Vertically stretch the button and center its content
+    flex: 1;
+
+    + .btn {
+      margin-left: (-$input-btn-border-width);
+    }
+
+    // Bring the "active" button to the front
+    @include hover-focus-active {
+      z-index: 3;
+    }
+  }
+
+  // Negative margin to only have a single, shared border between the two
+  &:not(:last-child) {
+    > .btn,
+    > .btnGroup {
+      margin-right: (-$input-btn-border-width);
+    }
+  }
+  &:not(:first-child) {
+    > .btn,
+    > .btnGroup {
+      z-index: 2;
+      margin-left: (-$input-btn-border-width);
+      // Because specificity
+      @include hover-focus-active {
+        z-index: 3;
+      }
+    }
+  }
+}
+
+// Custom Forms
+// ==========================================================================
+
+// Embedded icons from Open Iconic.
+// Released under MIT and copyright 2014 Waybury.
+// https://useiconic.com/open
+
+// Base class takes care of all the key behavioral aspects.
+.customControl {
+  position: relative;
+  display: inline-flex;
+  min-height: (1rem * $line-height-base);
+  padding-left: $custom-control-gutter;
+  margin-right: $custom-control-spacer-x;
+  cursor: pointer;
+}
+
+.customControlInput {
+  position: absolute;
+  z-index: -1; // Put the input behind the label so it doesn't overlay text
+  opacity: 0;
+
+  &:checked ~ .customControlIndicator {
+    color: $custom-control-checked-indicator-color;
+    background-color: $custom-control-checked-indicator-bg;
+    @include box-shadow($custom-control-checked-indicator-box-shadow);
+  }
+
+  &:focus ~ .customControlIndicator {
+    // the mixin is not used here to make sure there is feedback
+    box-shadow: $custom-control-focus-indicator-box-shadow;
+  }
+
+  &:active ~ .customControlIndicator {
+    color: $custom-control-active-indicator-color;
+    background-color: $custom-control-active-indicator-bg;
+    @include box-shadow($custom-control-active-indicator-box-shadow);
+  }
+
+  &:disabled {
+    ~ .customControlIndicator {
+      cursor: $custom-control-disabled-cursor;
+      background-color: $custom-control-disabled-indicator-bg;
+    }
+
+    ~ .customControlDescription {
+      color: $custom-control-disabled-description-color;
+      cursor: $custom-control-disabled-cursor;
+    }
+  }
+}
+
+// Generates a shadow element to create our makeshift checkbox/radio background.
+.customControlIndicator {
+  position: absolute;
+  top: (($line-height-base - $custom-control-indicator-size) / 2);
+  left: 0;
+  display: block;
+  width: $custom-control-indicator-size;
+  height: $custom-control-indicator-size;
+  pointer-events: none;
+  user-select: none;
+  background-color: $custom-control-indicator-bg;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: $custom-control-indicator-bg-size;
+  @include box-shadow($custom-control-indicator-box-shadow);
+}
+
+// Tweak just a few things for checkboxes.
+.customCheckbox {
+  .customControlIndicator {
+    @include border-radius($custom-checkbox-radius);
+  }
+
+  .customControlInput:checked ~ .customControlIndicator {
+    background-image: $custom-checkbox-checked-icon;
+  }
+
+  .customControlInput:indeterminate ~ .customControlIndicator {
+    background-color: $custom-checkbox-indeterminate-bg;
+    background-image: $custom-checkbox-indeterminate-icon;
+    @include box-shadow($custom-checkbox-indeterminate-box-shadow);
+  }
+}
+
+// Tweak just a few things for radios.
+.customRadio {
+  .customControlIndicator {
+    border-radius: $custom-radio-radius;
+  }
+
+  .customControlInput:checked ~ .customControlIndicator {
+    background-image: $custom-radio-checked-icon;
+  }
+}
+
+// By default radios and checkboxes are `inline-block` with no additional spacing set.
+// Use these optional classes to tweak the layout.
+.customControlsStacked {
+  display: flex;
+  flex-direction: column;
+
+  .customControl {
+    margin-bottom: $custom-control-spacer-y;
+
+    + .customControl {
+      margin-left: 0;
+    }
+  }
+}
+
+// Replaces the browser default select with a custom one, mostly pulled from
+// http://primercss.io.
+.customSelect {
+  display: inline-block;
+  max-width: 100%;
+  $select-border-width: ($border-width * 2);
+  height: calc(#{$input-height} + #{$select-border-width});
+  padding: $custom-select-padding-y ($custom-select-padding-x + $custom-select-indicator-padding) $custom-select-padding-y $custom-select-padding-x;
+  line-height: $custom-select-line-height;
+  color: $custom-select-color;
+  vertical-align: middle;
+  background: $custom-select-bg $custom-select-indicator no-repeat right $custom-select-padding-x center;
+  background-size: $custom-select-bg-size;
+  border: $custom-select-border-width solid $custom-select-border-color;
+  @include border-radius($custom-select-border-radius);
+  // Use vendor prefixes as `appearance` isn't part of the CSS spec.
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  &:focus {
+    border-color: $custom-select-focus-border-color;
+    outline: none;
+    @include box-shadow($custom-select-focus-box-shadow);
+
+    &::-ms-value {
+      // For visual consistency with other platforms/browsers,
+      // supress the default white text on blue background highlight given to
+      // the selected option text when the (still closed) <select> receives focus
+      // in IE and (under certain conditions) Edge.
+      // See https://github.com/twbs/bootstrap/issues/19398.
+      color: $input-color;
+      background-color: $input-bg;
+    }
+  }
+
+  &:disabled {
+    color: $custom-select-disabled-color;
+    cursor: $cursor-disabled;
+    background-color: $custom-select-disabled-bg;
+  }
+
+  // Hides the default caret in IE11
+  &::-ms-expand {
+    opacity: 0;
+  }
+}
+
+.customSelectSm {
+  padding-top: $custom-select-padding-y;
+  padding-bottom: $custom-select-padding-y;
+  font-size: $custom-select-sm-font-size;
+
+  // &:not([multiple]) {
+  //   height: 26px;
+  //   min-height: 26px;
+  // }
+}
+
+// Custom file input.
+.customFile {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  height: $custom-file-height;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.customFileInput {
+  min-width: $custom-file-width;
+  max-width: 100%;
+  height: $custom-file-height;
+  margin: 0;
+  filter: alpha(opacity = 0);
+  opacity: 0;
+
+  &:focus ~ .customFileControl {
+    @include box-shadow($custom-file-focus-box-shadow);
+  }
+}
+
+.customFileControl {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
+  height: $custom-file-height;
+  padding: $custom-file-padding-x $custom-file-padding-y;
+  line-height: $custom-file-line-height;
+  color: $custom-file-color;
+  pointer-events: none;
+  user-select: none;
+  background-color: $custom-file-bg;
+  border: $custom-file-border-width solid $custom-file-border-color;
+  @include border-radius($custom-file-border-radius);
+  @include box-shadow($custom-file-box-shadow);
+
+  @each $lang, $text in map-get($custom-file-text, placeholder) {
+    &:lang(#{$lang})::after {
+      content: $text;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    top: -$custom-file-border-width;
+    right: -$custom-file-border-width;
+    bottom: -$custom-file-border-width;
+    z-index: 6;
+    display: block;
+    height: $custom-file-height;
+    padding: $custom-file-padding-x $custom-file-padding-y;
+    line-height: $custom-file-line-height;
+    color: $custom-file-button-color;
+    background-color: $custom-file-button-bg;
+    border: $custom-file-border-width solid $custom-file-border-color;
+    @include border-radius(0 $custom-file-border-radius $custom-file-border-radius 0);
+  }
+
+  @each $lang, $text in map-get($custom-file-text, button-label) {
+    &:lang(#{$lang})::before {
+      content: $text;
+    }
+  }
+}
+
+// Forms
+// ==========================================================================
+
+// Textual form controls
+.formControl {
+  display: block;
+  width: 100%;
+  // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  // height: $input-height;
+  padding: $input-padding-y $input-padding-x;
+  font-size: $font-size-base;
+  line-height: $input-line-height;
+  color: $input-color;
+  background-color: $input-bg;
+  // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214.
+  background-image: none;
+  background-clip: padding-box;
+  border: $input-btn-border-width solid $input-border-color;
+
+  // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+  @if $enable-rounded {
+    // Manually use the if/else instead of the mixin to account for iOS override
+    border-radius: $input-border-radius;
+  } @else {
+    // Otherwise undo the iOS default
+    border-radius: 0;
+  }
+
+  @include box-shadow($input-box-shadow);
+  @include transition($input-transition);
+
+  // Unstyle the caret on `<select>`s in IE10+.
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
+  }
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  @include form-control-focus();
+
+  // Placeholder
+  &::placeholder {
+    color: $input-color-placeholder;
+    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+    opacity: 1;
+  }
+
+  // HTML5 says that controls under a fieldset > legend:first-child won't be
+  // disabled if the fieldset is disabled. Due to implementation difficulty, we
+  // don't honor that edge case; we style them as disabled anyway.
+  &:disabled,
+  &[readonly] {
+    background-color: $input-bg-disabled;
+    // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+    opacity: 1;
+  }
+
+  &:disabled {
+    cursor: $cursor-disabled;
+  }
+}
+
+select.formControl {
+  &:not([size]):not([multiple]) {
+    $select-border-width: ($border-width * 2);
+    height: calc(#{$input-height} + #{$select-border-width});
+  }
+
+  &:focus::-ms-value {
+    // Suppress the nested default white text on blue background highlight given to
+    // the selected option text when the (still closed) <select> receives focus
+    // in IE and (under certain conditions) Edge, as it looks bad and cannot be made to
+    // match the appearance of the native widget.
+    // See https://github.com/twbs/bootstrap/issues/19398.
+    color: $input-color;
+    background-color: $input-bg;
+  }
+}
+
+// Make file inputs better match text inputs by forcing them to new lines.
+.formControlFile,
+.formControlRange {
+  display: block;
+}
+
+// For use with horizontal and inline forms, when you need the label text to
+// align with the form controls.
+.colFormLabel {
+  padding-top: calc(#{$input-padding-y} - #{$input-btn-border-width} * 2);
+  padding-bottom: calc(#{$input-padding-y} - #{$input-btn-border-width} * 2);
+  margin-bottom: 0; // Override the `<label>` default
+}
+
+.colFormLabelLg {
+  padding-top: calc(#{$input-padding-y-lg} - #{$input-btn-border-width} * 2);
+  padding-bottom: calc(#{$input-padding-y-lg} - #{$input-btn-border-width} * 2);
+  font-size: $font-size-lg;
+}
+
+.colFormLabelSm {
+  padding-top: calc(#{$input-padding-y-sm} - #{$input-btn-border-width} * 2);
+  padding-bottom: calc(#{$input-padding-y-sm} - #{$input-btn-border-width} * 2);
+  font-size: $font-size-sm;
+}
+
+// For use with horizontal and inline forms, when you need the legend text to
+// be the same size as regular labels, and to align with the form controls.
+.colFormLegend {
+  padding-top: $input-padding-y;
+  padding-bottom: $input-padding-y;
+  margin-bottom: 0;
+  font-size: $font-size-base;
+}
+
+// Apply class to an element to make any string of text align with labels in a
+// horizontal form layout.
+.formControlStatic {
+  padding-top: $input-padding-y;
+  padding-bottom: $input-padding-y;
+  margin-bottom: 0; // match inputs if this class comes on inputs with default margins
+  line-height: $input-line-height;
+  border: solid transparent;
+  border-width: $input-btn-border-width 0;
+
+  &.formControlSm,
+  &.formControlLg {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+// Build on `.form-control` with modifier classes to decrease or increase the height and font-size of form controls.
+// The `.form-group-* form-control` variations are sadly duplicated to avoid the issue documented in https://github.com/twbs/bootstrap/issues/15074.
+.formControlSm {
+  padding: $input-padding-y-sm $input-padding-x-sm;
+  font-size: $font-size-sm;
+  @include border-radius($input-border-radius-sm);
+}
+
+select.formControlSm {
+  &:not([size]):not([multiple]) {
+    height: $input-height-sm;
+  }
+}
+
+.formControlLg {
+  padding: $input-padding-y-lg $input-padding-x-lg;
+  font-size: $font-size-lg;
+  @include border-radius($input-border-radius-lg);
+}
+
+select.formControlLg {
+  &:not([size]):not([multiple]) {
+    height: $input-height-lg;
+  }
+}
+
+// Designed to help with the organization and spacing of vertical forms. For horizontal forms, use the predefined grid classes.
+.formGroup {
+  margin-bottom: $form-group-margin-bottom;
+}
+
+.formText {
+  display: block;
+  margin-top: $form-text-margin-top;
+}
+
+// Indent the labels to position radios/checkboxes as hanging controls.
+.formCheck {
+  position: relative;
+  display: block;
+  margin-bottom: $form-check-margin-bottom;
+
+  &.disabled {
+    .formCheckLabel {
+      color: $text-muted;
+      cursor: $cursor-disabled;
+    }
+  }
+}
+
+.formCheckLabel {
+  padding-left: $form-check-input-gutter;
+  margin-bottom: 0; // Override default `<label>` bottom margin
+  cursor: pointer;
+}
+
+.formCheckInput {
+  position: absolute;
+  margin-top: $form-check-input-margin-y;
+  margin-left: -$form-check-input-gutter;
+
+  &:only-child {
+    position: static;
+  }
+}
+
+// Radios and checkboxes on same line
+.formCheckInline {
+  display: inline-block;
+
+  .formCheckLabel {
+    vertical-align: middle;
+  }
+
+  + .formCheckInline {
+    margin-left: $form-check-inline-margin-x;
+  }
+}
+
+// Apply contextual and semantic states to individual form controls.
+.formControlFeedback {
+  margin-top: $form-feedback-margin-top;
+}
+
+.formControlSuccess,
+.formControlWarning,
+.formControlDanger {
+  padding-right: ($input-padding-x * 3);
+  background-repeat: no-repeat;
+  background-position: center right ($input-height / 4);
+  background-size: ($input-height / 2) ($input-height / 2);
+}
+
+// Form validation states
+.hasSuccess {
+  @include form-control-validation($brand-success);
+
+  .formControlSuccess {
+    background-image: $form-icon-success;
+  }
+}
+
+.hasWarning {
+  @include form-control-validation($brand-warning);
+
+  .formControlWarning {
+    background-image: $form-icon-warning;
+  }
+}
+
+.hasDanger {
+  @include form-control-validation($brand-danger);
+
+  .formControlDanger {
+    background-image: $form-icon-danger;
+  }
+}
+
+// Make forms appear inline(-block) by adding the `.form-inline` class. Inline
+// forms begin stacked on extra small (mobile) devices and then go inline when
+// viewports reach <768px.
+//
+// Requires wrapping inputs and labels with `.form-group` for proper display of
+// default HTML form controls and our custom form controls (e.g., input groups).
+.formInline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center; // Prevent shorter elements from growing to same height as others (e.g., small buttons growing to normal sized button height)
+
+  // Because we use flex, the initial sizing of checkboxes is collapsed and
+  // doesn't occupy the full-width (which is what we want for xs grid tier),
+  // so we force that here.
+  .formCheck {
+    width: 100%;
+  }
+
+  // Kick in the inline
+  @include media-breakpoint-up(sm) {
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    // Inline-block all the things for "inline"
+    .formGroup {
+      display: flex;
+      flex: 0 0 auto;
+      flex-flow: row wrap;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    // Allow folks to *not* use `.form-group`
+    .formControl {
+      display: inline-block;
+      width: auto; // Prevent labels from stacking above inputs in `.form-group`
+      vertical-align: middle;
+    }
+
+    // Make static controls behave like regular ones
+    .formControlStatic {
+      display: inline-block;
+    }
+
+    .inputGroup {
+      width: auto;
+    }
+
+    .formControlLabel {
+      margin-bottom: 0;
+      vertical-align: middle;
+    }
+
+    // Remove default margin on radios/checkboxes that were used for stacking, and
+    // then undo the floating of radios and checkboxes to match.
+    .formCheck {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .formCheckLabel {
+      padding-left: 0;
+    }
+    .formCheckInput {
+      position: relative;
+      margin-top: 0;
+      margin-right: $form-check-input-margin-x;
+      margin-left: 0;
+    }
+
+    // Custom form controls
+    .customControl {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 0;
+    }
+    .customControlIndicator {
+      position: static;
+      display: inline-block;
+      margin-right: $form-check-input-margin-x; // Flexbox alignment means we lose our HTML space here, so we compensate.
+      vertical-align: text-bottom;
+    }
+
+    // Re-override the feedback icon.
+    .hasFeedback .formControlFeedback {
+      top: 0;
+    }
+  }
+}
+
+// Nav
+// ==========================================================================
+
+// Kickstart any navigation component with a set of style resets. Works with `<nav>`s or `<ul>`s.
+.nav {
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.navLink {
+  display: block;
+  padding: $nav-link-padding;
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+
+  // Disabled state lightens text and removes hover/tab effects
+  &.disabled {
+    color: $nav-disabled-link-color;
+    cursor: $cursor-disabled;
+  }
+}
+
+// Tabs
+.navTabs {
+  border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+
+  .navItem {
+    margin-bottom: -$nav-tabs-border-width;
+  }
+
+  .navLink {
+    border: $nav-tabs-border-width solid transparent;
+    @include border-top-radius($nav-tabs-border-radius);
+
+    @include hover-focus {
+      border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
+    }
+
+    &.disabled {
+      color: $nav-disabled-link-color;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+
+  .navLink.active,
+  .navItem.show .navLink {
+    color: $nav-tabs-active-link-hover-color;
+    background-color: $nav-tabs-active-link-hover-bg;
+    border-color: $nav-tabs-active-link-hover-border-color $nav-tabs-active-link-hover-border-color $nav-tabs-active-link-hover-bg;
+  }
+
+  .dropdownMenu {
+    // Make dropdown border overlap tab border
+    margin-top: -$nav-tabs-border-width;
+    // Remove the top rounded corners here since there is a hard edge above the menu
+    @include border-top-radius(0);
+  }
+}
+
+// Pills
+.navPills {
+  .navLink {
+    @include border-radius($nav-pills-border-radius);
+  }
+
+  .navLink.active,
+  .navItem.show .navLink {
+    color: $nav-pills-active-link-color;
+    cursor: default;
+    background-color: $nav-pills-active-link-bg;
+  }
+}
+
+// Justified variants
+.navFill {
+  .navItem {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
+.navJustified {
+  .navItem {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}
+
+// Hide tabbable panes to start, show them when `.active`
+.tabContent {
+  > .tabPane {
+    display: none;
+  }
+  > .active {
+    display: block;
+  }
+}
+
+// Navbar
+// ==========================================================================
+
+// Provide a static navbar from which we expand to create full-width, fixed, and other navbar variations.
+.navbar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: $navbar-padding-y $navbar-padding-x;
+}
+
+// Navbar container
+.navbarContainer {
+  @include make-container();
+  @include make-container-max-widths();
+}
+
+// Used for brand, project, or site names.
+.navbarBrand {
+  display: inline-block;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  margin-right: $navbar-padding-x;
+  font-size: $font-size-lg;
+  line-height: inherit;
+  white-space: nowrap;
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+}
+
+// Navbar link
+.navbarLink {
+  display: block;
+  padding: $nav-link-padding;
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+
+  // Disabled state lightens text and removes hover/tab effects
+  &.disabled {
+    color: $nav-disabled-link-color;
+    cursor: $cursor-disabled;
+  }
+}
+
+// Custom navbar navigation (doesn't require `.nav`, but does make use of `.nav-link`).
+.navbarNav {
+  display: flex;
+  flex-direction: column; // cannot use `inherit` to get the `.navbar`s value
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+
+  .navbarLink {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+
+// Navbar text
+.navbarText {
+  display: inline-block;
+  padding-top:    .425rem;
+  padding-bottom: .425rem;
+}
+
+// Custom styles for responsive collapsing and toggling of navbar contents.
+// Powered by the collapse Bootstrap JavaScript plugin.
+
+// Button for toggling the navbar when in its collapsed state
+.navbarToggler {
+  align-self: flex-start; // Prevent toggler from growing to full width when it's the only visible navbar child
+  padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
+  font-size: $navbar-toggler-font-size;
+  line-height: 1;
+  background: transparent; // remove default button style
+  border: $border-width solid transparent; // remove default button style
+  @include border-radius($navbar-toggler-border-radius);
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+}
+
+// Keep as a separate element so folks can easily override it with another icon or image file as needed.
+.navbarTogglerIcon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  content: "";
+  background: no-repeat center center;
+  background-size: 100% 100%;
+}
+
+// Use `position` on the toggler to prevent it from being auto placed as a flex item and allow easy placement.
+.navbarTogglerLeft {
+  position: absolute;
+  left: $navbar-padding-x;
+}
+.navbarTogglerRight {
+  position: absolute;
+  right: $navbar-padding-x;
+}
+
+// Generate series of `.navbar-toggleable-*` responsive classes for configuring where your navbar collapses.
+.navbarToggleable {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    &#{$infix} {
+      @include media-breakpoint-down($breakpoint) {
+        .navbarNav {
+          .dropdownMenu {
+            position: static;
+            float: none;
+          }
+        }
+
+        > .navbarContainer {
+          padding-right: 0;
+          padding-left: 0;
+        }
+      }
+
+      @include media-breakpoint-up($next) {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        .navbarNav {
+          flex-direction: row;
+
+          .navbarLink {
+            padding-right: .5rem;
+            padding-left: .5rem;
+          }
+        }
+
+        // For nesting containers, have to redeclare for alignment purposes
+        > .navbarContainer {
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+        }
+
+        .navbarCollapse {
+          display: flex !important;
+          width: 100%;
+        }
+
+        .navbarToggler {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// Dark links against a light background
+.navbarLight {
+  .navbarBrand,
+  .navbarToggler {
+    color: $navbar-light-active-color;
+
+    @include hover-focus {
+      color: $navbar-light-active-color;
+    }
+  }
+
+  .navbarNav {
+    .navbarLink {
+      color: $navbar-light-color;
+
+      @include hover-focus {
+        color: $navbar-light-hover-color;
+      }
+
+      &.disabled {
+        color: $navbar-light-disabled-color;
+      }
+    }
+
+    .open > .navbarLink,
+    .active > .navbarLink,
+    .navbarLink.open,
+    .navbarLink.active {
+      color: $navbar-light-active-color;
+    }
+  }
+
+  .navbarToggler {
+    border-color: $navbar-light-toggler-border;
+  }
+
+  .navbarTogglerIcon {
+    background-image: $navbar-light-toggler-bg;
+  }
+
+  .navbarText {
+    color: $navbar-light-color;
+  }
+}
+
+// White links against a dark background
+.navbarInverse {
+  .navbarBrand,
+  .navbarToggler {
+    color: $navbar-inverse-active-color;
+
+    @include hover-focus {
+      color: $navbar-inverse-active-color;
+    }
+  }
+
+  .navbarNav {
+    .navbarLink {
+      color: $navbar-inverse-color;
+
+      @include hover-focus {
+        color: $navbar-inverse-hover-color;
+      }
+
+      &.disabled {
+        color: $navbar-inverse-disabled-color;
+      }
+    }
+
+    .open > .navbarLink,
+    .active > .navbarLink,
+    .navbarLink.open,
+    .navbarLink.active {
+      color: $navbar-inverse-active-color;
+    }
+  }
+
+  .navbarToggler {
+    border-color: $navbar-inverse-toggler-border;
+  }
+
+  .navbarTogglerIcon {
+    background-image: $navbar-inverse-toggler-bg;
+  }
+
+  .navbarText {
+    color: $navbar-inverse-color;
+  }
+}
+
+// List Group
+// ==========================================================================
+
+// Easily usable on <ul>, <ol>, or <div>.
+.listGroup {
+  display: flex;
+  flex-direction: column;
+
+  // No need to set list-style: none; since .list-group-item is block level
+  padding-left: 0; // reset padding because ul and ol
+  margin-bottom: 0;
+}
+
+// Use anchor or button elements instead of `li`s or `div`s to create interactive
+// list items. Includes an extra `.active` modifier class for selected items.
+.listGroupItemAction {
+  width: 100%; // For `<button>`s (anchors become 100% by default though)
+  color: $list-group-link-color;
+  text-align: inherit; // For `<button>`s (anchors inherit)
+
+  .listGroupItemHeading {
+    color: $list-group-link-heading-color;
+  }
+
+  // Hover state
+  @include hover-focus {
+    color: $list-group-link-hover-color;
+    text-decoration: none;
+    background-color: $list-group-hover-bg;
+  }
+
+  &:active {
+    color: $list-group-link-active-color;
+    background-color: $list-group-link-active-bg;
+  }
+}
+
+// Use on `li`s or `div`s within the `.list-group` parent.
+.listGroupItem {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  padding: $list-group-item-padding-y $list-group-item-padding-x;
+  // Place the border on the list items and negative margin up for better styling
+  margin-bottom: -$list-group-border-width;
+  background-color: $list-group-bg;
+  border: $list-group-border-width solid $list-group-border-color;
+
+  &:first-child {
+    @include border-top-radius($list-group-border-radius);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+    @include border-bottom-radius($list-group-border-radius);
+  }
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $list-group-disabled-color;
+    cursor: $cursor-disabled;
+    background-color: $list-group-disabled-bg;
+
+    // Force color to inherit for custom content
+    .listGroupItemHeading {
+      color: inherit;
+    }
+    .listGroupItemText {
+      color: $list-group-disabled-text-color;
+    }
+  }
+
+  // Include both here for `<a>`s and `<button>`s
+  &.active {
+    z-index: 2; // Place active items above their siblings for proper border styling
+    color: $list-group-active-color;
+    background-color: $list-group-active-bg;
+    border-color: $list-group-active-border;
+
+    // Force color to inherit for custom content
+    .listGroupItemHeading,
+    .listGroupItemHeading > small,
+    .listGroupItemHeading > .listGroupItemSmall {
+      color: inherit;
+    }
+
+    .listGroupItemHeading > .listGroupItemSmall {
+      font-size: $small-font-size;
+      font-weight: $font-weight-normal;
+    }
+
+    .listGroupItemText {
+      color: $list-group-active-text-color;
+    }
+  }
+}
+
+// Remove borders and border-radius to keep list group items edge-to-edge. Most
+// useful within other components (e.g., cards).
+.listGroupFlush {
+  .listGroupItem {
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+  }
+
+  &:first-child {
+    .listGroupItem:first-child {
+      border-top: 0;
+    }
+  }
+
+  &:last-child {
+    .listGroupItem:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+// Add modifier classes to change text and background color on individual items.
+// Organizationally, this must come after the `:hover` states.
+@include list-group-item-variant(Success, $state-success-bg, $state-success-text);
+@include list-group-item-variant(Info, $state-info-bg, $state-info-text);
+@include list-group-item-variant(Warning, $state-warning-bg, $state-warning-text);
+@include list-group-item-variant(Danger, $state-danger-bg, $state-danger-text);
+
+// Card
+// ==========================================================================
+
+// Base styles
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: $card-bg;
+  border: $card-border-width solid $card-border-color;
+  @include border-radius($card-border-radius);
+}
+
+.cardBlock {
+  // Enable `flex-grow: 1` for decks and groups so that card blocks take up
+  // as much space as possible, ensuring footers are aligned to the bottom.
+  flex: 1 1 auto;
+  padding: $card-spacer-x;
+}
+
+.cardTitle {
+  margin-bottom: $card-spacer-y;
+}
+
+.cardSubtitle {
+  margin-top: -($card-spacer-y / 2);
+  margin-bottom: 0;
+}
+
+.cardText:last-child {
+  margin-bottom: 0;
+}
+
+.cardLink {
+  @include hover {
+    text-decoration: none;
+  }
+
+  + .cardLink {
+    margin-left: $card-spacer-x;
+  }
+}
+
+.card {
+  > .listGroup:first-child {
+    .listGroupItem:first-child {
+      @include border-top-radius($card-border-radius);
+    }
+  }
+
+  > .listGroup:last-child {
+    .listGroupItem:last-child {
+      @include border-bottom-radius($card-border-radius);
+    }
+  }
+}
+
+// Optional textual caps
+.cardHeader {
+  padding: $card-spacer-y $card-spacer-x;
+  margin-bottom: 0; // Removes the default margin-bottom of <hN>
+  background-color: $card-cap-bg;
+  border-bottom: $card-border-width solid $card-border-color;
+
+  &:first-child {
+    @include border-radius($card-border-radius-inner $card-border-radius-inner 0 0);
+  }
+}
+
+.cardFooter {
+  padding: $card-spacer-y $card-spacer-x;
+  background-color: $card-cap-bg;
+  border-top: $card-border-width solid $card-border-color;
+
+  &:last-child {
+    @include border-radius(0 0 $card-border-radius-inner $card-border-radius-inner);
+  }
+}
+
+// Header navs
+.cardHeaderTabs {
+  margin-right: -($card-spacer-x / 2);
+  margin-bottom: -$card-spacer-y;
+  margin-left: -($card-spacer-x / 2);
+  border-bottom: 0;
+}
+
+.cardHeaderPills {
+  margin-right: -($card-spacer-x / 2);
+  margin-left: -($card-spacer-x / 2);
+}
+
+// Background variations
+.cardPrimary {
+  @include card-variant($brand-primary, $brand-primary);
+}
+.cardSuccess {
+  @include card-variant($brand-success, $brand-success);
+}
+.cardInfo {
+  @include card-variant($brand-info, $brand-info);
+}
+.cardWarning {
+  @include card-variant($brand-warning, $brand-warning);
+}
+.cardDanger {
+  @include card-variant($brand-danger, $brand-danger);
+}
+
+// Remove all backgrounds
+.cardOutlinePrimary {
+  @include card-outline-variant($btn-primary-bg);
+}
+.cardOutlineSecondary {
+  @include card-outline-variant($btn-secondary-border);
+}
+.cardOutlineInfo {
+  @include card-outline-variant($btn-info-bg);
+}
+.cardOutlineSuccess {
+  @include card-outline-variant($btn-success-bg);
+}
+.cardOutlineWarning {
+  @include card-outline-variant($btn-warning-bg);
+}
+.cardOutlineDanger {
+  @include card-outline-variant($btn-danger-bg);
+}
+
+// Inverse text within a card for use with dark backgrounds
+.cardInverse {
+  @include card-inverse;
+}
+
+// Blockquote
+.cardBlockquote {
+  padding: 0;
+  margin-bottom: 0;
+  border-left: 0;
+}
+
+// Card image
+.cardImg {
+  // margin: -1.325rem;
+  @include border-radius($card-border-radius-inner);
+}
+.cardImgOverlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: $card-img-overlay-padding;
+}
+
+// Card image caps
+.cardImgTop {
+  @include border-top-radius($card-border-radius-inner);
+}
+.cardImgBottom {
+  @include border-bottom-radius($card-border-radius-inner);
+}
+
+// Card deck
+@include media-breakpoint-up(sm) {
+  .cardDeck {
+    display: flex;
+    flex-flow: row wrap;
+
+    .card {
+      display: flex;
+      flex: 1 0 0;
+      flex-direction: column;
+
+      // Selectively apply horizontal margins to cards to avoid doing the
+      // negative margin dance like our grid. This differs from the grid
+      // due to the use of margins as gutters instead of padding.
+      &:not(:first-child) { margin-left: $card-deck-margin; }
+      &:not(:last-child) { margin-right: $card-deck-margin; }
+    }
+  }
+}
+
+// Card groups
+@include media-breakpoint-up(sm) {
+  .cardGroup {
+    display: flex;
+    flex-flow: row wrap;
+
+    .card {
+      flex: 1 0 0;
+
+      + .card {
+        margin-left: 0;
+        border-left: 0;
+      }
+
+      // Handle rounded corners
+      @if $enable-rounded {
+        &:first-child {
+          @include border-right-radius(0);
+
+          .cardImgTop {
+            border-top-right-radius: 0;
+          }
+          .cardImgBottom {
+            border-bottom-right-radius: 0;
+          }
+        }
+        &:last-child {
+          @include border-left-radius(0);
+
+          .cardImgTop {
+            border-top-left-radius: 0;
+          }
+          .cardImgBottom {
+            border-bottom-left-radius: 0;
+          }
+        }
+
+        &:not(:first-child):not(:last-child) {
+          border-radius: 0;
+
+          .cardImgTop,
+          .cardImgBottom {
+            border-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Columns
+@include media-breakpoint-up(sm) {
+  .cardColumns {
+    column-count: $card-columns-count;
+    column-gap: $card-columns-gap;
+
+    .card {
+      display: inline-block; // Don't let them vertically span multiple columns
+      width: 100%; // Don't let their width change
+      margin-bottom: $card-columns-margin;
+    }
+  }
+}

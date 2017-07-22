@@ -2,11 +2,7 @@
 @import './mixins/_border-radius.scss';
 @import './mixins/_hover.scss';
 
-// Base class
-//
-// Kickstart any navigation component with a set of style resets. Works with
-// `<nav>`s or `<ul>`s.
-
+// Kickstart any navigation component with a set of style resets. Works with `<nav>`s or `<ul>`s.
 .nav {
   display: flex;
   padding-left: 0;
@@ -29,11 +25,7 @@
   }
 }
 
-
-//
 // Tabs
-//
-
 .navTabs {
   border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
 
@@ -62,20 +54,9 @@
     background-color: $nav-tabs-active-link-hover-bg;
     border-color: $nav-tabs-active-link-hover-border-color $nav-tabs-active-link-hover-border-color $nav-tabs-active-link-hover-bg;
   }
-
-  .dropdownMenu {
-    // Make dropdown border overlap tab border
-    margin-top: -$nav-tabs-border-width;
-    // Remove the top rounded corners here since there is a hard edge above the menu
-    @include border-top-radius(0);
-  }
 }
 
-
-//
 // Pills
-//
-
 .navPills {
   .navLink {
     @include border-radius($nav-pills-border-radius);
@@ -89,11 +70,7 @@
   }
 }
 
-
-//
 // Justified variants
-//
-
 .navFill {
   .navItem {
     flex: 1 1 auto;
@@ -108,11 +85,7 @@
   }
 }
 
-
-// Tabbable tabs
-//
 // Hide tabbable panes to start, show them when `.active`
-
 .tabContent {
   > .tabPane {
     display: none;

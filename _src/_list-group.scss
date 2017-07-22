@@ -3,10 +3,7 @@
 @import './mixins/_hover.scss';
 @import './mixins/_list-group.scss';
 
-// Base class
-//
 // Easily usable on <ul>, <ol>, or <div>.
-
 .listGroup {
   display: flex;
   flex-direction: column;
@@ -16,12 +13,8 @@
   margin-bottom: 0;
 }
 
-
-// Interactive list items
-//
 // Use anchor or button elements instead of `li`s or `div`s to create interactive
 // list items. Includes an extra `.active` modifier class for selected items.
-
 .listGroupItemAction {
   width: 100%; // For `<button>`s (anchors become 100% by default though)
   color: $list-group-link-color;
@@ -44,11 +37,7 @@
   }
 }
 
-
-// Individual list items
-//
 // Use on `li`s or `div`s within the `.list-group` parent.
-
 .listGroupItem {
   position: relative;
   display: flex;
@@ -98,8 +87,13 @@
     // Force color to inherit for custom content
     .listGroupItemHeading,
     .listGroupItemHeading > small,
-    .listGroupItemHeading > .small {
+    .listGroupItemHeading > .listGroupItemSmall {
       color: inherit;
+    }
+
+    .listGroupItemHeading > .listGroupItemSmall {
+      font-size: $small-font-size;
+      font-weight: $font-weight-normal;
     }
 
     .listGroupItemText {
@@ -108,12 +102,8 @@
   }
 }
 
-
-// Flush list items
-//
 // Remove borders and border-radius to keep list group items edge-to-edge. Most
 // useful within other components (e.g., cards).
-
 .listGroupFlush {
   .listGroupItem {
     border-right: 0;
@@ -134,12 +124,8 @@
   }
 }
 
-
-// Contextual variants
-//
 // Add modifier classes to change text and background color on individual items.
 // Organizationally, this must come after the `:hover` states.
-
 @include list-group-item-variant(Success, $state-success-bg, $state-success-text);
 @include list-group-item-variant(Info, $state-info-bg, $state-info-text);
 @include list-group-item-variant(Warning, $state-warning-bg, $state-warning-text);

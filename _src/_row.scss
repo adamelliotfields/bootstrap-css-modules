@@ -1,0 +1,26 @@
+@import './_variables.scss';
+@import './mixins/_breakpoints.scss';
+@import './mixins/_row.scss';
+
+// Row
+//
+// Rows contain and clear the floats of your columns.
+
+@if $enable-grid-classes {
+  .row {
+    @include make-row();
+  }
+
+  // Remove the negative margin from default .row, then the horizontal padding
+  // from all immediate children columns (to prevent runaway style inheritance).
+  .noGutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .col,
+    > [class*="col"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}

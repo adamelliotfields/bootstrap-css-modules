@@ -1,4 +1,4 @@
-@import '../mixins/_clearfix.scss';
+@import './mixins/_clearfix.scss';
 
 .clearfix {
   @include clearfix();

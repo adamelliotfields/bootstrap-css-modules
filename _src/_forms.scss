@@ -1,16 +1,16 @@
 @import './_variables.scss';
-@import './_mixins.scss';
+@import './mixins/_border-radius.scss';
+@import './mixins/_box-shadow.scss';
+@import './mixins/_breakpoints.scss';
+@import './mixins/_forms.scss';
+@import './mixins/_hover.scss';
+@import './mixins/_transition.scss';
 
-// scss-lint:disable QualifyingElement
-
-//
 // Textual form controls
-//
-
 .formControl {
   display: block;
   width: 100%;
-  // // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  // Make inputs at least the height of their button counterpart (base line-height + padding + border)
   // height: $input-height;
   padding: $input-padding-y $input-padding-x;
   font-size: $font-size-base;
@@ -50,8 +50,6 @@
     opacity: 1;
   }
 
-  // Disabled and read-only inputs
-  //
   // HTML5 says that controls under a fieldset > legend:first-child won't be
   // disabled if the fieldset is disabled. Due to implementation difficulty, we
   // don't honor that edge case; we style them as disabled anyway.
@@ -90,11 +88,6 @@ select.formControl {
   display: block;
 }
 
-
-//
-// Labels
-//
-
 // For use with horizontal and inline forms, when you need the label text to
 // align with the form controls.
 .colFormLabel {
@@ -115,11 +108,6 @@ select.formControl {
   font-size: $font-size-sm;
 }
 
-
-//
-// Legends
-//
-
 // For use with horizontal and inline forms, when you need the legend text to
 // be the same size as regular labels, and to align with the form controls.
 .colFormLegend {
@@ -129,12 +117,8 @@ select.formControl {
   font-size: $font-size-base;
 }
 
-
-// Static form control text
-//
 // Apply class to an element to make any string of text align with labels in a
 // horizontal form layout.
-
 .formControlStatic {
   padding-top: $input-padding-y;
   padding-bottom: $input-padding-y;
@@ -150,15 +134,8 @@ select.formControl {
   }
 }
 
-
-// Form control sizing
-//
-// Build on `.form-control` with modifier classes to decrease or increase the
-// height and font-size of form controls.
-//
-// The `.form-group-* form-control` variations are sadly duplicated to avoid the
-// issue documented in https://github.com/twbs/bootstrap/issues/15074.
-
+// Build on `.form-control` with modifier classes to decrease or increase the height and font-size of form controls.
+// The `.form-group-* form-control` variations are sadly duplicated to avoid the issue documented in https://github.com/twbs/bootstrap/issues/15074.
 .formControlSm {
   padding: $input-padding-y-sm $input-padding-x-sm;
   font-size: $font-size-sm;
@@ -183,12 +160,7 @@ select.formControlLg {
   }
 }
 
-
-// Form groups
-//
-// Designed to help with the organization and spacing of vertical forms. For
-// horizontal forms, use the predefined grid classes.
-
+// Designed to help with the organization and spacing of vertical forms. For horizontal forms, use the predefined grid classes.
 .formGroup {
   margin-bottom: $form-group-margin-bottom;
 }
@@ -198,11 +170,7 @@ select.formControlLg {
   margin-top: $form-text-margin-top;
 }
 
-
-// Checkboxes and radios
-//
 // Indent the labels to position radios/checkboxes as hanging controls.
-
 .formCheck {
   position: relative;
   display: block;
@@ -245,11 +213,7 @@ select.formControlLg {
   }
 }
 
-
-// Form control feedback states
-//
 // Apply contextual and semantic states to individual form controls.
-
 .formControlFeedback {
   margin-top: $form-feedback-margin-top;
 }
@@ -288,16 +252,12 @@ select.formControlLg {
   }
 }
 
-
-// Inline forms
-//
 // Make forms appear inline(-block) by adding the `.form-inline` class. Inline
 // forms begin stacked on extra small (mobile) devices and then go inline when
 // viewports reach <768px.
 //
 // Requires wrapping inputs and labels with `.form-group` for proper display of
 // default HTML form controls and our custom form controls (e.g., input groups).
-
 .formInline {
   display: flex;
   flex-flow: row wrap;
@@ -369,23 +329,123 @@ select.formControlLg {
       margin-left: 0;
     }
 
-    // Custom form controls
-    .customControl {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-left: 0;
-    }
-    .customControlIndicator {
-      position: static;
-      display: inline-block;
-      margin-right: $form-check-input-margin-x; // Flexbox alignment means we lose our HTML space here, so we compensate.
-      vertical-align: text-bottom;
-    }
-
     // Re-override the feedback icon.
     .hasFeedback .formControlFeedback {
       top: 0;
     }
   }
+}
+
+// Input group
+.inputGroup {
+  position: relative;
+  display: flex;
+  width: 100%;
+
+  .formControl {
+    // Ensure that the input is always above the *appended* addon button for
+    // proper border colors.
+    position: relative;
+    z-index: 2;
+    flex: 1 1 auto;
+    // Add width 1% and flex-basis auto to ensure that button will not wrap out
+    // the column. Applies to IE Edge+ and Firefox. Chrome does not require this.
+    width: 1%;
+    margin-bottom: 0;
+
+    // Bring the "active" form control to the front
+    @include hover-focus-active {
+      z-index: 3;
+    }
+  }
+}
+
+.inputGroupAddon,
+.inputGroupBtn,
+.inputGroup .formControl {
+  // Vertically centers the content of the addons within the input group
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &:not(:first-child):not(:last-child) {
+    @include border-radius(0);
+  }
+}
+
+.inputGroupAddon,
+.inputGroupBtn {
+  white-space: nowrap;
+  vertical-align: middle; // Match the inputs
+}
+
+// Remix the default form control sizing classes into new ones for easier manipulation.
+.inputGroupLg > .formControl,
+.inputGroupLg > .inputGroupAddon {
+  @extend .formControlLg;
+}
+
+.inputGroupSm > .formControl,
+.inputGroupSm > .inputGroupAddon {
+  @extend .formControlSm;
+}
+
+// Text input groups
+.inputGroupAddon {
+  padding: $input-padding-y $input-padding-x;
+  margin-bottom: 0; // Allow use of <label> elements by overriding our default margin-bottom
+  font-size: $font-size-base; // Match inputs
+  font-weight: $font-weight-normal;
+  line-height: $input-line-height;
+  color: $input-color;
+  text-align: center;
+  background-color: $input-group-addon-bg;
+  border: $input-btn-border-width solid $input-group-addon-border-color;
+  @include border-radius($input-border-radius);
+
+  // Sizing
+  &.formControlSm {
+    padding: $input-padding-y-sm $input-padding-x-sm;
+    font-size: $font-size-sm;
+    @include border-radius($input-border-radius-sm);
+  }
+  &.formControlLg {
+    padding: $input-padding-y-lg $input-padding-x-lg;
+    font-size: $font-size-lg;
+    @include border-radius($input-border-radius-lg);
+  }
+
+  // Nuke default margins from checkboxes and radios to vertically center within.
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-top: 0;
+  }
+}
+
+// Reset rounded corners
+.inputGroup .formControl:not(:last-child),
+.inputGroupAddon:not(:last-child) {
+  @include border-right-radius(0);
+}
+
+.inputGroupAddon:not(:last-child) {
+  border-right: 0;
+}
+
+.inputGroup .formControl:not(:first-child),
+.inputGroupAddon:not(:first-child) {
+  @include border-left-radius(0);
+}
+
+.formControl + .inputGroupAddon:not(:first-child) {
+  border-left: 0;
+}
+
+// Button input groups
+.inputGroupBtn {
+  position: relative;
+  // Jankily prevent input button groups from wrapping with `white-space` and
+  // `font-size` in combination with `inline-block` on buttons.
+  font-size: 0;
+  white-space: nowrap;
 }

@@ -1,0 +1,25 @@
+@import './_variables.scss';
+@import './mixins/_breakpoints.scss';
+
+// Flex variation
+//
+// Custom styles for additional flex alignment options.
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .flex#{$infix}First { order: -1; }
+    .flex#{$infix}Last { order: 1; }
+    .flex#{$infix}Unordered { order: 0; }
+
+    .flex#{$infix}Row { flex-direction: row !important; }
+    .flex#{$infix}Column { flex-direction: column !important; }
+    .flex#{$infix}RowReverse { flex-direction: row-reverse !important; }
+    .flex#{$infix}ColumnReverse { flex-direction: column-reverse !important; }
+
+    .flex#{$infix}Wrap { flex-wrap: wrap !important; }
+    .flex#{$infix}Nowrap { flex-wrap: nowrap !important; }
+    .flex#{$infix}WrapReverse { flex-wrap: wrap-reverse !important; }
+  }
+}

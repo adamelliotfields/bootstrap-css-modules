@@ -4,10 +4,7 @@
 @import './mixins/_cards.scss';
 @import './mixins/_hover.scss';
 
-//
 // Base styles
-//
-
 .card {
   position: relative;
   display: flex;
@@ -47,25 +44,7 @@
   }
 }
 
-.card {
-  > .listGroup:first-child {
-    .listGroupItem:first-child {
-      @include border-top-radius($card-border-radius);
-    }
-  }
-
-  > .listGroup:last-child {
-    .listGroupItem:last-child {
-      @include border-bottom-radius($card-border-radius);
-    }
-  }
-}
-
-
-//
 // Optional textual caps
-//
-
 .cardHeader {
   padding: $card-spacer-y $card-spacer-x;
   margin-bottom: 0; // Removes the default margin-bottom of <hN>
@@ -87,11 +66,7 @@
   }
 }
 
-
-//
 // Header navs
-//
-
 .cardHeaderTabs {
   margin-right: -($card-spacer-x / 2);
   margin-bottom: -$card-spacer-y;
@@ -104,11 +79,7 @@
   margin-left: -($card-spacer-x / 2);
 }
 
-
-//
 // Background variations
-//
-
 .cardPrimary {
   @include card-variant($brand-primary, $brand-primary);
 }
@@ -145,18 +116,12 @@
   @include card-outline-variant($btn-danger-bg);
 }
 
-//
 // Inverse text within a card for use with dark backgrounds
-//
-
 .cardInverse {
   @include card-inverse;
 }
 
-//
 // Blockquote
-//
-
 .cardBlockquote {
   padding: 0;
   margin-bottom: 0;
@@ -177,8 +142,6 @@
   padding: $card-img-overlay-padding;
 }
 
-
-
 // Card image caps
 .cardImgTop {
   @include border-top-radius($card-border-radius-inner);
@@ -187,9 +150,7 @@
   @include border-bottom-radius($card-border-radius-inner);
 }
 
-
 // Card deck
-
 @include media-breakpoint-up(sm) {
   .cardDeck {
     display: flex;
@@ -209,11 +170,7 @@
   }
 }
 
-
-//
 // Card groups
-//
-
 @include media-breakpoint-up(sm) {
   .cardGroup {
     display: flex;
@@ -263,11 +220,7 @@
   }
 }
 
-
-//
 // Columns
-//
-
 @include media-breakpoint-up(sm) {
   .cardColumns {
     column-count: $card-columns-count;

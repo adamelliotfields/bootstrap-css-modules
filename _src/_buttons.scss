@@ -1,14 +1,11 @@
 @import './_variables.scss';
-@import './_transitions.scss';
 @import './mixins/_border-radius.scss';
+@import './mixins/_box-shadow.scss';
 @import './mixins/_buttons.scss';
+@import './mixins/_hover.scss';
+@import './mixins/_transition.scss';
 
-// scss-lint:disable QualifyingElement
-
-//
 // Base styles
-//
-
 .btn {
   display: inline-block;
   font-weight: $btn-font-weight;
@@ -52,11 +49,7 @@ fieldset[disabled] a.btn {
   pointer-events: none;
 }
 
-
-//
 // Alternate buttons
-//
-
 .btnPrimary {
   @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
 }
@@ -96,11 +89,6 @@ fieldset[disabled] a.btn {
   @include button-outline-variant($btn-danger-bg);
 }
 
-
-//
-// Link buttons
-//
-
 // Make a button look and behave like a link
 .btnLink {
   font-weight: $font-weight-normal;
@@ -136,11 +124,7 @@ fieldset[disabled] a.btn {
   }
 }
 
-
-//
 // Button Sizes
-//
-
 .btnLg {
   // line-height: ensure even-numbered height of button next to large input
   @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $font-size-lg, $btn-border-radius-lg);
@@ -150,11 +134,7 @@ fieldset[disabled] a.btn {
   @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-border-radius-sm);
 }
 
-
-//
 // Block button
-//
-
 .btnBlock {
   display: block;
   width: 100%;
@@ -171,5 +151,153 @@ input[type="reset"],
 input[type="button"] {
   &.btnBlock {
     width: 100%;
+  }
+}
+
+// Button Group
+// ==========================================================================
+
+// Make the div behave like a button
+.btnGroup,
+.btnGroupVertical {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle; // match .btn alignment given font-size hack above
+
+  > .btn {
+    position: relative;
+    flex: 0 1 auto;
+
+    // Bring the hover, focused, and "active" buttons to the fron to overlay
+    // the borders properly
+    @include hover {
+      z-index: 2;
+    }
+    &:focus,
+    &:active,
+    &.active {
+      z-index: 2;
+    }
+  }
+
+  // Prevent double borders when buttons are next to each other
+  .btn + .btn,
+  .btn + .btnGroup,
+  .btnGroup + .btn,
+  .btnGroup + .btnGroup {
+    margin-left: -$input-btn-border-width;
+  }
+}
+
+// Optional: Group multiple button groups together for a toolbar
+.btnToolbar {
+  display: flex;
+  justify-content: flex-start;
+
+  .inputGroup {
+    width: auto;
+  }
+}
+
+.btnGroup > .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+// Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
+.btnGroup > .btn:first-child {
+  margin-left: 0;
+
+  &:not(:last-child) {
+    @include border-right-radius(0);
+  }
+}
+// Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
+.btnGroup > .btn:last-child:not(:first-child) {
+  @include border-left-radius(0);
+}
+
+// Custom edits for including btn-groups within btn-groups (useful for including dropdown buttons within a btn-group)
+.btnGroup > .btnGroup {
+  float: left;
+}
+.btnGroup > .btnGroup:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+.btnGroup > .btnGroup:first-child:not(:last-child) {
+  > .btn:last-child {
+    @include border-right-radius(0);
+  }
+}
+.btnGroup > .btnGroup:last-child:not(:first-child) > .btn:first-child {
+  @include border-left-radius(0);
+}
+
+// Remix the default button sizing classes into new ones for easier manipulation.
+.btnGroupSm > .btn { @extend .btnSm; }
+.btnGroupLg > .btn { @extend .btnLg; }
+
+// Vertical button groups
+.btnGroupVertical {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  .btn,
+  .btnGroup {
+    width: 100%;
+  }
+
+  > .btn + .btn,
+  > .btn + .btnGroup,
+  > .btnGroup + .btn,
+  > .btnGroup + .btnGroup {
+    margin-top: -$input-btn-border-width;
+    margin-left: 0;
+  }
+}
+
+.btnGroupVertical > .btn {
+  &:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+  &:first-child:not(:last-child) {
+    @include border-bottom-radius(0);
+  }
+  &:last-child:not(:first-child) {
+    @include border-top-radius(0);
+  }
+}
+.btnGroupVertical > .btnGroup:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+.btnGroupVertical > .btnGroup:first-child:not(:last-child) {
+  > .btn:last-child {
+    @include border-bottom-radius(0);
+  }
+}
+.btnGroupVertical > .btnGroup:last-child:not(:first-child) > .btn:first-child {
+  @include border-top-radius(0);
+}
+
+// In order to support the browser's form validation feedback, powered by the
+// `required` attribute, we have to "hide" the inputs via `clip`. We cannot use
+// `display: none;` or `visibility: hidden;` as that also hides the popover.
+// Simply visually hiding the inputs via `opacity` would leave them clickable in
+// certain cases which is prevented by using `clip` and `pointer-events`.
+// This way, we ensure a DOM element is visible to position the popover from.
+//
+// See https://github.com/twbs/bootstrap/pull/12794 and
+// https://github.com/twbs/bootstrap/pull/14559 for more information.
+
+[data-toggle="buttons"] {
+  > .btn,
+  > .btnGroup > .btn {
+    input[type="radio"],
+    input[type="checkbox"] {
+      position: absolute;
+      clip: rect(0,0,0,0);
+      pointer-events: none;
+    }
   }
 }

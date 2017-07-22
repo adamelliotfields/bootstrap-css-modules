@@ -1,0 +1,35 @@
+@import './_variables.scss';
+@import './mixins/_breakpoints.scss';
+
+.alignBaseline { vertical-align: baseline !important; } // Browser default
+.alignTop { vertical-align: top !important; }
+.alignMiddle { vertical-align: middle !important; }
+.alignBottom { vertical-align: bottom !important; }
+.alignTextBottom { vertical-align: text-bottom !important; }
+.alignTextTop { vertical-align: text-top !important; }
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .alignItems#{$infix}Start { align-items: flex-start !important; }
+    .alignItems#{$infix}End { align-items: flex-end !important; }
+    .alignItems#{$infix}Center { align-items: center !important; }
+    .alignItems#{$infix}Baseline { align-items: baseline !important; }
+    .alignItems#{$infix}Stretch { align-items: stretch !important; }
+
+    .alignContent#{$infix}Start { align-content: flex-start !important; }
+    .alignContent#{$infix}End { align-content: flex-end !important; }
+    .alignContent#{$infix}Center { align-content: center !important; }
+    .alignContent#{$infix}Between { align-content: space-between !important; }
+    .alignContent#{$infix}Around { align-content: space-around !important; }
+    .alignContent#{$infix}Stretch { align-content: stretch !important; }
+
+    .alignSelf#{$infix}Auto { align-self: auto !important; }
+    .alignSelf#{$infix}Start { align-self: flex-start !important; }
+    .alignSelf#{$infix}End { align-self: flex-end !important; }
+    .alignSelf#{$infix}Center { align-self: center !important; }
+    .alignSelf#{$infix}Baseline { align-self: baseline !important; }
+    .alignSelf#{$infix}Stretch { align-self: stretch !important; }
+  }
+}

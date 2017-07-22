@@ -1,17 +1,12 @@
 @import './_variables.scss';
-@import './_mixins.scss';
-
-// scss-lint:disable PropertyCount
+@import './mixins/_border-radius.scss';
+@import './mixins/_box-shadow.scss';
 
 // Embedded icons from Open Iconic.
 // Released under MIT and copyright 2014 Waybury.
 // https://useiconic.com/open
 
-
-// Checkboxes and radios
-//
 // Base class takes care of all the key behavioral aspects.
-
 .customControl {
   position: relative;
   display: inline-flex;
@@ -56,10 +51,7 @@
   }
 }
 
-// Custom indicator
-//
 // Generates a shadow element to create our makeshift checkbox/radio background.
-
 .customControlIndicator {
   position: absolute;
   top: (($line-height-base - $custom-control-indicator-size) / 2);
@@ -76,10 +68,7 @@
   @include box-shadow($custom-control-indicator-box-shadow);
 }
 
-// Checkboxes
-//
 // Tweak just a few things for checkboxes.
-
 .customCheckbox {
   .customControlIndicator {
     @include border-radius($custom-checkbox-radius);
@@ -96,10 +85,7 @@
   }
 }
 
-// Radios
-//
 // Tweak just a few things for radios.
-
 .customRadio {
   .customControlIndicator {
     border-radius: $custom-radio-radius;
@@ -110,12 +96,8 @@
   }
 }
 
-
-// Layout options
-//
-// By default radios and checkboxes are `inline-block` with no additional spacing
-// set. Use these optional classes to tweak the layout.
-
+// By default radios and checkboxes are `inline-block` with no additional spacing set.
+// Use these optional classes to tweak the layout.
 .customControlsStacked {
   display: flex;
   flex-direction: column;
@@ -129,13 +111,8 @@
   }
 }
 
-
-// Select
-//
 // Replaces the browser default select with a custom one, mostly pulled from
 // http://primercss.io.
-//
-
 .customSelect {
   display: inline-block;
   max-width: 100%;
@@ -192,11 +169,7 @@
   // }
 }
 
-
-// File
-//
 // Custom file input.
-
 .customFile {
   position: relative;
   display: inline-block;

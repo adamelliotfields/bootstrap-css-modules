@@ -1,0 +1,14 @@
+@import './_variables.scss';
+@import './mixins/_breakpoints.scss';
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .justifyContent#{$infix}Start { justify-content: flex-start !important; }
+    .justifyContent#{$infix}End { justify-content: flex-end !important; }
+    .justifyContent#{$infix}Center { justify-content: center !important; }
+    .justifyContent#{$infix}Between { justify-content: space-between !important; }
+    .justifyContent#{$infix}Around { justify-content: space-around !important; }
+  }
+}

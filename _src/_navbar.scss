@@ -1,25 +1,10 @@
 @import './_variables.scss';
 @import './mixins/_border-radius.scss';
 @import './mixins/_breakpoints.scss';
+@import './mixins/_container.scss';
 @import './mixins/_hover.scss';
 
-// Contents
-//
-// Navbar
-// Navbar brand
-// Navbar nav
-// Navbar text
-// Navbar divider
-// Responsive navbar
-// Navbar position
-// Navbar themes
-
-
-// Navbar
-//
-// Provide a static navbar from which we expand to create full-width, fixed, and
-// other navbar variations.
-
+// Provide a static navbar from which we expand to create full-width, fixed, and other navbar variations.
 .navbar {
   position: relative;
   display: flex;
@@ -27,11 +12,13 @@
   padding: $navbar-padding-y $navbar-padding-x;
 }
 
+// Navbar container
+.navbarContainer {
+  @include make-container();
+  @include make-container-max-widths();
+}
 
-// Navbar brand
-//
 // Used for brand, project, or site names.
-
 .navbarBrand {
   display: inline-block;
   padding-top: .25rem;
@@ -46,11 +33,23 @@
   }
 }
 
+// Navbar link
+.navbarLink {
+  display: block;
+  padding: $nav-link-padding;
 
-// Navbar nav
-//
+  @include hover-focus {
+    text-decoration: none;
+  }
+
+  // Disabled state lightens text and removes hover/tab effects
+  &.disabled {
+    color: $nav-disabled-link-color;
+    cursor: $cursor-disabled;
+  }
+}
+
 // Custom navbar navigation (doesn't require `.nav`, but does make use of `.nav-link`).
-
 .navbarNav {
   display: flex;
   flex-direction: column; // cannot use `inherit` to get the `.navbar`s value
@@ -58,7 +57,7 @@
   margin-bottom: 0;
   list-style: none;
 
-  .navLink {
+  .navbarLink {
     padding-right: 0;
     padding-left: 0;
   }
@@ -66,18 +65,12 @@
 
 
 // Navbar text
-//
-//
-
 .navbarText {
   display: inline-block;
   padding-top:    .425rem;
   padding-bottom: .425rem;
 }
 
-
-// Responsive navbar
-//
 // Custom styles for responsive collapsing and toggling of navbar contents.
 // Powered by the collapse Bootstrap JavaScript plugin.
 
@@ -96,8 +89,7 @@
   }
 }
 
-// Keep as a separate element so folks can easily override it with another icon
-// or image file as needed.
+// Keep as a separate element so folks can easily override it with another icon or image file as needed.
 .navbarTogglerIcon {
   display: inline-block;
   width: 1.5em;
@@ -108,8 +100,7 @@
   background-size: 100% 100%;
 }
 
-// Use `position` on the toggler to prevent it from being auto placed as a flex
-// item and allow easy placement.
+// Use `position` on the toggler to prevent it from being auto placed as a flex item and allow easy placement.
 .navbarTogglerLeft {
   position: absolute;
   left: $navbar-padding-x;
@@ -119,8 +110,7 @@
   right: $navbar-padding-x;
 }
 
-// Generate series of `.navbar-toggleable-*` responsive classes for configuring
-// where your navbar collapses.
+// Generate series of `.navbar-toggleable-*` responsive classes for configuring where your navbar collapses.
 .navbarToggleable {
   @each $breakpoint in map-keys($grid-breakpoints) {
     $next: breakpoint-next($breakpoint, $grid-breakpoints);
@@ -128,14 +118,7 @@
 
     &#{$infix} {
       @include media-breakpoint-down($breakpoint) {
-        .navbarNav {
-          .dropdownMenu {
-            position: static;
-            float: none;
-          }
-        }
-
-        > .container {
+        > .navbarContainer {
           padding-right: 0;
           padding-left: 0;
         }
@@ -149,25 +132,23 @@
         .navbarNav {
           flex-direction: row;
 
-          .navLink {
+          .navbarLink {
             padding-right: .5rem;
             padding-left: .5rem;
           }
         }
 
         // For nesting containers, have to redeclare for alignment purposes
-        > .container {
+        > .navbarContainer {
           display: flex;
           flex-wrap: nowrap;
           align-items: center;
         }
 
-        // scss-lint:disable ImportantRule
         .navbarCollapse {
           display: flex !important;
           width: 100%;
         }
-        // scss-lint:enable ImportantRule
 
         .navbarToggler {
           display: none;
@@ -176,11 +157,6 @@
     }
   }
 }
-
-
-// Navbar themes
-//
-// Styles for switching between navbars with light or dark background.
 
 // Dark links against a light background
 .navbarLight {
@@ -194,7 +170,7 @@
   }
 
   .navbarNav {
-    .navLink {
+    .navbarLink {
       color: $navbar-light-color;
 
       @include hover-focus {
@@ -206,10 +182,10 @@
       }
     }
 
-    .open > .navLink,
-    .active > .navLink,
-    .navLink.open,
-    .navLink.active {
+    .open > .navbarLink,
+    .active > .navbarLink,
+    .navbarLink.open,
+    .navbarLink.active {
       color: $navbar-light-active-color;
     }
   }
@@ -239,7 +215,7 @@
   }
 
   .navbarNav {
-    .navLink {
+    .navbarLink {
       color: $navbar-inverse-color;
 
       @include hover-focus {
@@ -251,10 +227,10 @@
       }
     }
 
-    .open > .navLink,
-    .active > .navLink,
-    .navLink.open,
-    .navLink.active {
+    .open > .navbarLink,
+    .active > .navbarLink,
+    .navbarLink.open,
+    .navbarLink.active {
       color: $navbar-inverse-active-color;
     }
   }

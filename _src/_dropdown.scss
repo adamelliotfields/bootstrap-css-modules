@@ -1,5 +1,8 @@
 @import './_variables.scss';
-@import './_mixins.scss';
+@import './mixins/_border-radius.scss';
+@import './mixins/_box-shadow.scss';
+@import './mixins/_hover.scss';
+@import './mixins/_nav-divider.scss';
 
 // The dropdown wrapper (`<div>`)
 .dropup,
@@ -63,8 +66,6 @@
   @include nav-divider($dropdown-divider-bg);
 }
 
-// Links, buttons, and more within the dropdown menu
-//
 // `<button>`-specific styles are denoted with `// For <button>s`
 .dropdownItem {
   display: block;
@@ -116,8 +117,6 @@
   }
 }
 
-// Menu positioning
-//
 // Add extra class to `.dropdown-menu` to flip the alignment of the dropdown
 // menu with the parent.
 .dropdownMenuRight {
@@ -151,9 +150,7 @@
 }
 
 // Allow for dropdowns to go bottom up (aka, dropup-menu)
-//
 // Just add .dropup after the standard .dropdown class and you're set.
-
 .dropup {
   // Different positioning for bottom up menu
   .dropdownMenu {

@@ -1,5 +1,8 @@
 @import './_variables.scss';
-@import './_mixins.scss';
+@import './mixins/_border-radius.scss';
+@import './mixins/_box-shadow.scss';
+@import './mixins/_breakpoints.scss';
+@import './mixins/_transition.scss';
 
 // .modal-open      - body class for killing the scroll
 // .modal           - container to scroll within

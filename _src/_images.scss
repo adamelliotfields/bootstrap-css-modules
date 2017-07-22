@@ -1,7 +1,8 @@
 @import './_variables.scss';
-@import './_mixins.scss';
 @import './mixins/_border-radius.scss';
+@import './mixins/_box-shadow.scss';
 @import './mixins/_image.scss';
+@import './mixins/_transition.scss';
 
 // Responsive images (ensure images don't scale beyond their parents)
 //
