@@ -15,11 +15,6 @@
   display: none;
 }
 
-.btn .badge {
-  position: relative;
-  top: -1px;
-}
-
 a.badge:focus, a.badge:hover {
   color: #fff;
   text-decoration: none;

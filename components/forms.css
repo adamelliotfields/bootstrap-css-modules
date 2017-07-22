@@ -87,28 +87,34 @@ select.formControl:focus::-ms-value {
   border-width: 1px 0;
 }
 
-.formControlStatic.formControlSm, .formControlStatic.formControlLg {
+.formControlStatic.formControlSm, .inputGroupSm > .formControlStatic.formControl,
+.inputGroupSm > .formControlStatic.inputGroupAddon, .formControlStatic.formControlLg, .inputGroupLg > .formControlStatic.formControl,
+.inputGroupLg > .formControlStatic.inputGroupAddon {
   padding-right: 0;
   padding-left: 0;
 }
 
-.formControlSm {
+.formControlSm, .inputGroupSm > .formControl,
+.inputGroupSm > .inputGroupAddon {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   border-radius: 0.2rem;
 }
 
-select.formControlSm:not([size]):not([multiple]) {
+select.formControlSm:not([size]):not([multiple]), .inputGroupSm > select.formControl:not([size]):not([multiple]),
+.inputGroupSm > select.inputGroupAddon:not([size]):not([multiple]) {
   height: 1.8125rem;
 }
 
-.formControlLg {
+.formControlLg, .inputGroupLg > .formControl,
+.inputGroupLg > .inputGroupAddon {
   padding: 0.75rem 1.5rem;
   font-size: 1.25rem;
   border-radius: 0.3rem;
 }
 
-select.formControlLg:not([size]):not([multiple]) {
+select.formControlLg:not([size]):not([multiple]), .inputGroupLg > select.formControl:not([size]):not([multiple]),
+.inputGroupLg > select.inputGroupAddon:not([size]):not([multiple]) {
   height: 3.16667rem;
 }
 
@@ -303,20 +309,102 @@ select.formControlLg:not([size]):not([multiple]) {
   margin-left: 0;
 }
 
-.formInline .customControl {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-left: 0;
-}
-
-.formInline .customControlIndicator {
-  position: static;
-  display: inline-block;
-  margin-right: 0.25rem;
-  vertical-align: text-bottom;
-}
-
 .formInline .hasFeedback .formControlFeedback {
   top: 0;
+}
+
+.inputGroup {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.inputGroup .formControl {
+  position: relative;
+  z-index: 2;
+  flex: 1 1 auto;
+  width: 1%;
+  margin-bottom: 0;
+}
+
+.inputGroup .formControl:focus, .inputGroup .formControl:active, .inputGroup .formControl:hover {
+  z-index: 3;
+}
+
+.inputGroupAddon,
+.inputGroupBtn,
+.inputGroup .formControl {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inputGroupAddon:not(:first-child):not(:last-child),
+.inputGroupBtn:not(:first-child):not(:last-child),
+.inputGroup .formControl:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.inputGroupAddon,
+.inputGroupBtn {
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.inputGroupAddon {
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.25;
+  color: #464a4c;
+  text-align: center;
+  background-color: #eceeef;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+}
+
+.inputGroupAddon.formControlSm,
+.inputGroupSm > .inputGroupAddon {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.2rem;
+}
+
+.inputGroupAddon.formControlLg,
+.inputGroupLg > .inputGroupAddon {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: 0.3rem;
+}
+
+.inputGroupAddon input[type="radio"],
+.inputGroupAddon input[type="checkbox"] {
+  margin-top: 0;
+}
+
+.inputGroup .formControl:not(:last-child),
+.inputGroupAddon:not(:last-child) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.inputGroupAddon:not(:last-child) {
+  border-right: 0;
+}
+
+.inputGroup .formControl:not(:first-child),
+.inputGroupAddon:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.formControl + .inputGroupAddon:not(:first-child) {
+  border-left: 0;
+}
+
+.inputGroupBtn {
+  position: relative;
+  font-size: 0;
+  white-space: nowrap;
 }

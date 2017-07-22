@@ -50,12 +50,6 @@
   border-color: #ddd #ddd #fff;
 }
 
-.navTabs .dropdownMenu {
-  margin-top: -1px;
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
-}
-
 .navPills .navLink {
   border-radius: 0.25rem;
 }

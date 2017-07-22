@@ -75,8 +75,13 @@
 
 .listGroupItem.active .listGroupItemHeading,
 .listGroupItem.active .listGroupItemHeading > small,
-.listGroupItem.active .listGroupItemHeading > .small {
+.listGroupItem.active .listGroupItemHeading > .listGroupItemSmall {
   color: inherit;
+}
+
+.listGroupItem.active .listGroupItemHeading > .listGroupItemSmall {
+  font-size: 80%;
+  font-weight: normal;
 }
 
 .listGroupItem.active .listGroupItemText {

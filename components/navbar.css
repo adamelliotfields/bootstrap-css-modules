@@ -5,6 +5,70 @@
   padding: 0.5rem 1rem;
 }
 
+.navbarContainer {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 576px) {
+  .navbarContainer {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbarContainer {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbarContainer {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbarContainer {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 576px) {
+  .navbarContainer {
+    width: 540px;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbarContainer {
+    width: 720px;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbarContainer {
+    width: 960px;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbarContainer {
+    width: 1140px;
+    max-width: 100%;
+  }
+}
+
 .navbarBrand {
   display: inline-block;
   padding-top: .25rem;
@@ -19,6 +83,20 @@
   text-decoration: none;
 }
 
+.navbarLink {
+  display: block;
+  padding: 0.5em 1em;
+}
+
+.navbarLink:focus, .navbarLink:hover {
+  text-decoration: none;
+}
+
+.navbarLink.disabled {
+  color: #636c72;
+  cursor: not-allowed;
+}
+
 .navbarNav {
   display: flex;
   flex-direction: column;
@@ -27,7 +105,7 @@
   list-style: none;
 }
 
-.navbarNav .navLink {
+.navbarNav .navbarLink {
   padding-right: 0;
   padding-left: 0;
 }
@@ -73,11 +151,7 @@
 }
 
 @media (max-width: 575px) {
-  .navbarToggleable .navbarNav .dropdownMenu {
-    position: static;
-    float: none;
-  }
-  .navbarToggleable > .container {
+  .navbarToggleable > .navbarContainer {
     padding-right: 0;
     padding-left: 0;
   }
@@ -92,11 +166,11 @@
   .navbarToggleable .navbarNav {
     flex-direction: row;
   }
-  .navbarToggleable .navbarNav .navLink {
+  .navbarToggleable .navbarNav .navbarLink {
     padding-right: .5rem;
     padding-left: .5rem;
   }
-  .navbarToggleable > .container {
+  .navbarToggleable > .navbarContainer {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -111,11 +185,7 @@
 }
 
 @media (max-width: 767px) {
-  .navbarToggleableSm .navbarNav .dropdownMenu {
-    position: static;
-    float: none;
-  }
-  .navbarToggleableSm > .container {
+  .navbarToggleableSm > .navbarContainer {
     padding-right: 0;
     padding-left: 0;
   }
@@ -130,11 +200,11 @@
   .navbarToggleableSm .navbarNav {
     flex-direction: row;
   }
-  .navbarToggleableSm .navbarNav .navLink {
+  .navbarToggleableSm .navbarNav .navbarLink {
     padding-right: .5rem;
     padding-left: .5rem;
   }
-  .navbarToggleableSm > .container {
+  .navbarToggleableSm > .navbarContainer {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -149,11 +219,7 @@
 }
 
 @media (max-width: 991px) {
-  .navbarToggleableMd .navbarNav .dropdownMenu {
-    position: static;
-    float: none;
-  }
-  .navbarToggleableMd > .container {
+  .navbarToggleableMd > .navbarContainer {
     padding-right: 0;
     padding-left: 0;
   }
@@ -168,11 +234,11 @@
   .navbarToggleableMd .navbarNav {
     flex-direction: row;
   }
-  .navbarToggleableMd .navbarNav .navLink {
+  .navbarToggleableMd .navbarNav .navbarLink {
     padding-right: .5rem;
     padding-left: .5rem;
   }
-  .navbarToggleableMd > .container {
+  .navbarToggleableMd > .navbarContainer {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -187,11 +253,7 @@
 }
 
 @media (max-width: 1199px) {
-  .navbarToggleableLg .navbarNav .dropdownMenu {
-    position: static;
-    float: none;
-  }
-  .navbarToggleableLg > .container {
+  .navbarToggleableLg > .navbarContainer {
     padding-right: 0;
     padding-left: 0;
   }
@@ -206,11 +268,11 @@
   .navbarToggleableLg .navbarNav {
     flex-direction: row;
   }
-  .navbarToggleableLg .navbarNav .navLink {
+  .navbarToggleableLg .navbarNav .navbarLink {
     padding-right: .5rem;
     padding-left: .5rem;
   }
-  .navbarToggleableLg > .container {
+  .navbarToggleableLg > .navbarContainer {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -230,12 +292,7 @@
   align-items: center;
 }
 
-.navbarToggleableXl .navbarNav .dropdownMenu {
-  position: static;
-  float: none;
-}
-
-.navbarToggleableXl > .container {
+.navbarToggleableXl > .navbarContainer {
   padding-right: 0;
   padding-left: 0;
 }
@@ -244,12 +301,12 @@
   flex-direction: row;
 }
 
-.navbarToggleableXl .navbarNav .navLink {
+.navbarToggleableXl .navbarNav .navbarLink {
   padding-right: .5rem;
   padding-left: .5rem;
 }
 
-.navbarToggleableXl > .container {
+.navbarToggleableXl > .navbarContainer {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -275,22 +332,22 @@
   color: rgba(0, 0, 0, 0.9);
 }
 
-.navbarLight .navbarNav .navLink {
+.navbarLight .navbarNav .navbarLink {
   color: rgba(0, 0, 0, 0.5);
 }
 
-.navbarLight .navbarNav .navLink:focus, .navbarLight .navbarNav .navLink:hover {
+.navbarLight .navbarNav .navbarLink:focus, .navbarLight .navbarNav .navbarLink:hover {
   color: rgba(0, 0, 0, 0.7);
 }
 
-.navbarLight .navbarNav .navLink.disabled {
+.navbarLight .navbarNav .navbarLink.disabled {
   color: rgba(0, 0, 0, 0.3);
 }
 
-.navbarLight .navbarNav .open > .navLink,
-.navbarLight .navbarNav .active > .navLink,
-.navbarLight .navbarNav .navLink.open,
-.navbarLight .navbarNav .navLink.active {
+.navbarLight .navbarNav .open > .navbarLink,
+.navbarLight .navbarNav .active > .navbarLink,
+.navbarLight .navbarNav .navbarLink.open,
+.navbarLight .navbarNav .navbarLink.active {
   color: rgba(0, 0, 0, 0.9);
 }
 
@@ -317,22 +374,22 @@
   color: white;
 }
 
-.navbarInverse .navbarNav .navLink {
+.navbarInverse .navbarNav .navbarLink {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.navbarInverse .navbarNav .navLink:focus, .navbarInverse .navbarNav .navLink:hover {
+.navbarInverse .navbarNav .navbarLink:focus, .navbarInverse .navbarNav .navbarLink:hover {
   color: rgba(255, 255, 255, 0.75);
 }
 
-.navbarInverse .navbarNav .navLink.disabled {
+.navbarInverse .navbarNav .navbarLink.disabled {
   color: rgba(255, 255, 255, 0.25);
 }
 
-.navbarInverse .navbarNav .open > .navLink,
-.navbarInverse .navbarNav .active > .navLink,
-.navbarInverse .navbarNav .navLink.open,
-.navbarInverse .navbarNav .navLink.active {
+.navbarInverse .navbarNav .open > .navbarLink,
+.navbarInverse .navbarNav .active > .navbarLink,
+.navbarInverse .navbarNav .navbarLink.open,
+.navbarInverse .navbarNav .navbarLink.active {
   color: white;
 }
 

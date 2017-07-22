@@ -33,16 +33,6 @@
   margin-left: 1.25rem;
 }
 
-.card > .listGroup:first-child .listGroupItem:first-child {
-  border-top-right-radius: 0.25rem;
-  border-top-left-radius: 0.25rem;
-}
-
-.card > .listGroup:last-child .listGroupItem:last-child {
-  border-bottom-right-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
-}
-
 .cardHeader {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
@@ -176,8 +166,17 @@
 .cardInverse .cardLink,
 .cardInverse .cardText,
 .cardInverse .cardSubtitle,
-.cardInverse .cardBlockquote .blockquoteFooter {
+.cardInverse .cardBlockquote .cardBlockquoteFooter {
   color: rgba(255, 255, 255, 0.65);
+}
+
+.cardInverse .cardBlockquote .cardBlockquoteFooter {
+  display: block;
+  font-size: 80%;
+}
+
+.cardInverse .cardBlockquote .cardBlockquoteFooter::before {
+  content: "\2014 \00A0";
 }
 
 .cardInverse .cardLink:focus, .cardInverse .cardLink:hover {
