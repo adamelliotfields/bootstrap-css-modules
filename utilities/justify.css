@@ -1,0 +1,91 @@
+.justifyContentStart {
+  justify-content: flex-start !important;
+}
+
+.justifyContentEnd {
+  justify-content: flex-end !important;
+}
+
+.justifyContentCenter {
+  justify-content: center !important;
+}
+
+.justifyContentBetween {
+  justify-content: space-between !important;
+}
+
+.justifyContentAround {
+  justify-content: space-around !important;
+}
+
+@media (min-width: 576px) {
+  .justifyContentSmStart {
+    justify-content: flex-start !important;
+  }
+  .justifyContentSmEnd {
+    justify-content: flex-end !important;
+  }
+  .justifyContentSmCenter {
+    justify-content: center !important;
+  }
+  .justifyContentSmBetween {
+    justify-content: space-between !important;
+  }
+  .justifyContentSmAround {
+    justify-content: space-around !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .justifyContentMdStart {
+    justify-content: flex-start !important;
+  }
+  .justifyContentMdEnd {
+    justify-content: flex-end !important;
+  }
+  .justifyContentMdCenter {
+    justify-content: center !important;
+  }
+  .justifyContentMdBetween {
+    justify-content: space-between !important;
+  }
+  .justifyContentMdAround {
+    justify-content: space-around !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .justifyContentLgStart {
+    justify-content: flex-start !important;
+  }
+  .justifyContentLgEnd {
+    justify-content: flex-end !important;
+  }
+  .justifyContentLgCenter {
+    justify-content: center !important;
+  }
+  .justifyContentLgBetween {
+    justify-content: space-between !important;
+  }
+  .justifyContentLgAround {
+    justify-content: space-around !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .justifyContentXlStart {
+    justify-content: flex-start !important;
+  }
+  .justifyContentXlEnd {
+    justify-content: flex-end !important;
+  }
+  .justifyContentXlCenter {
+    justify-content: center !important;
+  }
+  .justifyContentXlBetween {
+    justify-content: space-between !important;
+  }
+  .justifyContentXlAround {
+    justify-content: space-around !important;
+  }
+}

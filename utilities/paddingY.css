@@ -1,0 +1,137 @@
+.py0 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.py1 {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+.py2 {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.py3 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.py4 {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+.py5 {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+@media (min-width: 576px) {
+  .pySm0 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .pySm1 {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+  }
+  .pySm2 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  .pySm3 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  .pySm4 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  .pySm5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .pyMd0 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .pyMd1 {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+  }
+  .pyMd2 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  .pyMd3 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  .pyMd4 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  .pyMd5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .pyLg0 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .pyLg1 {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+  }
+  .pyLg2 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  .pyLg3 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  .pyLg4 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  .pyLg5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pyXl0 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .pyXl1 {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+  }
+  .pyXl2 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  .pyXl3 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  .pyXl4 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  .pyXl5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
