@@ -6,3 +6,14 @@
   line-height: 60px;
   text-align: center;
 }
+
+.footer a {
+  color: gray;
+  /* 200ms ease-in-out is the default hover transition */
+  transition: color 200ms ease-in-out;
+}
+
+.footer a:hover {
+  text-decoration: none;
+  color: black;
+}

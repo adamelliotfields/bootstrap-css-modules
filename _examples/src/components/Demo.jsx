@@ -8,20 +8,26 @@ import { textCenter } from '../../../utilities/text.css';
 import { display4, lead } from '../../../content/type.css';
 import { mt5 } from '../../../utilities/marginTop.css';
 
-import Vimeo from './Vimeo.jsx';
+import Columns from './Columns.jsx';
+import ButtonGroup from './ButtonGroup.jsx';
+import Modal from './Modal.jsx';
 
-const Home = () => (
+const Demo = () => (
   <div className={`${container} ${mt5}`}>
     <div className={`${row} ${justifyContentCenter}`}>
       <div className={`${col12} ${colSm10} ${textCenter}`}>
-        <h1 className={display4}>Welcome</h1>
-        <p className={lead}>Not only is this video ad-free, but it's responsive.</p>
+        <h1 className={display4}>Columns</h1>
+        <p className={lead}>Beautiful photography from Unsplash.</p>
       </div>
     </div>
+    <Columns />
     <div className={`${row} ${justifyContentCenter} ${mt5}`}>
-      <Vimeo />
+      <ButtonGroup />
+    </div>
+    <div className={`${row} ${justifyContentCenter} ${mt5}`}>
+      <Modal />
     </div>
   </div>
 );
 
-export default Home;
+export default Demo;

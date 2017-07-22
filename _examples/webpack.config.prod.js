@@ -2,11 +2,13 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HTMLPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: path.join(__dirname, 'src', 'index.js'),
   output: {
     filename: 'js/[name].js',
+    chunkFilename: 'js/[name].js',
     path: (path.join(__dirname, 'build'))
   },
   devtool: 'source-map',
@@ -21,7 +23,7 @@ module.exports = {
               options: {
                 sourceMap: true,
                 modules: true,
-                localIdentName: '[hash:base64:3]',
+                localIdentName: '[hash:base64:4]',
                 importLoaders: 1
               }
             },
@@ -73,8 +75,11 @@ module.exports = {
       ignoreOrder: true
     }),
     new HTMLPlugin({
-      template: path.join(__dirname, 'src', 'templates', 'index.ejs'),
+      template: path.join(__dirname, 'src', 'templates', 'prod.ejs'),
       filename: 'index.html'
-    })
+    }),
+    new CopyPlugin([
+      { from: 'src/assets' }
+    ])
   ]
 };

@@ -6,6 +6,7 @@ module.exports = {
   entry: path.join(__dirname, 'src', 'index.js'),
   output: {
     filename: 'js/[name].js',
+    chunkFilename: 'js/[name].js',
     publicPath: '/'
   },
   devtool: 'eval',
@@ -19,7 +20,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: true,
-              localIdentName: '[local]',
+              localIdentName: '[local]-[hash:base64:2]',
               importLoaders: 1
             }
           },
@@ -48,7 +49,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     new HTMLPlugin({
-      template: path.join(__dirname, 'src', 'templates', 'index.ejs')
+      template: path.join(__dirname, 'src', 'templates', 'dev.ejs')
     })
   ],
   devServer: {

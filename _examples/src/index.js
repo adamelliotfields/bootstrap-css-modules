@@ -12,23 +12,24 @@ import Navbar from './components/Navbar.jsx';
 import Home from './components/Home.jsx';
 import Footer from './components/Footer.jsx';
 
-const Photos = asyncComponent(async function () {
-  const module = await import('./components/Photos.jsx');
+const Demo = asyncComponent(async function () {
+  const module = await import(/* webpackChunkName: 'demo' */ './components/Demo.jsx');
   return module.default;
 });
 
 const Login = asyncComponent(async function () {
-  const module = await import('./components/Login.jsx');
+  const module = await import(/* webpackChunkName: 'login' */ './components/Login.jsx');
   return module.default;
 });
 
+// Set basename to GitHub pages path
 render(
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.NODE_ENV === 'production' ? '/bootstrap-css-modules' : '/'}>
     <div>
       <Navbar />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route path='/photos' component={Photos} />
+        <Route path='/demo' component={Demo} />
         <Route path='/login' component={Login} />
       </Switch>
       <Footer />

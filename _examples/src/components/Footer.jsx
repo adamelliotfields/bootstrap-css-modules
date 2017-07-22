@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { container } from '../../../layout/grid.css';
+import { container } from '../../../layout/container.css';
 
 import { footer } from './Footer.css';
 

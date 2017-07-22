@@ -1,5 +1,5 @@
 .navbarCustom {
-  composes: navbar navbarInverse navbarToggleableXl from '../../../components/navbar.css';
+  composes: navbar navbarInverse navbarToggleableMd from '../../../components/core.css';
   composes: bgInverse from '../../../utilities/background.css';
   box-shadow: 0 8px 6px -6px black;
 }
