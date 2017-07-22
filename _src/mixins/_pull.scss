@@ -1,0 +1,13 @@
+@import '../_variables.scss';
+@import './_breakpoints.scss';
+
+@mixin make-grid-pull($columns: $grid-columns, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint in map-keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+    @for $i from 0 through $columns {
+      .pull#{$infix}#{$i} {
+        right: if($i > 0, percentage($i / $columns), auto);
+      }
+    }
+  }
+}
