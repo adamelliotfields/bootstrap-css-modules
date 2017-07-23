@@ -1,0 +1,5 @@
+.navbarCustom {
+  composes: navbar navbarInverse navbarToggleableMd from '../../../css/components.css';
+  composes: bgInverse from '../../../css/background.css';
+  box-shadow: 0 8px 6px -6px black;
+}
