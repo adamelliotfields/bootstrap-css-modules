@@ -155,3 +155,23 @@
     border: 0;
   }
 }
+
+// Print styles
+@if $enable-print-styles {
+  @media print {
+    .table {
+      border-collapse: collapse !important;
+
+      td,
+      th {
+        background-color: #fff !important;
+      }
+    }
+    .tableBordered {
+      th,
+      td {
+        border: 1px solid #ddd !important;
+      }
+    }
+  }
+}

@@ -247,3 +247,12 @@
     color: $navbar-inverse-color;
   }
 }
+
+// Print styles
+@if $enable-print-styles {
+  @media print {
+    .navbar {
+      display: none;
+    }
+  }
+}

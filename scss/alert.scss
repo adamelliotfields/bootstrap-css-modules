@@ -7,23 +7,6 @@
 // Base styles
 //
 
-.close {
-  float: right;
-  font-size: $close-font-size;
-  font-weight: $close-font-weight;
-  line-height: 1;
-  color: $close-color;
-  text-shadow: $close-text-shadow;
-  opacity: .5;
-
-  @include hover-focus {
-    color: $close-color;
-    text-decoration: none;
-    cursor: pointer;
-    opacity: .75;
-  }
-}
-
 .alert {
   padding: $alert-padding-y $alert-padding-x;
   margin-bottom: $alert-margin-bottom;
@@ -47,9 +30,34 @@
 //
 // Expand the right padding and account for the close button's positioning.
 
+.alertClose {
+  float: right;
+  font-size: $close-font-size;
+  font-weight: $close-font-weight;
+  line-height: 1;
+  color: $close-color;
+  text-shadow: $close-text-shadow;
+  opacity: .5;
+
+  @include hover-focus {
+    color: $close-color;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .75;
+  }
+}
+
+button.alertClose {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+
 .alertDismissible {
   // Adjust close link position
-  .close {
+  .alertClose {
     position: relative;
     top: -$alert-padding-y;
     right: -$alert-padding-x;
@@ -57,7 +65,6 @@
     color: inherit;
   }
 }
-
 
 // Alternate styles
 //

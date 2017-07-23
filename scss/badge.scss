@@ -62,3 +62,12 @@ a.badge {
 .badgeDanger {
   @include badge-variant($badge-danger-bg);
 }
+
+// Print styles
+@if $enable-print-styles {
+  @media print {
+    .badge {
+      border: $border-width solid #000;
+    }
+  }
+}
