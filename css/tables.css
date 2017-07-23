@@ -161,3 +161,17 @@
 .tableResponsive.tableBordered {
   border: 0;
 }
+
+@media print {
+  .table {
+    border-collapse: collapse !important;
+  }
+  .table td,
+  .table th {
+    background-color: #fff !important;
+  }
+  .tableBordered th,
+  .tableBordered td {
+    border: 1px solid #ddd !important;
+  }
+}

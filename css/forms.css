@@ -182,8 +182,7 @@ select.formControlLg:not([size]):not([multiple]), .inputGroupLg > select.formCon
 .hasSuccess .formControlFeedback,
 .hasSuccess .formControlLabel,
 .hasSuccess .colFormLabel,
-.hasSuccess .formCheckLabel,
-.hasSuccess .customControl {
+.hasSuccess .formCheckLabel {
   color: #5cb85c;
 }
 
@@ -204,8 +203,7 @@ select.formControlLg:not([size]):not([multiple]), .inputGroupLg > select.formCon
 .hasWarning .formControlFeedback,
 .hasWarning .formControlLabel,
 .hasWarning .colFormLabel,
-.hasWarning .formCheckLabel,
-.hasWarning .customControl {
+.hasWarning .formCheckLabel {
   color: #f0ad4e;
 }
 
@@ -226,8 +224,7 @@ select.formControlLg:not([size]):not([multiple]), .inputGroupLg > select.formCon
 .hasDanger .formControlFeedback,
 .hasDanger .formControlLabel,
 .hasDanger .colFormLabel,
-.hasDanger .formCheckLabel,
-.hasDanger .customControl {
+.hasDanger .formCheckLabel {
   color: #d9534f;
 }
 

@@ -472,10 +472,6 @@ input[type="button"].btnBlock {
   justify-content: flex-start;
 }
 
-.btnToolbar .inputGroup {
-  width: auto;
-}
-
 .btnGroup > .btn:not(:first-child):not(:last-child) {
   border-radius: 0;
 }

@@ -74,3 +74,9 @@ a.badge:focus, a.badge:hover {
 .badgeDanger[href]:focus, .badgeDanger[href]:hover {
   background-color: #c9302c;
 }
+
+@media print {
+  .badge {
+    border: 1px solid #000;
+  }
+}
