@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
  - Patch versions will be bumped for bug fixes or changes to documentation.
 
 
-## [v4.2.0](https://github.com/adamelliotfields/bootstrap-css-modules/releases/tag/v4.1.2)
+## [v4.2.0](https://github.com/adamelliotfields/bootstrap-css-modules/releases/tag/v4.2.0)
 > Released July 26, 2017
 
 ### Added
