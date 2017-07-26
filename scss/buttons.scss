@@ -195,10 +195,6 @@ input[type="button"] {
   justify-content: flex-start;
 }
 
-.btnGroup > .btn:not(:first-child):not(:last-child) {
-  border-radius: 0;
-}
-
 // Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
 .btnGroup > .btn:first-child {
   margin-left: 0;
