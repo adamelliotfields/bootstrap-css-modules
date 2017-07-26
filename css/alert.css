@@ -46,6 +46,15 @@ button.alertClose {
   color: inherit;
 }
 
+.alertFade {
+  opacity: 0;
+  transition: opacity 0.15s linear;
+}
+
+.alertFade.alertShow {
+  opacity: 1;
+}
+
 .alertSuccess {
   background-color: #dff0d8;
   border-color: #d0e9c6;

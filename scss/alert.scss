@@ -2,6 +2,7 @@
 @import './mixins/_alert.scss';
 @import './mixins/_border-radius.scss';
 @import './mixins/_hover.scss';
+@import './mixins/_transition.scss';
 
 //
 // Base styles
@@ -63,6 +64,15 @@ button.alertClose {
     right: -$alert-padding-x;
     padding: $alert-padding-y $alert-padding-x;
     color: inherit;
+  }
+}
+
+.alertFade {
+  opacity: 0;
+  @include transition($transition-fade);
+
+  &.alertShow {
+    opacity: 1;
   }
 }
 
