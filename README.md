@@ -9,11 +9,11 @@ Conversely, classes that depend on descendants being in the same scope have been
 
 The original source has been modified to only emit camel-cased class names. This means you can edit variables and rebuild to create your own custom framework, and not worry about doing kebab-to-camel string manipulation after the fact.
 
-Pre-compiled CSS is already provided, so building is only necessary if you'd like to customize the source and incorporate into your existing workflow.
+Pre-compiled CSS is already provided, so building is only necessary if you'd like to customize the source and incorporate into your existing Sass workflow.
 
 Read about [CSS Modules](https://github.com/css-modules/css-modules) and Webpack's [CSS Loader](https://github.com/webpack-contrib/css-loader) if you're not already familiar with them.
 
-Live demo using this package [here](https://adamelliotfields.github.io/bootstrap-css-modules/).
+Live demo using this package [here](https://adamelliotfields.github.io/bootstrap-css-modules-demo/).
 
 ## Installation
 If you'd like to use the default Bootstrap styles, simply install from npm:
@@ -22,10 +22,10 @@ If you'd like to use the default Bootstrap styles, simply install from npm:
 yarn add bootstrap-css-modules
 ```
 
-To create a custom build, just copy the `_src` folder to your project:
+To create a custom build, just copy the `scss` folder to your project:
 
 ```bash
-cp -a node_modules/bootstrap-css-modules/scss/. your-project/scss
+cp -a ./node_modules/bootstrap-css-modules/scss/. ./scss
 ```
 
 Check out the `package.json` for all the scripts to compile into individual files using `node-sass`.
@@ -203,6 +203,7 @@ Notes:
  - Buttons includes Button Group, as the latter cannot work without buttons.
  - Forms includes Input Group, as they both form a circular dependency.
  - Use `.alertClose` within an `.alertDismissible` to create a dismissible alert.
+ - Use `.alertFade` and `.alertShow` classes to create fading alerts.
  - Use `.modalClose` within a modal to create a close icon.
  - Use `.navbarContainer` to wrap your navbar content in a container.
  - Use `.navbarLink` for your navbar links.
@@ -217,6 +218,8 @@ Notes:
  - `.alertLink`
  - `.alertDismissible`
  - `.alertClose`
+ - `.alertFade`
+ - `.alertShow`
  - `.alertSuccess`
  - `.alertInfo`
  - `.alertWarning`
@@ -705,7 +708,7 @@ Utilities provide helper classes for colors, flexbox, floats, display properties
  - `.fixedBottom`
  - `.stickyTop`
 
-**Responsive Embeds** - `/css/responsiveEmbed.css` - 1kb
+**Responsive Embeds** - `/css/embedResponsive.css` - 1kb
  - `.embedResponsive`
  - `.embedResponsiveItem`
  - `.embedResponsive21By9`
