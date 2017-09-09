@@ -28,7 +28,7 @@
   ],
   "devDependencies": {
     "node-sass": "^4.5.3",
-    "npm-run-all": "^4.0.2",
+    "npm-run-all": "^4.1.1",
     "rimraf": "^2.6.1"
   },
   "scripts": {
