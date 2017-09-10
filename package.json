@@ -51,7 +51,7 @@
     "build:customForms": "node-sass ./scss/custom-forms.scss ./css/customForms.css --output-style expanded",
     "build:display": "node-sass ./scss/display.scss ./css/display.css --output-style expanded",
     "build:dropdown": "node-sass ./scss/dropdown.scss ./css/dropdown.css --output-style expanded",
-    "build:embedResponsive": "node-sass ./scss/embed-responsive.scss ./css/embedResponsive.css --output-style expanded",
+    "build:embed": "node-sass ./scss/embed.scss ./css/embed.css --output-style expanded",
     "build:flex": "node-sass ./scss/flex.scss ./css/flex.css --output-style expanded",
     "build:float": "node-sass ./scss/float.scss ./css/float.css --output-style expanded",
     "build:forms": "node-sass ./scss/forms.scss ./css/forms.css --output-style expanded",
