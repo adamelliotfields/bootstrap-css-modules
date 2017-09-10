@@ -17,19 +17,17 @@
 .carouselItem {
   position: relative;
   display: none;
+  align-items: center;
   width: 100%;
-
-  @include if-supports-3d-transforms() {
-    @include transition($carousel-transition);
-    backface-visibility: hidden;
-    perspective: 1000px;
-  }
+  @include transition($carousel-transition);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .carouselItem.active,
 .carouselItemNext,
 .carouselItemPrev {
-  display: flex;
+  display: block;
 }
 
 .carouselItemNext,
@@ -39,22 +37,33 @@
 }
 
 // CSS3 transforms when supported by the browser
-@include if-supports-3d-transforms() {
-  .carouselItemNext.carouselItemLeft,
-  .carouselItemPrev.carouselItemRight {
+.carouselItemNext.carouselItemLeft,
+.carouselItemPrev.carouselItemRight {
+  transform: translateX(0);
+
+  @supports (transform-style: preserve-3d) {
     transform: translate3d(0, 0, 0);
   }
+}
 
-  .carouselItemNext,
-  .active.carouselItemRight {
+.carouselItemNext,
+.active.carouselItemRight {
+  transform: translateX(100%);
+
+  @supports (transform-style: preserve-3d) {
     transform: translate3d(100%, 0, 0);
   }
+}
 
-  .carouselItemPrev,
-  .active.carouselItemLeft {
+.carouselItemPrev,
+.active.carouselItemLeft {
+  transform: translateX(-100%);
+
+  @supports (transform-style: preserve-3d) {
     transform: translate3d(-100%, 0, 0);
   }
 }
+
 
 
 //
@@ -82,7 +91,7 @@
     color: $carousel-control-color;
     text-decoration: none;
     outline: 0;
-    opacity: .9;
+    opacity: 0.9;
   }
 }
 .carouselControlPrev {
@@ -136,8 +145,7 @@
     margin-right: $carousel-indicator-spacer;
     margin-left: $carousel-indicator-spacer;
     text-indent: -999px;
-    cursor: pointer;
-    background-color: rgba($carousel-indicator-active-bg, .5);
+    background-color: rgba($carousel-indicator-active-bg, 0.5);
 
     // Use pseudo classes to increase the hit area by 10px on top and bottom.
     &::before {

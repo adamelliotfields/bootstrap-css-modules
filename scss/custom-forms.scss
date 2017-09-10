@@ -6,14 +6,16 @@
 // Released under MIT and copyright 2014 Waybury.
 // https://useiconic.com/open
 
+// Checkboxes and radios
+//
 // Base class takes care of all the key behavioral aspects.
+
 .customControl {
   position: relative;
   display: inline-flex;
   min-height: (1rem * $line-height-base);
   padding-left: $custom-control-gutter;
   margin-right: $custom-control-spacer-x;
-  cursor: pointer;
 }
 
 .customControlInput {
@@ -22,36 +24,37 @@
   opacity: 0;
 
   &:checked ~ .customControlIndicator {
-    color: $custom-control-checked-indicator-color;
-    background-color: $custom-control-checked-indicator-bg;
-    @include box-shadow($custom-control-checked-indicator-box-shadow);
+    color: $custom-control-indicator-checked-color;
+    background-color: $custom-control-indicator-checked-bg;
+    @include box-shadow($custom-control-indicator-checked-box-shadow);
   }
 
   &:focus ~ .customControlIndicator {
     // the mixin is not used here to make sure there is feedback
-    box-shadow: $custom-control-focus-indicator-box-shadow;
+    box-shadow: $custom-control-indicator-focus-box-shadow;
   }
 
   &:active ~ .customControlIndicator {
-    color: $custom-control-active-indicator-color;
-    background-color: $custom-control-active-indicator-bg;
-    @include box-shadow($custom-control-active-indicator-box-shadow);
+    color: $custom-control-indicator-active-color;
+    background-color: $custom-control-indicator-active-bg;
+    @include box-shadow($custom-control-indicator-active-box-shadow);
   }
 
   &:disabled {
     ~ .customControlIndicator {
-      cursor: $custom-control-disabled-cursor;
-      background-color: $custom-control-disabled-indicator-bg;
+      background-color: $custom-control-indicator-disabled-bg;
     }
 
     ~ .customControlDescription {
-      color: $custom-control-disabled-description-color;
-      cursor: $custom-control-disabled-cursor;
+      color: $custom-control-description-disabled-color;
     }
   }
 }
 
+// Custom indicator
+//
 // Generates a shadow element to create our makeshift checkbox/radio background.
+
 .customControlIndicator {
   position: absolute;
   top: (($line-height-base - $custom-control-indicator-size) / 2);
@@ -68,36 +71,45 @@
   @include box-shadow($custom-control-indicator-box-shadow);
 }
 
+// Checkboxes
+//
 // Tweak just a few things for checkboxes.
+
 .customCheckbox {
   .customControlIndicator {
-    @include border-radius($custom-checkbox-radius);
+    @include border-radius($custom-checkbox-indicator-border-radius);
   }
 
   .customControlInput:checked ~ .customControlIndicator {
-    background-image: $custom-checkbox-checked-icon;
+    background-image: $custom-checkbox-indicator-icon-checked;
   }
 
   .customControlInput:indeterminate ~ .customControlIndicator {
-    background-color: $custom-checkbox-indeterminate-bg;
-    background-image: $custom-checkbox-indeterminate-icon;
-    @include box-shadow($custom-checkbox-indeterminate-box-shadow);
+    background-color: $custom-checkbox-indicator-indeterminate-bg;
+    background-image: $custom-checkbox-indicator-icon-indeterminate;
+    @include box-shadow($custom-checkbox-indicator-indeterminate-box-shadow);
   }
 }
 
+// Radios
+//
 // Tweak just a few things for radios.
+
 .customRadio {
   .customControlIndicator {
-    border-radius: $custom-radio-radius;
+    border-radius: $custom-radio-indicator-border-radius;
   }
 
   .customControlInput:checked ~ .customControlIndicator {
-    background-image: $custom-radio-checked-icon;
+    background-image: $custom-radio-indicator-icon-checked;
   }
 }
 
-// By default radios and checkboxes are `inline-block` with no additional spacing set.
-// Use these optional classes to tweak the layout.
+// Layout options
+//
+// By default radios and checkboxes are `inline-block` with no additional spacing
+// set. Use these optional classes to tweak the layout.
+
 .customControlsStacked {
   display: flex;
   flex-direction: column;
@@ -111,24 +123,30 @@
   }
 }
 
+// Select
+//
 // Replaces the browser default select with a custom one, mostly pulled from
 // http://primercss.io.
+//
+
 .customSelect {
   display: inline-block;
   max-width: 100%;
-  $select-border-width: ($border-width * 2);
-  height: calc(#{$input-height} + #{$select-border-width});
+  height: $input-height;
   padding: $custom-select-padding-y ($custom-select-padding-x + $custom-select-indicator-padding) $custom-select-padding-y $custom-select-padding-x;
   line-height: $custom-select-line-height;
   color: $custom-select-color;
   vertical-align: middle;
   background: $custom-select-bg $custom-select-indicator no-repeat right $custom-select-padding-x center;
+  background-clip: padding-box;
   background-size: $custom-select-bg-size;
   border: $custom-select-border-width solid $custom-select-border-color;
-  @include border-radius($custom-select-border-radius);
-  // Use vendor prefixes as `appearance` isn't part of the CSS spec.
-  -moz-appearance: none;
-  -webkit-appearance: none;
+  @if $enable-rounded {
+    border-radius: $custom-select-border-radius;
+  } @else {
+    border-radius: 0;
+  }
+  appearance: none;
 
   &:focus {
     border-color: $custom-select-focus-border-color;
@@ -148,7 +166,6 @@
 
   &:disabled {
     color: $custom-select-disabled-color;
-    cursor: $cursor-disabled;
     background-color: $custom-select-disabled-bg;
   }
 
@@ -159,24 +176,22 @@
 }
 
 .customSelectSm {
+  height: $custom-select-height-sm;
   padding-top: $custom-select-padding-y;
   padding-bottom: $custom-select-padding-y;
-  font-size: $custom-select-sm-font-size;
-
-  // &:not([multiple]) {
-  //   height: 26px;
-  //   min-height: 26px;
-  // }
+  font-size: $custom-select-font-size-sm;
 }
 
+// File
+//
 // Custom file input.
+
 .customFile {
   position: relative;
   display: inline-block;
   max-width: 100%;
   height: $custom-file-height;
   margin-bottom: 0;
-  cursor: pointer;
 }
 
 .customFileInput {
@@ -184,11 +199,10 @@
   max-width: 100%;
   height: $custom-file-height;
   margin: 0;
-  filter: alpha(opacity = 0);
   opacity: 0;
 
   &:focus ~ .customFileControl {
-    @include box-shadow($custom-file-focus-box-shadow);
+    box-shadow: $custom-file-focus-box-shadow;
   }
 }
 
@@ -199,7 +213,8 @@
   left: 0;
   z-index: 5;
   height: $custom-file-height;
-  padding: $custom-file-padding-x $custom-file-padding-y;
+  padding: $custom-file-padding-y $custom-file-padding-x;
+  overflow: hidden;
   line-height: $custom-file-line-height;
   color: $custom-file-color;
   pointer-events: none;
@@ -210,25 +225,23 @@
   @include box-shadow($custom-file-box-shadow);
 
   @each $lang, $text in map-get($custom-file-text, placeholder) {
-    &:lang(#{$lang})::after {
+    &:lang(#{$lang}):empty::after {
       content: $text;
     }
   }
 
   &::before {
     position: absolute;
-    top: -$custom-file-border-width;
-    right: -$custom-file-border-width;
-    bottom: -$custom-file-border-width;
+    top: 0;
+    right: 0;
     z-index: 6;
     display: block;
     height: $custom-file-height;
-    padding: $custom-file-padding-x $custom-file-padding-y;
+    padding: $custom-file-padding-y $custom-file-padding-x;
     line-height: $custom-file-line-height;
     color: $custom-file-button-color;
     background-color: $custom-file-button-bg;
-    border: $custom-file-border-width solid $custom-file-border-color;
-    @include border-radius(0 $custom-file-border-radius $custom-file-border-radius 0);
+    border-left: $custom-file-border-width solid $custom-file-border-color;
   }
 
   @each $lang, $text in map-get($custom-file-text, button-label) {

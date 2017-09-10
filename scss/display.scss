@@ -2,20 +2,54 @@
 @import './mixins/_breakpoints.scss';
 
 //
-// Display utilities
+// Utilities for common `display` values
 //
 
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    .d#{$infix}None         { display: none !important; }
-    .d#{$infix}Inline       { display: inline !important; }
+    .d#{$infix}None        { display: none !important; }
+    .d#{$infix}Inline      { display: inline !important; }
     .d#{$infix}InlineBlock { display: inline-block !important; }
-    .d#{$infix}Block        { display: block !important; }
-    .d#{$infix}Table        { display: table !important; }
+    .d#{$infix}Block       { display: block !important; }
+    .d#{$infix}Table       { display: table !important; }
     .d#{$infix}TableCell   { display: table-cell !important; }
-    .d#{$infix}Flex         { display: flex !important; }
+    .d#{$infix}Flex        { display: flex !important; }
     .d#{$infix}InlineFlex  { display: inline-flex !important; }
+  }
+}
+
+//
+// Utilities for toggling `display` in print
+//
+
+.dPrintBlock {
+  display: none !important;
+
+  @media print {
+    display: block !important;
+  }
+}
+
+.dPrintInline {
+  display: none !important;
+
+  @media print {
+    display: inline !important;
+  }
+}
+
+.dPrintInlineBlock {
+  display: none !important;
+
+  @media print {
+    display: inline-block !important;
+  }
+}
+
+.dPrintNone {
+  @media print {
+    display: none !important;
   }
 }

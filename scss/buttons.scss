@@ -9,13 +9,12 @@
 .btn {
   display: inline-block;
   font-weight: $btn-font-weight;
-  line-height: $btn-line-height;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
   user-select: none;
   border: $input-btn-border-width solid transparent;
-  @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-border-radius);
+  @include button-size($input-btn-padding-y, $input-btn-padding-x, $font-size-base, $input-btn-line-height, $btn-border-radius);
   @include transition($btn-transition);
 
   // Share hover and focus styles
@@ -31,8 +30,7 @@
   // Disabled comes first so active can properly restyle
   &.disabled,
   &:disabled {
-    cursor: $cursor-disabled;
-    opacity: .65;
+    opacity: 0.65;
     @include box-shadow(none);
   }
 
@@ -49,45 +47,25 @@ fieldset[disabled] a.btn {
   pointer-events: none;
 }
 
+//
 // Alternate buttons
-.btnPrimary {
-  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-}
-.btnSecondary {
-  @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
-}
-.btnInfo {
-  @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
-}
-.btnSuccess {
-  @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
-}
-.btnWarning {
-  @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
-}
-.btnDanger {
-  @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+//
+
+@each $color, $value in $theme-colors {
+  .btn#{$color} {
+    @include button-variant($value, $value);
+  }
 }
 
-// Remove all backgrounds
-.btnOutlinePrimary {
-  @include button-outline-variant($btn-primary-bg);
+@each $color, $value in $theme-colors {
+  .btnOutline#{$color} {
+    @include button-outline-variant($value, #fff);
+  }
 }
-.btnOutlineSecondary {
-  @include button-outline-variant($btn-secondary-border);
-}
-.btnOutlineInfo {
-  @include button-outline-variant($btn-info-bg);
-}
-.btnOutlineSuccess {
-  @include button-outline-variant($btn-success-bg);
-}
-.btnOutlineWarning {
-  @include button-outline-variant($btn-warning-bg);
-}
-.btnOutlineDanger {
-  @include button-outline-variant($btn-danger-bg);
-}
+
+//
+// Link buttons
+//
 
 // Make a button look and behave like a link
 .btnLink {
@@ -106,6 +84,7 @@ fieldset[disabled] a.btn {
   &:focus,
   &:active {
     border-color: transparent;
+    box-shadow: none;
   }
   @include hover {
     border-color: transparent;
@@ -124,17 +103,22 @@ fieldset[disabled] a.btn {
   }
 }
 
+//
 // Button Sizes
+//
+
 .btnLg {
-  // line-height: ensure even-numbered height of button next to large input
-  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $font-size-lg, $btn-border-radius-lg);
-}
-.btnSm {
-  // line-height: ensure proper height of button next to small input
-  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-border-radius-sm);
+  @include button-size($input-btn-padding-y-lg, $input-btn-padding-x-lg, $font-size-lg, $line-height-lg, $btn-border-radius-lg);
 }
 
+.btnSm {
+  @include button-size($input-btn-padding-y-sm, $input-btn-padding-x-sm, $font-size-sm, $line-height-sm, $btn-border-radius-sm);
+}
+
+//
 // Block button
+//
+
 .btnBlock {
   display: block;
   width: 100%;
@@ -167,6 +151,7 @@ input[type="button"] {
   > .btn {
     position: relative;
     flex: 0 1 auto;
+    margin-bottom: 0;
 
     // Bring the hover, focused, and "active" buttons to the fron to overlay
     // the borders properly
@@ -192,6 +177,7 @@ input[type="button"] {
 // Optional: Group multiple button groups together for a toolbar
 .btnToolbar {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
 }
 

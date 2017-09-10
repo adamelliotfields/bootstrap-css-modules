@@ -1,3 +1,4 @@
+@import './_functions.scss';
 @import './_variables.scss';
 @import './mixins/_alert.scss';
 @import './mixins/_border-radius.scss';
@@ -26,10 +27,20 @@
   font-weight: $alert-link-font-weight;
 }
 
-
 // Dismissible alerts
 //
 // Expand the right padding and account for the close button's positioning.
+
+.alertDismissible {
+  // Adjust close link position
+  .alertClose {
+    position: relative;
+    top: -$alert-padding-y;
+    right: -$alert-padding-x;
+    padding: $alert-padding-y $alert-padding-x;
+    color: inherit;
+  }
+}
 
 .alertClose {
   float: right;
@@ -56,17 +67,6 @@ button.alertClose {
   -webkit-appearance: none;
 }
 
-.alertDismissible {
-  // Adjust close link position
-  .alertClose {
-    position: relative;
-    top: -$alert-padding-y;
-    right: -$alert-padding-x;
-    padding: $alert-padding-y $alert-padding-x;
-    color: inherit;
-  }
-}
-
 .alertFade {
   opacity: 0;
   @include transition($transition-fade);
@@ -80,15 +80,8 @@ button.alertClose {
 //
 // Generate contextual modifier classes for colorizing the alert.
 
-.alertSuccess {
-  @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
-}
-.alertInfo {
-  @include alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
-}
-.alertWarning {
-  @include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
-}
-.alertDanger {
-  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+@each $color, $value in $theme-colors {
+  .alert#{$color} {
+    @include alert-variant(theme-color-level($color, -10), theme-color-level($color, -9), theme-color-level($color, 6));
+  }
 }

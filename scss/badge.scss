@@ -22,15 +22,8 @@
   }
 }
 
-// Add hover effects, but only for links
-a.badge {
-  @include hover-focus {
-    color: $badge-link-hover-color;
-    text-decoration: none;
-    cursor: pointer;
-  }
-}
-
+// Pill badges
+//
 // Make them extra rounded with a modifier to replace v3's badges.
 .badgePill {
   padding-right: $badge-pill-padding-x;
@@ -38,29 +31,14 @@ a.badge {
   @include border-radius($badge-pill-border-radius);
 }
 
+// Colors
+//
 // Contextual variations (linked badges get darker on :hover).
-.badgeDefault {
-  @include badge-variant($badge-default-bg);
-}
 
-.badgePrimary {
-  @include badge-variant($badge-primary-bg);
-}
-
-.badgeSuccess {
-  @include badge-variant($badge-success-bg);
-}
-
-.badgeInfo {
-  @include badge-variant($badge-info-bg);
-}
-
-.badgeWarning {
-  @include badge-variant($badge-warning-bg);
-}
-
-.badgeDanger {
-  @include badge-variant($badge-danger-bg);
+@each $color, $value in $theme-colors {
+  .badge#{$color} {
+    @include badge-variant($value);
+  }
 }
 
 // Print styles

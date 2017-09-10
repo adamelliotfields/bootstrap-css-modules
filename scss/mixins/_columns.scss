@@ -1,28 +1,14 @@
-@mixin make-gutters($gutters: $grid-gutter-widths) {
-  @each $breakpoint in map-keys($gutters) {
-    @include media-breakpoint-up($breakpoint) {
-      $gutter: map-get($gutters, $breakpoint);
-      padding-right: ($gutter / 2);
-      padding-left:  ($gutter / 2);
-    }
-  }
-}
+@import './_breakpoints.scss';
 
-@mixin make-col-ready($gutters: $grid-gutter-widths) {
+@mixin make-col-ready() {
   position: relative;
   // Prevent columns from becoming too narrow when at smaller grid tiers by
   // always setting `width: 100%;`. This works because we use `flex` values
   // later on to override this initial width.
   width: 100%;
   min-height: 1px; // Prevent collapsing
-
-  @each $breakpoint in map-keys($gutters) {
-    @include media-breakpoint-up($breakpoint) {
-      $gutter: map-get($gutters, $breakpoint);
-      padding-right: ($gutter / 2);
-      padding-left:  ($gutter / 2);
-    }
-  }
+  padding-right: ($grid-gutter-width / 2);
+  padding-left: ($grid-gutter-width / 2);
 }
 
 @mixin make-col($size, $columns: $grid-columns) {
@@ -34,14 +20,14 @@
   max-width: percentage($size / $columns);
 }
 
-@mixin make-grid-columns($columns: $grid-columns, $gutters: $grid-gutter-widths, $breakpoints: $grid-breakpoints) {
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
   // Common properties for all breakpoints
   %grid-column {
     position: relative;
     width: 100%;
     min-height: 1px; // Prevent columns from collapsing when empty
-
-    @include make-gutters($gutters);
+    padding-right: ($gutter / 2);
+    padding-left: ($gutter / 2);
   }
 
   @each $breakpoint in map-keys($breakpoints) {
@@ -53,7 +39,8 @@
         @extend %grid-column;
       }
     }
-    .col#{$infix} {
+    .col#{$infix},
+    .col#{$infix}Auto {
       @extend %grid-column;
     }
 
@@ -67,11 +54,18 @@
       .col#{$infix}Auto {
         flex: 0 0 auto;
         width: auto;
+        max-width: none; // Reset earlier grid tiers
       }
 
       @for $i from 1 through $columns {
         .col#{$infix}#{$i} {
           @include make-col($i, $columns);
+        }
+      }
+
+      @for $i from 1 through $columns {
+        .order#{$infix}#{$i} {
+          order: $i;
         }
       }
     }

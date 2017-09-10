@@ -1,6 +1,6 @@
-// Contextual backgrounds
-
 @import './_hover.scss';
+
+// Contextual backgrounds
 
 @mixin bg-variant($parent, $color) {
   #{$parent} {

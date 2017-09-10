@@ -9,12 +9,15 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
   background-color: $card-bg;
+  background-clip: border-box;
   border: $card-border-width solid $card-border-color;
   @include border-radius($card-border-radius);
 }
 
-.cardBlock {
+.cardBody {
   // Enable `flex-grow: 1` for decks and groups so that card blocks take up
   // as much space as possible, ensuring footers are aligned to the bottom.
   flex: 1 1 auto;
@@ -52,7 +55,7 @@
   border-bottom: $card-border-width solid $card-border-color;
 
   &:first-child {
-    @include border-radius($card-border-radius-inner $card-border-radius-inner 0 0);
+    @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
   }
 }
 
@@ -62,7 +65,7 @@
   border-top: $card-border-width solid $card-border-color;
 
   &:last-child {
-    @include border-radius(0 0 $card-border-radius-inner $card-border-radius-inner);
+    @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
   }
 }
 
@@ -79,60 +82,7 @@
   margin-left: -($card-spacer-x / 2);
 }
 
-// Background variations
-.cardPrimary {
-  @include card-variant($brand-primary, $brand-primary);
-}
-.cardSuccess {
-  @include card-variant($brand-success, $brand-success);
-}
-.cardInfo {
-  @include card-variant($brand-info, $brand-info);
-}
-.cardWarning {
-  @include card-variant($brand-warning, $brand-warning);
-}
-.cardDanger {
-  @include card-variant($brand-danger, $brand-danger);
-}
-
-// Remove all backgrounds
-.cardOutlinePrimary {
-  @include card-outline-variant($btn-primary-bg);
-}
-.cardOutlineSecondary {
-  @include card-outline-variant($btn-secondary-border);
-}
-.cardOutlineInfo {
-  @include card-outline-variant($btn-info-bg);
-}
-.cardOutlineSuccess {
-  @include card-outline-variant($btn-success-bg);
-}
-.cardOutlineWarning {
-  @include card-outline-variant($btn-warning-bg);
-}
-.cardOutlineDanger {
-  @include card-outline-variant($btn-danger-bg);
-}
-
-// Inverse text within a card for use with dark backgrounds
-.cardInverse {
-  @include card-inverse;
-}
-
-// Blockquote
-.cardBlockquote {
-  padding: 0;
-  margin-bottom: 0;
-  border-left: 0;
-}
-
 // Card image
-.cardImg {
-  // margin: -1.325rem;
-  @include border-radius($card-border-radius-inner);
-}
 .cardImgOverlay {
   position: absolute;
   top: 0;
@@ -142,36 +92,41 @@
   padding: $card-img-overlay-padding;
 }
 
+.cardImg {
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  @include border-radius($card-inner-border-radius);
+}
+
 // Card image caps
 .cardImgTop {
-  @include border-top-radius($card-border-radius-inner);
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  @include border-top-radius($card-inner-border-radius);
 }
 .cardImgBottom {
-  @include border-bottom-radius($card-border-radius-inner);
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  @include border-bottom-radius($card-inner-border-radius);
 }
 
 // Card deck
-@include media-breakpoint-up(sm) {
+@include media-breakpoint-up(Sm) {
   .cardDeck {
     display: flex;
     flex-flow: row wrap;
+    margin-right: -$card-deck-margin;
+    margin-left: -$card-deck-margin;
 
     .card {
       display: flex;
       flex: 1 0 0;
       flex-direction: column;
-
-      // Selectively apply horizontal margins to cards to avoid doing the
-      // negative margin dance like our grid. This differs from the grid
-      // due to the use of margins as gutters instead of padding.
-      &:not(:first-child) { margin-left: $card-deck-margin; }
-      &:not(:last-child) { margin-right: $card-deck-margin; }
+      margin-right: $card-deck-margin;
+      margin-left: $card-deck-margin;
     }
   }
 }
 
 // Card groups
-@include media-breakpoint-up(sm) {
+@include media-breakpoint-up(Sm) {
   .cardGroup {
     display: flex;
     flex-flow: row wrap;
@@ -221,15 +176,18 @@
 }
 
 // Columns
-@include media-breakpoint-up(sm) {
-  .cardColumns {
+.cardColumns {
+  .card {
+    margin-bottom: $card-columns-margin;
+  }
+
+  @include media-breakpoint-up(Sm) {
     column-count: $card-columns-count;
     column-gap: $card-columns-gap;
 
     .card {
       display: inline-block; // Don't let them vertically span multiple columns
       width: 100%; // Don't let their width change
-      margin-bottom: $card-columns-margin;
     }
   }
 }
