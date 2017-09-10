@@ -4,7 +4,7 @@
   padding: 0.5rem 0.75rem;
   font-size: 1rem;
   line-height: 1.25;
-  color: #464a4c;
+  color: #495057;
   background-color: #fff;
   background-image: none;
   background-clip: padding-box;
@@ -19,32 +19,28 @@
 }
 
 .formControl:focus {
-  color: #464a4c;
+  color: #495057;
   background-color: #fff;
-  border-color: #5cb3fd;
+  border-color: #80bdff;
   outline: none;
 }
 
 .formControl::placeholder {
-  color: #636c72;
+  color: #868e96;
   opacity: 1;
 }
 
 .formControl:disabled, .formControl[readonly] {
-  background-color: #eceeef;
+  background-color: #e9ecef;
   opacity: 1;
 }
 
-.formControl:disabled {
-  cursor: not-allowed;
-}
-
-select.formControl:not([size]):not([multiple]) {
+select.form-control:not([size]):not([multiple]) {
   height: calc(2.25rem + 2px);
 }
 
-select.formControl:focus::-ms-value {
-  color: #464a4c;
+select.form-control:focus::-ms-value {
+  color: #495057;
   background-color: #fff;
 }
 
@@ -60,8 +56,8 @@ select.formControl:focus::-ms-value {
 }
 
 .colFormLabelLg {
-  padding-top: calc(0.75rem - 1px * 2);
-  padding-bottom: calc(0.75rem - 1px * 2);
+  padding-top: calc(0.5rem - 1px * 2);
+  padding-bottom: calc(0.5rem - 1px * 2);
   font-size: 1.25rem;
 }
 
@@ -78,7 +74,7 @@ select.formControl:focus::-ms-value {
   font-size: 1rem;
 }
 
-.formControlStatic {
+.formControlPlaintext {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   margin-bottom: 0;
@@ -87,9 +83,9 @@ select.formControl:focus::-ms-value {
   border-width: 1px 0;
 }
 
-.formControlStatic.formControlSm, .inputGroupSm > .formControlStatic.formControl,
-.inputGroupSm > .formControlStatic.inputGroupAddon, .formControlStatic.formControlLg, .inputGroupLg > .formControlStatic.formControl,
-.inputGroupLg > .formControlStatic.inputGroupAddon {
+.formControlPlaintext.formControlSm, .inputGroupSm > .formControlPlaintext.formControl,
+.inputGroupSm > .formControlPlaintext.inputGroupAddon, .formControlPlaintext.formControlLg, .inputGroupLg > .formControlPlaintext.formControl,
+.inputGroupLg > .formControlPlaintext.inputGroupAddon {
   padding-right: 0;
   padding-left: 0;
 }
@@ -98,24 +94,26 @@ select.formControl:focus::-ms-value {
 .inputGroupSm > .inputGroupAddon {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
+  line-height: 1.5;
   border-radius: 0.2rem;
 }
 
 select.formControlSm:not([size]):not([multiple]), .inputGroupSm > select.formControl:not([size]):not([multiple]),
 .inputGroupSm > select.inputGroupAddon:not([size]):not([multiple]) {
-  height: 1.8125rem;
+  height: calc(1.8125rem + 2px);
 }
 
 .formControlLg, .inputGroupLg > .formControl,
 .inputGroupLg > .inputGroupAddon {
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1rem;
   font-size: 1.25rem;
+  line-height: 1.5;
   border-radius: 0.3rem;
 }
 
 select.formControlLg:not([size]):not([multiple]), .inputGroupLg > select.formControl:not([size]):not([multiple]),
 .inputGroupLg > select.inputGroupAddon:not([size]):not([multiple]) {
-  height: 3.16667rem;
+  height: calc(2.875rem + 2px);
 }
 
 .formGroup {
@@ -134,24 +132,18 @@ select.formControlLg:not([size]):not([multiple]), .inputGroupLg > select.formCon
 }
 
 .formCheck.disabled .formCheckLabel {
-  color: #636c72;
-  cursor: not-allowed;
+  color: #868e96;
 }
 
 .formCheckLabel {
   padding-left: 1.25rem;
   margin-bottom: 0;
-  cursor: pointer;
 }
 
 .formCheckInput {
   position: absolute;
   margin-top: 0.25rem;
   margin-left: -1.25rem;
-}
-
-.formCheckInput:only-child {
-  position: static;
 }
 
 .formCheckInline {
@@ -166,80 +158,120 @@ select.formControlLg:not([size]):not([multiple]), .inputGroupLg > select.formCon
   margin-left: 0.75rem;
 }
 
-.formControlFeedback {
-  margin-top: 0.25rem;
+.invalidFeedback {
+  display: none;
+  margin-top: .25rem;
+  font-size: .875rem;
+  color: #dc3545;
 }
 
-.formControlSuccess,
-.formControlWarning,
-.formControlDanger {
-  padding-right: 2.25rem;
-  background-repeat: no-repeat;
-  background-position: center right 0.5625rem;
-  background-size: 1.125rem 1.125rem;
+.invalidTooltip {
+  position: absolute;
+  top: 100%;
+  z-index: 5;
+  display: none;
+  width: 250px;
+  padding: .5rem;
+  margin-top: .1rem;
+  font-size: .875rem;
+  line-height: 1;
+  color: #fff;
+  background-color: rgba(220, 53, 69, 0.8);
+  border-radius: 0.2rem;
 }
 
-.hasSuccess .formControlFeedback,
-.hasSuccess .formControlLabel,
-.hasSuccess .colFormLabel,
-.hasSuccess .formCheckLabel {
-  color: #5cb85c;
+.wasValidated .formControl:valid, .formControl.isValid, .wasValidated
+.customSelect:valid,
+.customSelect.isValid {
+  border-color: #28a745;
 }
 
-.hasSuccess .formControl {
-  border-color: #5cb85c;
+.wasValidated .formControl:valid:focus, .formControl.isValid:focus, .wasValidated
+.customSelect:valid:focus,
+.customSelect.isValid:focus {
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 
-.hasSuccess .inputGroupAddon {
-  color: #5cb85c;
-  border-color: #5cb85c;
-  background-color: #eaf6ea;
+.wasValidated .formControl:valid ~ .invalidFeedback,
+.wasValidated .formControl:valid ~ .invalidTooltip, .formControl.isValid ~ .invalidFeedback,
+.formControl.isValid ~ .invalidTooltip, .wasValidated
+.customSelect:valid ~ .invalidFeedback,
+.wasValidated
+.customSelect:valid ~ .invalidTooltip,
+.customSelect.isValid ~ .invalidFeedback,
+.customSelect.isValid ~ .invalidTooltip {
+  display: block;
 }
 
-.hasSuccess .formControlSuccess {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%235cb85c' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3E%3C/svg%3E");
+.wasValidated .formCheckInput:valid + .formCheckLabel, .formCheckInput.isValid + .formCheckLabel {
+  color: #28a745;
 }
 
-.hasWarning .formControlFeedback,
-.hasWarning .formControlLabel,
-.hasWarning .colFormLabel,
-.hasWarning .formCheckLabel {
-  color: #f0ad4e;
+.wasValidated .customControlInput:valid ~ .customControlIndicator, .customControlInput.isValid ~ .customControlIndicator {
+  background-color: rgba(40, 167, 69, 0.25);
 }
 
-.hasWarning .formControl {
-  border-color: #f0ad4e;
+.wasValidated .customControlInput:valid ~ .customControlDescription, .customControlInput.isValid ~ .customControlDescription {
+  color: #28a745;
 }
 
-.hasWarning .inputGroupAddon {
-  color: #f0ad4e;
-  border-color: #f0ad4e;
-  background-color: white;
+.wasValidated .customFileInput:valid ~ .customFileControl, .customFileInput.isValid ~ .customFileControl {
+  border-color: #28a745;
 }
 
-.hasWarning .formControlWarning {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23f0ad4e' d='M4.4 5.324h-.8v-2.46h.8zm0 1.42h-.8V5.89h.8zM3.76.63L.04 7.075c-.115.2.016.425.26.426h7.397c.242 0 .372-.226.258-.426C6.726 4.924 5.47 2.79 4.253.63c-.113-.174-.39-.174-.494 0z'/%3E%3C/svg%3E");
+.wasValidated .customFileInput:valid ~ .customFileControl::before, .customFileInput.isValid ~ .customFileControl::before {
+  border-color: inherit;
 }
 
-.hasDanger .formControlFeedback,
-.hasDanger .formControlLabel,
-.hasDanger .colFormLabel,
-.hasDanger .formCheckLabel {
-  color: #d9534f;
+.wasValidated .customFileInput:valid:focus, .customFileInput.isValid:focus {
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 
-.hasDanger .formControl {
-  border-color: #d9534f;
+.wasValidated .formControl:invalid, .formControl.isInvalid, .wasValidated
+.customSelect:invalid,
+.customSelect.isInvalid {
+  border-color: #dc3545;
 }
 
-.hasDanger .inputGroupAddon {
-  color: #d9534f;
-  border-color: #d9534f;
-  background-color: #fdf7f7;
+.wasValidated .formControl:invalid:focus, .formControl.isInvalid:focus, .wasValidated
+.customSelect:invalid:focus,
+.customSelect.isInvalid:focus {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
-.hasDanger .formControlDanger {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23d9534f' viewBox='-2 -2 7 7'%3E%3Cpath stroke='%23d9534f' d='M0 0l3 3m0-3L0 3'/%3E%3Ccircle r='.5'/%3E%3Ccircle cx='3' r='.5'/%3E%3Ccircle cy='3' r='.5'/%3E%3Ccircle cx='3' cy='3' r='.5'/%3E%3C/svg%3E");
+.wasValidated .formControl:invalid ~ .invalidFeedback,
+.wasValidated .formControl:invalid ~ .invalidTooltip, .formControl.isInvalid ~ .invalidFeedback,
+.formControl.isInvalid ~ .invalidTooltip, .wasValidated
+.customSelect:invalid ~ .invalidFeedback,
+.wasValidated
+.customSelect:invalid ~ .invalidTooltip,
+.customSelect.isInvalid ~ .invalidFeedback,
+.customSelect.isInvalid ~ .invalidTooltip {
+  display: block;
+}
+
+.wasValidated .formCheckInput:invalid + .formCheckLabel, .formCheckInput.isInvalid + .formCheckLabel {
+  color: #dc3545;
+}
+
+.wasValidated .customControlInput:invalid ~ .customControlIndicator, .customControlInput.isInvalid ~ .customControlIndicator {
+  background-color: rgba(220, 53, 69, 0.25);
+}
+
+.wasValidated .customControlInput:invalid ~ .customControlDescription, .customControlInput.isInvalid ~ .customControlDescription {
+  color: #dc3545;
+}
+
+.wasValidated .customFileInput:invalid ~ .customFileControl, .customFileInput.isInvalid ~ .customFileControl {
+  border-color: #dc3545;
+}
+
+.wasValidated .customFileInput:invalid ~ .customFileControl::before, .customFileInput.isInvalid ~ .customFileControl::before {
+  border-color: inherit;
+}
+
+.wasValidated .customFileInput:invalid:focus, .customFileInput.isInvalid:focus {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
 .formInline {
@@ -252,62 +284,55 @@ select.formControlLg:not([size]):not([multiple]), .inputGroupLg > select.formCon
   width: 100%;
 }
 
-.formInline label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0;
-}
-
-.formInline .formGroup {
-  display: flex;
-  flex: 0 0 auto;
-  flex-flow: row wrap;
-  align-items: center;
-  margin-bottom: 0;
-}
-
-.formInline .formControl {
-  display: inline-block;
-  width: auto;
-  vertical-align: middle;
-}
-
-.formInline .formControlStatic {
-  display: inline-block;
-}
-
-.formInline .inputGroup {
-  width: auto;
-}
-
-.formInline .formControlLabel {
-  margin-bottom: 0;
-  vertical-align: middle;
-}
-
-.formInline .formCheck {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.formInline .formCheckLabel {
-  padding-left: 0;
-}
-
-.formInline .formCheckInput {
-  position: relative;
-  margin-top: 0;
-  margin-right: 0.25rem;
-  margin-left: 0;
-}
-
-.formInline .hasFeedback .formControlFeedback {
-  top: 0;
+@media (min-width: 576px) {
+  .formInline label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+  .formInline .formGroup {
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-bottom: 0;
+  }
+  .formInline .formControl {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+  }
+  .formInline .formControlPlaintext {
+    display: inline-block;
+  }
+  .formInline .inputGroup {
+    width: auto;
+  }
+  .formInline .formControlLabel {
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  .formInline .formCheck {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .formInline .formCheckLabel {
+    padding-left: 0;
+  }
+  .formInline .formCheckInput {
+    position: relative;
+    margin-top: 0;
+    margin-right: 0.25rem;
+    margin-left: 0;
+  }
+  .formInline .hasFeedback .formControlFeedback {
+    top: 0;
+  }
 }
 
 .inputGroup {
@@ -332,8 +357,7 @@ select.formControlLg:not([size]):not([multiple]), .inputGroupLg > select.formCon
 .inputGroupBtn,
 .inputGroup .formControl {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
 }
 
 .inputGroupAddon:not(:first-child):not(:last-child),
@@ -354,9 +378,10 @@ select.formControlLg:not([size]):not([multiple]), .inputGroupLg > select.formCon
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.25;
-  color: #464a4c;
+  color: #495057;
   text-align: center;
-  background-color: #eceeef;
+  background-color: #e9ecef;
+  background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
 }
@@ -370,7 +395,7 @@ select.formControlLg:not([size]):not([multiple]), .inputGroupLg > select.formCon
 
 .inputGroupAddon.formControlLg,
 .inputGroupLg > .inputGroupAddon {
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1rem;
   font-size: 1.25rem;
   border-radius: 0.3rem;
 }
@@ -398,10 +423,4 @@ select.formControlLg:not([size]):not([multiple]), .inputGroupLg > select.formCon
 
 .formControl + .inputGroupAddon:not(:first-child) {
   border-left: 0;
-}
-
-.inputGroupBtn {
-  position: relative;
-  font-size: 0;
-  white-space: nowrap;
 }

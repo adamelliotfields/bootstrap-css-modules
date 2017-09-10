@@ -1,3 +1,7 @@
+.border {
+  border: 1px solid #e9ecef !important;
+}
+
 .border0 {
   border: 0 !important;
 }
@@ -16,6 +20,42 @@
 
 .borderLeft0 {
   border-left: 0 !important;
+}
+
+.borderPrimary {
+  border-color: #007bff !important;
+}
+
+.borderSecondary {
+  border-color: #868e96 !important;
+}
+
+.borderSuccess {
+  border-color: #28a745 !important;
+}
+
+.borderInfo {
+  border-color: #17a2b8 !important;
+}
+
+.borderWarning {
+  border-color: #ffc107 !important;
+}
+
+.borderDanger {
+  border-color: #dc3545 !important;
+}
+
+.borderLight {
+  border-color: #f8f9fa !important;
+}
+
+.borderDark {
+  border-color: #343a40 !important;
+}
+
+.borderWhite {
+  border-color: #fff !important;
 }
 
 .rounded {

@@ -2,12 +2,15 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
   background-color: #fff;
+  background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
 }
 
-.cardBlock {
+.cardBody {
   flex: 1 1 auto;
   padding: 1.25rem;
 }
@@ -36,7 +39,7 @@
 .cardHeader {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: #f7f7f9;
+  background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
@@ -46,7 +49,7 @@
 
 .cardFooter {
   padding: 0.75rem 1.25rem;
-  background-color: #f7f7f9;
+  background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 
@@ -66,133 +69,6 @@
   margin-left: -0.625rem;
 }
 
-.cardPrimary {
-  background-color: #0275d8;
-  border-color: #0275d8;
-}
-
-.cardPrimary .cardHeader,
-.cardPrimary .cardFooter {
-  background-color: transparent;
-}
-
-.cardSuccess {
-  background-color: #5cb85c;
-  border-color: #5cb85c;
-}
-
-.cardSuccess .cardHeader,
-.cardSuccess .cardFooter {
-  background-color: transparent;
-}
-
-.cardInfo {
-  background-color: #5bc0de;
-  border-color: #5bc0de;
-}
-
-.cardInfo .cardHeader,
-.cardInfo .cardFooter {
-  background-color: transparent;
-}
-
-.cardWarning {
-  background-color: #f0ad4e;
-  border-color: #f0ad4e;
-}
-
-.cardWarning .cardHeader,
-.cardWarning .cardFooter {
-  background-color: transparent;
-}
-
-.cardDanger {
-  background-color: #d9534f;
-  border-color: #d9534f;
-}
-
-.cardDanger .cardHeader,
-.cardDanger .cardFooter {
-  background-color: transparent;
-}
-
-.cardOutlinePrimary {
-  background-color: transparent;
-  border-color: #0275d8;
-}
-
-.cardOutlineSecondary {
-  background-color: transparent;
-  border-color: #ccc;
-}
-
-.cardOutlineInfo {
-  background-color: transparent;
-  border-color: #5bc0de;
-}
-
-.cardOutlineSuccess {
-  background-color: transparent;
-  border-color: #5cb85c;
-}
-
-.cardOutlineWarning {
-  background-color: transparent;
-  border-color: #f0ad4e;
-}
-
-.cardOutlineDanger {
-  background-color: transparent;
-  border-color: #d9534f;
-}
-
-.cardInverse {
-  color: rgba(255, 255, 255, 0.65);
-}
-
-.cardInverse .cardHeader,
-.cardInverse .cardFooter {
-  background-color: transparent;
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.cardInverse .cardHeader,
-.cardInverse .cardFooter,
-.cardInverse .cardTitle,
-.cardInverse .cardBlockquote {
-  color: #fff;
-}
-
-.cardInverse .cardLink,
-.cardInverse .cardText,
-.cardInverse .cardSubtitle,
-.cardInverse .cardBlockquote .cardBlockquoteFooter {
-  color: rgba(255, 255, 255, 0.65);
-}
-
-.cardInverse .cardBlockquote .cardBlockquoteFooter {
-  display: block;
-  font-size: 80%;
-}
-
-.cardInverse .cardBlockquote .cardBlockquoteFooter::before {
-  content: "\2014 \00A0";
-}
-
-.cardInverse .cardLink:focus, .cardInverse .cardLink:hover {
-  color: #fff;
-}
-
-.cardBlockquote {
-  padding: 0;
-  margin-bottom: 0;
-  border-left: 0;
-}
-
-.cardImg {
-  border-radius: calc(0.25rem - 1px);
-}
-
 .cardImgOverlay {
   position: absolute;
   top: 0;
@@ -202,91 +78,91 @@
   padding: 1.25rem;
 }
 
+.cardImg {
+  width: 100%;
+  border-radius: calc(0.25rem - 1px);
+}
+
 .cardImgTop {
+  width: 100%;
   border-top-right-radius: calc(0.25rem - 1px);
   border-top-left-radius: calc(0.25rem - 1px);
 }
 
 .cardImgBottom {
+  width: 100%;
   border-bottom-right-radius: calc(0.25rem - 1px);
   border-bottom-left-radius: calc(0.25rem - 1px);
 }
 
-.cardDeck {
-  display: flex;
-  flex-flow: row wrap;
+@media (min-width: 576px) {
+  .cardDeck {
+    display: flex;
+    flex-flow: row wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .cardDeck .card {
+    display: flex;
+    flex: 1 0 0;
+    flex-direction: column;
+    margin-right: 15px;
+    margin-left: 15px;
+  }
 }
 
-.cardDeck .card {
-  display: flex;
-  flex: 1 0 0;
-  flex-direction: column;
-}
-
-.cardDeck .card:not(:first-child) {
-  margin-left: 15px;
-}
-
-.cardDeck .card:not(:last-child) {
-  margin-right: 15px;
-}
-
-.cardGroup {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.cardGroup .card {
-  flex: 1 0 0;
-}
-
-.cardGroup .card + .card {
-  margin-left: 0;
-  border-left: 0;
-}
-
-.cardGroup .card:first-child {
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.cardGroup .card:first-child .cardImgTop {
-  border-top-right-radius: 0;
-}
-
-.cardGroup .card:first-child .cardImgBottom {
-  border-bottom-right-radius: 0;
-}
-
-.cardGroup .card:last-child {
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-}
-
-.cardGroup .card:last-child .cardImgTop {
-  border-top-left-radius: 0;
-}
-
-.cardGroup .card:last-child .cardImgBottom {
-  border-bottom-left-radius: 0;
-}
-
-.cardGroup .card:not(:first-child):not(:last-child) {
-  border-radius: 0;
-}
-
-.cardGroup .card:not(:first-child):not(:last-child) .cardImgTop,
-.cardGroup .card:not(:first-child):not(:last-child) .cardImgBottom {
-  border-radius: 0;
-}
-
-.cardColumns {
-  column-count: 3;
-  column-gap: 1.25rem;
+@media (min-width: 576px) {
+  .cardGroup {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .cardGroup .card {
+    flex: 1 0 0;
+  }
+  .cardGroup .card + .card {
+    margin-left: 0;
+    border-left: 0;
+  }
+  .cardGroup .card:first-child {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .cardGroup .card:first-child .cardImgTop {
+    border-top-right-radius: 0;
+  }
+  .cardGroup .card:first-child .cardImgBottom {
+    border-bottom-right-radius: 0;
+  }
+  .cardGroup .card:last-child {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+  .cardGroup .card:last-child .cardImgTop {
+    border-top-left-radius: 0;
+  }
+  .cardGroup .card:last-child .cardImgBottom {
+    border-bottom-left-radius: 0;
+  }
+  .cardGroup .card:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+  .cardGroup .card:not(:first-child):not(:last-child) .cardImgTop,
+  .cardGroup .card:not(:first-child):not(:last-child) .cardImgBottom {
+    border-radius: 0;
+  }
 }
 
 .cardColumns .card {
-  display: inline-block;
-  width: 100%;
   margin-bottom: 0.75rem;
+}
+
+@media (min-width: 576px) {
+  .cardColumns {
+    column-count: 3;
+    column-gap: 1.25rem;
+  }
+  .cardColumns .card {
+    display: inline-block;
+    width: 100%;
+  }
 }

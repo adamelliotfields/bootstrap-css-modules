@@ -1,51 +1,71 @@
-.bgFaded {
-  background-color: #f7f7f7;
-}
-
 .bgPrimary {
-  background-color: #0275d8 !important;
+  background-color: #007bff !important;
 }
 
 a.bgPrimary:focus, a.bgPrimary:hover {
-  background-color: #025aa5 !important;
+  background-color: #0062cc !important;
+}
+
+.bgSecondary {
+  background-color: #868e96 !important;
+}
+
+a.bgSecondary:focus, a.bgSecondary:hover {
+  background-color: #6c757d !important;
 }
 
 .bgSuccess {
-  background-color: #5cb85c !important;
+  background-color: #28a745 !important;
 }
 
 a.bgSuccess:focus, a.bgSuccess:hover {
-  background-color: #449d44 !important;
+  background-color: #1e7e34 !important;
 }
 
 .bgInfo {
-  background-color: #5bc0de !important;
+  background-color: #17a2b8 !important;
 }
 
 a.bgInfo:focus, a.bgInfo:hover {
-  background-color: #31b0d5 !important;
+  background-color: #117a8b !important;
 }
 
 .bgWarning {
-  background-color: #f0ad4e !important;
+  background-color: #ffc107 !important;
 }
 
 a.bgWarning:focus, a.bgWarning:hover {
-  background-color: #ec971f !important;
+  background-color: #d39e00 !important;
 }
 
 .bgDanger {
-  background-color: #d9534f !important;
+  background-color: #dc3545 !important;
 }
 
 a.bgDanger:focus, a.bgDanger:hover {
-  background-color: #c9302c !important;
+  background-color: #bd2130 !important;
 }
 
-.bgInverse {
-  background-color: #292b2c !important;
+.bgLight {
+  background-color: #f8f9fa !important;
 }
 
-a.bgInverse:focus, a.bgInverse:hover {
-  background-color: #101112 !important;
+a.bgLight:focus, a.bgLight:hover {
+  background-color: #dae0e5 !important;
+}
+
+.bgDark {
+  background-color: #343a40 !important;
+}
+
+a.bgDark:focus, a.bgDark:hover {
+  background-color: #1d2124 !important;
+}
+
+.bgWhite {
+  background-color: #fff !important;
+}
+
+.bgTransparent {
+  background-color: transparent !important;
 }

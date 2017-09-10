@@ -137,3 +137,39 @@
     display: inline-flex !important;
   }
 }
+
+.dPrintBlock {
+  display: none !important;
+}
+
+@media print {
+  .dPrintBlock {
+    display: block !important;
+  }
+}
+
+.dPrintInline {
+  display: none !important;
+}
+
+@media print {
+  .dPrintInline {
+    display: inline !important;
+  }
+}
+
+.dPrintInlineBlock {
+  display: none !important;
+}
+
+@media print {
+  .dPrintInlineBlock {
+    display: inline-block !important;
+  }
+}
+
+@media print {
+  .dPrintNone {
+    display: none !important;
+  }
+}

@@ -11,29 +11,17 @@
 .carouselItem {
   position: relative;
   display: none;
+  align-items: center;
   width: 100%;
-}
-
-@media (-webkit-transform-3d) {
-  .carouselItem {
-    transition: transform 0.6s ease-in-out;
-    backface-visibility: hidden;
-    perspective: 1000px;
-  }
-}
-
-@supports (transform: translate3d(0, 0, 0)) {
-  .carouselItem {
-    transition: transform 0.6s ease-in-out;
-    backface-visibility: hidden;
-    perspective: 1000px;
-  }
+  transition: transform 0.6s ease;
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .carouselItem.active,
 .carouselItemNext,
 .carouselItemPrev {
-  display: flex;
+  display: block;
 }
 
 .carouselItemNext,
@@ -42,30 +30,36 @@
   top: 0;
 }
 
-@media (-webkit-transform-3d) {
+.carouselItemNext.carouselItemLeft,
+.carouselItemPrev.carouselItemRight {
+  transform: translateX(0);
+}
+
+@supports (transform-style: preserve-3d) {
   .carouselItemNext.carouselItemLeft,
   .carouselItemPrev.carouselItemRight {
     transform: translate3d(0, 0, 0);
-  }
-  .carouselItemNext,
-  .active.carouselItemRight {
-    transform: translate3d(100%, 0, 0);
-  }
-  .carouselItemPrev,
-  .active.carouselItemLeft {
-    transform: translate3d(-100%, 0, 0);
   }
 }
 
-@supports (transform: translate3d(0, 0, 0)) {
-  .carouselItemNext.carouselItemLeft,
-  .carouselItemPrev.carouselItemRight {
-    transform: translate3d(0, 0, 0);
-  }
+.carouselItemNext,
+.active.carouselItemRight {
+  transform: translateX(100%);
+}
+
+@supports (transform-style: preserve-3d) {
   .carouselItemNext,
   .active.carouselItemRight {
     transform: translate3d(100%, 0, 0);
   }
+}
+
+.carouselItemPrev,
+.active.carouselItemLeft {
+  transform: translateX(-100%);
+}
+
+@supports (transform-style: preserve-3d) {
   .carouselItemPrev,
   .active.carouselItemLeft {
     transform: translate3d(-100%, 0, 0);
@@ -92,7 +86,7 @@
   color: #fff;
   text-decoration: none;
   outline: 0;
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .carouselControlPrev {
@@ -142,7 +136,6 @@
   margin-right: 3px;
   margin-left: 3px;
   text-indent: -999px;
-  cursor: pointer;
   background-color: rgba(255, 255, 255, 0.5);
 }
 

@@ -7,16 +7,21 @@
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: 0.3em;
-  vertical-align: middle;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
   content: "";
   border-top: 0.3em solid;
   border-right: 0.3em solid transparent;
   border-left: 0.3em solid transparent;
 }
 
-.dropdownToggle:focus {
-  outline: 0;
+.dropdownToggle:empty::after {
+  margin-left: 0;
+}
+
+.dropup .dropdownMenu {
+  margin-top: 0;
+  margin-bottom: 0.125rem;
 }
 
 .dropup .dropdownToggle::after {
@@ -35,7 +40,7 @@
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 1rem;
-  color: #292b2c;
+  color: #212529;
   text-align: left;
   list-style: none;
   background-color: #fff;
@@ -45,19 +50,19 @@
 }
 
 .dropdownDivider {
-  height: 1px;
+  height: 0;
   margin: 0.5rem 0;
   overflow: hidden;
-  background-color: #eceeef;
+  border-top: 1px solid #e9ecef;
 }
 
 .dropdownItem {
   display: block;
   width: 100%;
-  padding: 3px 1.5rem;
+  padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: normal;
-  color: #292b2c;
+  color: #212529;
   text-align: inherit;
   white-space: nowrap;
   background: none;
@@ -65,39 +70,28 @@
 }
 
 .dropdownItem:focus, .dropdownItem:hover {
-  color: #1d1e1f;
+  color: #16181b;
   text-decoration: none;
-  background-color: #f7f7f9;
+  background-color: #f8f9fa;
 }
 
 .dropdownItem.active, .dropdownItem:active {
   color: #fff;
   text-decoration: none;
-  background-color: #0275d8;
+  background-color: #007bff;
 }
 
 .dropdownItem.disabled, .dropdownItem:disabled {
-  color: #636c72;
-  cursor: not-allowed;
+  color: #868e96;
   background-color: transparent;
-}
-
-.show > .dropdownMenu {
-  display: block;
 }
 
 .show > a {
   outline: 0;
 }
 
-.dropdownMenuRight {
-  right: 0;
-  left: auto;
-}
-
-.dropdownMenuLeft {
-  right: auto;
-  left: 0;
+.dropdownMenu.show {
+  display: block;
 }
 
 .dropdownHeader {
@@ -105,21 +99,6 @@
   padding: 0.5rem 1.5rem;
   margin-bottom: 0;
   font-size: 0.875rem;
-  color: #636c72;
+  color: #868e96;
   white-space: nowrap;
-}
-
-.dropdownBackdrop {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 990;
-}
-
-.dropup .dropdownMenu {
-  top: auto;
-  bottom: 100%;
-  margin-bottom: 0.125rem;
 }

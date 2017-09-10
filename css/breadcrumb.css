@@ -2,7 +2,7 @@
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
   list-style: none;
-  background-color: #eceeef;
+  background-color: #e9ecef;
   border-radius: 0.25rem;
 }
 
@@ -20,7 +20,7 @@
   display: inline-block;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
-  color: #636c72;
+  color: #868e96;
   content: "/";
 }
 
@@ -33,5 +33,5 @@
 }
 
 .breadcrumbItem.active {
-  color: #636c72;
+  color: #868e96;
 }
