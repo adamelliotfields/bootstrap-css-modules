@@ -1,13 +1,13 @@
 # Bootstrap CSS Modules
 > *A CSS Modules rebuild of Bootstrap 4.*
 
-## Disclaimer
+## :warning: Disclaimer
 
 ![giphy](https://github.com/adamelliotfields/bootstrap-css-modules/raw/master/giphy.gif)
 
 This package was an experiment with Sass and CSS Modules.
 
-I'm no longer maintaining this package. Here's why:
+### I'm no longer maintaining this package. Here's why:
   - `react-bootstrap` and `reactstrap` are essential, and this library won't work with them.
   - There is more work than just converting class names to camel-case - the entire library needs to be re-written to account for CSS classes that have relationships with classes in other files. By scoping classes, those relationships become broken. Scoped CSS is great - just not for Bootstrap.
   - It solves a problem that doesn't exist and is neither scalable nor maintainable.
@@ -20,7 +20,7 @@ some other nonsense.
 CSS is fine. Sass is even better. And there are libraries that can handle conditional application of
 class names and styles if you need that.
 
-**_But I want to only import the styles I need..._**
+### *But I want to only import the styles I need...*
 
 You mean like `text-align: center;` and `margin-top: 1rem;`? Just reference the Bootstrap source if
 you're looking for inspiration on how to write CSS.
@@ -28,11 +28,11 @@ you're looking for inspiration on how to write CSS.
 If you don't understand Sass (many don't), just pull up `bootstrap.css` in GitHub and hit
 <kbd>CTRL+F</kbd> to find the class name you need. Then hit <kbd>CTRL+C</kbd> to copy those styles.
 
-**_But I need the Bootstrap grid..._**
+### *But I need the Bootstrap grid...*
 
 Bootstrap provides a grid-only option that is much smaller than the complete library.
 
-**_Bootstrap bloats my bundle..._**
+### *Bootstrap bloats my bundle...*
 
 So, you shouldn't be bundling 8000 lines of CSS in your React app. For starters, Bootstrap has it's
 own CDN. You should use it. Your users might even have a cached copy of Bootstrap in their browser
@@ -50,7 +50,7 @@ If you do want to bundle everything, use code-splitting and chunk-hashing. Servi
 
 Webpack is great. `style-loader` is cool. Use them wisely.
 
-**_I want CSS-in-JS..._**
+### *I want CSS-in-JS...*
 
 There are so many solutions, especially in the React community:
   - Styled Components
@@ -59,17 +59,18 @@ There are so many solutions, especially in the React community:
   - The HTML `style` attribute
   - Or just use Vue with `.vue` files and `vue-loader`
 
-**_I'm a front-end ninja and know more than you..._**
+### *I'm a front-end ninja and know more than you...*
 
 Then you're hopefully paid to solve bigger problems than how to put a blue button with rounded
 corners on a website.
 
-**_TL;DR_**
+### *TL;DR*
 
 Don't use this library. Email me if you'd like to discuss the best framework to use for your app,
 and how to style it accordingly.
 
 ## `README`
+> *Included for archival purposes...*
 
 This is a rebuild of Bootstrap's latest Alpha release, designed to be used with CSS Modules.
 
