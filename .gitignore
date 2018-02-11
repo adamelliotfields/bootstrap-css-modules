@@ -1,3 +1,14 @@
+# jetbrains
 .idea/
+
+# vs code
+.vscode/
+
+# dependencies
 node_modules/
+
+# mac os
 .DS_Store
+
+# kde
+.directory
