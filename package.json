@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-css-modules",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "description": "A CSS Modules rebuild of Bootstrap 4.",
   "main": "index.js",
   "repository": "https://github.com/adamelliotfields/bootstrap-css-modules.git",
