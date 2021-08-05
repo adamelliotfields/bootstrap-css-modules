@@ -8,6 +8,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
  - Minor versions will be bumped when potential breaking changes have been made.
  - Patch versions will be bumped for bug fixes or changes to documentation.
 
+## [v4.2.2](https://github.com/adamelliotfields/bootstrap-css-modules/releases/tag/v4.2.1)
+> Released August 5, 2021
+
+### Changed
+  - Updated README
 
 ## [v4.2.1](https://github.com/adamelliotfields/bootstrap-css-modules/releases/tag/v4.2.1)
 > Released February 11, 2018
